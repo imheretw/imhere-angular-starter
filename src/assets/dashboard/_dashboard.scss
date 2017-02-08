@@ -1,0 +1,229 @@
+@import 'free_trial';
+
+.dashboard-content {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+/* Child Content */
+.child-content {
+  margin-top: 10px;
+  background-color: #fff;
+  height: 80px;
+  text-align: center;
+  margin-bottom: 10px;
+
+  &__span {
+    width: 66px;
+  }
+}
+
+.child-content-detail {
+  border: none !important;
+  height: 80px !important;
+}
+
+.child-content-detail:hover {
+  color: #09acf8 !important;
+}
+
+.child-focus {
+  color: #09acf8 !important;
+  border-bottom: 3px solid #4BB7E9 !important;
+}
+
+.child-content-avatar{
+  width:40px;
+  height:40px;
+}
+
+/* Device Content */
+.device-content {
+  position: relative;
+  background-color: #fff;
+  height: 40px;
+  text-align: center;
+  color: #696969;
+  margin-bottom: 10px;
+}
+
+.device-content-title {
+  font-size: 16px;
+  padding: inherit;
+  margin-left: 5px;
+}
+
+.list-group-horizontal .list-group-item {
+  display: inline-block;
+  height: 40px;
+}
+
+.device-content-detail {
+  border: none !important;
+}
+
+.device-content-detail:hover {
+  background-color: #eef4f9;
+  color: #3FB7EA;
+}
+
+.device-content-left {
+  border-right: 1px solid #EEF4F9 !important;
+}
+
+select {
+  border: 0;
+}
+
+select:focus {
+  outline: none;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .child-content-detail {
+    padding: 10px !important;
+  }
+
+  .device-mobile-hide {
+    display: none;
+  }
+
+  .nopadding-sm {
+     padding: 0 !important;
+     margin: 0 !important;
+  }
+}
+
+/* Module Content */
+.module-content-btn {
+  color: #fff !important;
+  background: #4BB7E9 !important;
+  font-size: 18px;
+  height: 56px;
+  display: block;
+  line-height: 56px;
+  vertical-align: middle;
+  padding: 0 !important;
+}
+
+.module-content-btn span {
+  color: #fff !important;
+  background: #4BB7E9 !important;
+  font-size: 18px;
+  height: 56px;
+  display: block;
+  line-height: 56px;
+  vertical-align: middle;
+  padding: 0;
+}
+
+.module-content {
+  margin-bottom: 10px;
+}
+
+.module-content:hover {
+  -webkit-box-shadow: 0 0 10px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0 0 10px -4px rgba(0,0,0,0.75);
+  box-shadow: 0 0 20px -5px rgba(0,0,0,1);
+  cursor: pointer;
+}
+
+.module-content-title {
+  font-size: 20px;
+  font-weight: 500 !important;
+  color: #b7b7b7 !important;
+  height: 56px;
+  line-height: 56px;
+  vertical-align: middle;
+  padding: 0 !important;
+}
+
+.module-content-detail {
+  text-align: left;
+  height: 67px;
+}
+
+.module-content-detail h3 {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  margin: 0 0 3px;
+  color: #727272;
+}
+
+.module-content-detail p {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #808080;
+}
+
+/* App List */
+.app-list {
+  widows: 100%;
+  background-color: #fff !important;
+}
+
+.app-list-title {
+  background-color: #fff;
+  font-size: 16px;
+  color: #CACACA;
+  border-bottom: 1px solid #EEF4F9 !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.app-list-modules {
+  background-color: #fff;
+}
+
+.app-list-avatar {
+  width:60px;
+  height:60px;
+}
+
+.app-list-detail {
+  height: 100px !important;
+  width: 100px !important;
+  border: none !important;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+.sync-spin {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 2000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 2000ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 2000ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+
+  animation-name: spin;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@-moz-keyframes spin {
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}

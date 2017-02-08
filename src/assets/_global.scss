@@ -1,0 +1,97 @@
+.dialog-close {
+  font-size: 12px;
+}
+
+.notification {
+  background-color: #FFA400;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.hint {
+  position: absolute;
+  padding-left: 5px;
+  padding-right: 5px;
+  float: right;
+  width: 200px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  background-color: #7DDF64;
+  color: #fff;
+  animation: upAndDown 1s  0s infinite alternate;
+  z-index: 1;
+  right: 0;
+  top: 45px;
+
+  &__triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0px 10px 10px 10px;
+    bottom: 10px;
+    left: 85px;
+    border-color: transparent transparent #7DDF64 transparent;
+    position: relative;
+    &__left {
+      left: 45px;
+    }
+  }
+
+  &__content {
+    bottom: 10px;
+    position: relative;
+  }
+}
+
+@media only screen and (max-device-width: 480px) {
+  .hint {
+    &__triangle {
+      left: 160px;
+      &__left {
+        left: 118px;
+      }
+    }
+  }
+}
+
+@keyframes upAndDown
+{
+  from { margin-top: -10px; }
+  to { margin-top: 0; }
+}
+
+.text-ellipsis {
+  display : inline-block;
+  overflow : hidden;
+  text-overflow : ellipsis;
+  white-space : nowrap;
+}
+
+.ftu-phone-avatar {
+  height: 60px;
+
+  &:hover {
+    cursor: pointer;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: #009fff;
+  }
+
+  &__selected {
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: #009fff;
+    background-color: #f1f2f3;
+  }
+}

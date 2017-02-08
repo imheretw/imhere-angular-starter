@@ -1,0 +1,193 @@
+@font-face {
+  font-family: "Avenir";
+  src: url("fonts/Avenir.eot");
+  src: url("fonts/Avenir.eot?#iefix") format("embedded-opentype"), url("fonts/Avenir.woff2") format("woff2"), url("fonts/Avenir.woff") format("woff"), url("fonts/Avenir.ttf") format("truetype"), url("fonts/Avenir.svg#Avenir") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: url("fonts/AvenirLTStd-Medium.eot");
+  src: url("fonts/AvenirLTStd-Medium.eot?#iefix") format("embedded-opentype"), url("fonts/AvenirLTStd-Medium.woff2") format("woff2"), url("fonts/AvenirLTStd-Medium.woff") format("woff"), url("fonts/AvenirLTStd-Medium.ttf") format("truetype"), url("fonts/AvenirLTStd-Medium.svg#AvenirLTStd-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "icomoon";
+  src: url("fonts/icomoon.eot?hlbe21");
+  src: url("fonts/icomoon.eot?hlbe21#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?hlbe21") format("truetype"), url("fonts/icomoon.woff?hlbe21") format("woff"), url("fonts/icomoon.svg?hlbe21#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Avenir' !important;
+}
+
+.module-card {
+  padding: 20px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 10px 10px 5px -10px rgba(0,0,0,0.46);
+  -moz-box-shadow: 10px 10px 5px -10px rgba(0,0,0,0.46);
+  box-shadow: 10px 10px 5px -10px rgba(0,0,0,0.46);
+  background-color: #00a7b4;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* SMS Module */
+.module-popover-noboarder {
+  display: block;
+  float: none;
+  margin: 0;
+  left: 54px !important;
+  -webkit-box-shadow: 0 0 0 transparent;
+  -moz-box-shadow: 0 0 0 transparent;
+  box-shadow: 0 0 0 transparent;
+  padding: 2px 0px 0px 50px;
+  position: absolute;
+  font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+.module-popover-margin {
+  margin-bottom: 100px !important;
+}
+
+.module-card:hover {
+  color: #ffff00;
+}
+
+.module-list {
+  padding: 10px;
+  width: 80%;
+  margin: 5px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.module-list-speak{
+  padding: 15px;
+  position: relative;
+  border-radius: 0;
+  background: rgb(45, 45, 45);
+  color: #fff;
+  margin: 10px;
+}
+
+.module-list-speak::after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 0;
+  border-color: #4b4b4b transparent transparent transparent;
+  position: absolute;
+  bottom:-10px;
+  right: 10px;
+}
+
+.module-list-facebook{
+  background: #3b5998;
+}
+
+.module-list-handle {
+  font-weight: bolder;
+}
+
+.module-list-text {
+  border-radius: 30px;
+  background-color: #dcdcdc;
+  display: block;
+}
+
+.module-list-date {
+  font-weight: lighter;
+}
+
+.module-list-records {
+  text-align: left;
+}
+
+.module-contact-info {
+  padding: 20px;
+  width: 300px;
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: #c5c5c5;
+  color: #fff;
+}
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+  cursor: pointer;
+}
+
+/* Call History */
+.post-title {
+  font-weight: bold;
+}
+
+.post-content {
+  font-weight: bold;
+}
+
+/* icons */
+.icon-phone {
+  font-size: 40px;
+}
+
+.icon-cloud {
+  font-size: 40px;
+}
+
+/* Location */
+.marker-info-window {
+  background-color: white;
+  margin-top: -25px;
+}
+
+.marker-report-info-window {
+  background-color: #3b4335;
+  color: #fff;
+  border: 1px;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+  font-weight: normal;
+  margin-top: -35px;
+  display: inline;
+}
+
+/* Child */
+.child-action {
+  margin: 5px;
+}
+
+/* UI View*/
+.content-no-sidebar {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* Form Validation */
+.form-validation input.ng-invalid.ng-touched {
+  border-color: #ef3938;
+}
+
+.form-validation input.ng-valid.ng-touched {
+  border-color: #8bc441;
+}
+
+.form-validation-msg {
+  margin: 0 auto;
+  color: red;
+}

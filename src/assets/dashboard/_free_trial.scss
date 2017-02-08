@@ -1,0 +1,83 @@
+.free-trial-panel {
+  position: fixed;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+
+  &.-right {
+    right: 0;
+    top: 0;
+    bottom: 0;
+   -webkit-transform-origin: 100% 50%;
+      -moz-transform-origin: 100% 50%;
+       -ms-transform-origin: 100% 50%;
+        -o-transform-origin: 100% 50%;
+           transform-origin: 100% 50%;
+   -webkit-transform: rotate(90deg) translate(50%, 50%);
+      -moz-transform: rotate(90deg) translate(50%, 50%);
+       -ms-transform: rotate(90deg) translate(50%, 50%);
+        -o-transform: rotate(90deg) translate(50%, 50%);
+           transform: rotate(90deg) translate(50%, 50%);
+     .free-trial-panel-title {
+       border-radius: 0 0 10px 10px;
+     }
+  }
+
+  &-title {
+    display: inline-block;
+    margin: 0 auto;
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #791e94;
+    border-radius: 10px 10px 0 0;
+  }
+
+  &-title:hover,
+  &-title:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #5b1178;
+  }
+}
+
+
+.free-trial-panel-right {
+  position: fixed;
+  bottom: 0;
+  width: 300px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #791e94;
+  border-radius: 10px 10px 0 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 0 0 10px 10px;
+
+  -webkit-transform-origin: 100% 50%;
+    -moz-transform-origin: 100% 50%;
+     -ms-transform-origin: 100% 50%;
+      -o-transform-origin: 100% 50%;
+         transform-origin: 100% 50%;
+  -webkit-transform: rotate(90deg) translate(50%, 50%);
+    -moz-transform: rotate(90deg) translate(50%, 50%);
+     -ms-transform: rotate(90deg) translate(50%, 50%);
+      -o-transform: rotate(90deg) translate(50%, 50%);
+         transform: rotate(90deg) translate(50%, 50%);
+   .free-trial-panel-title {
+   }
+
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #5b1178;
+  }
+}

@@ -1,0 +1,26 @@
+[{
+  "stateName": "dashboards",
+  "urlPrefix": "/dashboard",
+  "type": "load",
+  "src": "app/dashboard/dashboard"
+}, {
+  "stateName": "login",
+  "urlPrefix": "/login",
+  "type": "load",
+  "src": "app/auth/login"
+}, {
+  "stateName": "register",
+  "urlPrefix": "/register",
+  "type": "load",
+  "src": "app/auth/register"
+}, {
+  "stateName": "profile",
+  "urlPrefix": "/profile",
+  "type": "load",
+  "src": "app/profile/profile"
+}, {
+  "stateName": "error",
+  "urlPrefix": "/error",
+  "type": "load",
+  "src": "common/error/error"
+}]

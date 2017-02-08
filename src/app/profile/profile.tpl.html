@@ -1,0 +1,34 @@
+<div class="profile">
+  <div class="list-group list-group-horizontal profile-header">
+    <li class="list-group-item profile-header-item"
+        ng-click="profileCtrl.getUserProfile()"
+        ng-class="{'active profile-header-item-focus': profileCtrl.tabName=='personal-info'}">
+        <i class="glyphicon glyphicon-user"></i>
+        <span class="profile-mobile-hide">Personal Information</span>
+    </li>
+  </div>
+  <div class="profile-content"  ng-switch="profileCtrl.tabName">
+
+    <div class="profile-personal fade active in" ng-switch-when="personal-info">
+      <div class="content-box">
+        <form class="form-horizontal pad15L pad15R bordered-row" name="personalForm">
+          <div class="form-group remove-border">
+            <label class="col-sm-3 control-label">Name:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" placeholder="Name..." name="name" ng-model="profileCtrl.user.name" required readonly="true">
+            </div>
+            <span ng-show="personalForm.name.$error.required && personalForm.name.$touched" class="input-group form-validation-msg">Name is required!</span>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Email:</label>
+            <div class="col-sm-6">
+              <input type="email" class="form-control" placeholder="Email address..." name="email" ng-model="profileCtrl.user.email" required readonly="true">
+            </div>
+            <span ng-show="personalForm.email.$error.email && personalForm.email.$touched" class="input-group form-validation-msg">Email is not valid!</span>
+            <span ng-show="personalForm.email.$error.required && personalForm.email.$touched" class="input-group form-validation-msg">Email is required!</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

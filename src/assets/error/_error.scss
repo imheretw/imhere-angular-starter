@@ -1,0 +1,29 @@
+.error-background-image {
+  background-image: url('./images/lost.jpg');
+  background-size: cover;
+  display: block;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  height: 800px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.error-content {
+  width: 60%;
+  margin: 0px auto;
+  background: rgba(#ecf3f9, 0.18);
+  -webkit-box-shadow: 10px 10px 5px -10px rgba(0,0,0,0.46);
+  -moz-box-shadow: 10px 10px 5px -10px rgba(0,0,0,0.46);
+  box-shadow: 10px 10px 5px -10px rgba(0,0,0,0.46);
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  padding: 10px;
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  border-radius: 10px;
+  z-index: 5;
+  text-align: center;
+  color:rgba(255, 255, 255, 0.91);
+}

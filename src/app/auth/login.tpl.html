@@ -1,0 +1,45 @@
+<div class="login">
+  <form name="loginForm" id="login-validation" class="login-form form-validation" ng-submit="loginCtrl.login()">
+    <h3>Please enter your email and password</h3>
+    <div id="login-form">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-envelope"></i>
+          </span>
+          <input type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            ng-model="loginCtrl.email"
+            name="userEmail" required/>
+        </div>
+        <span ng-show="loginForm.userEmail.$invalid && loginForm.userEmail.$touched"
+          class="input-group form-validation-msg">
+          Email field must be an email or required!
+        </span>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-lock"></i>
+          </span>
+          <input type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+            ng-model="loginCtrl.password"
+            name="userPassword" required/>
+        </div>
+        <span ng-show="loginForm.userPassword.$invalid && loginForm.userPassword.$touched"
+          class="input-group form-validation-msg">
+          Password field is required!
+        </span>
+      </div>
+      <div class="form-group">
+        <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-block btn-success">Login</button>
+        <a class="btn btn-block btn-info" ui-sref="register">Signup</a>
+      </div>
+    </div>
+  </form>
+</div>

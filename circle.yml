@@ -1,0 +1,25 @@
+machine:
+  timezone:
+    America/Los_Angeles # Set the timezone
+  pre:
+    - mkdir ~/.yarn-cache
+  node:
+    version: 6.2.2
+  ruby:
+    version: 2.2.4
+
+dependencies:
+  pre:
+  cache_directories:
+    - ~/.yarn-cache
+    - ~/.jspm
+  override:
+    - bundle
+    - gem install compass
+    - yarn install
+    - npm rebuild
+test:
+  override:
+    - bash -c "scripts/eslint-pr.sh"
+    - bash -c "scripts/jscs-pr.sh"
+    - yarn test

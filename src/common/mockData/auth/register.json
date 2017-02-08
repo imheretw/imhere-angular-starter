@@ -1,0 +1,10 @@
+{
+  "user": {
+    "id": 1 "email": "test@test.com",
+    "name": "Test",
+    "encrypted_password": "$2a$06$NkYh0RCM8pNWPaYvRLgN9.Tl30VHCXEDh66RKnuDJNBV0RLQSypWa",
+    "updated_at": "2017-02-09T04:29:16.972Z",
+    "created_at": "2017-02-09T04:29:16.972Z",
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRld3d3c3RAdGVzdC5jb20iLCJuYW1lIjoiZWVlIiwiZW5jcnlwdGVkX3Bhc3N3b3JkIjoiJDJhJDA2JE5rWWgwUkNNOHBOV1BhWXZSTGdOOS5UbDMwVkhDWEVEaDY2UktudURKTkJWMFJMUVN5cFdhIiwidXBkYXRlZF9hdCI6IjIwMTctMDItMDlUMDQ6Mjk6MTYuOTcyWiIsImNyZWF0ZWRfYXQiOiIyMDE3LTAyLTA5VDA0OjI5OjE2Ljk3MloiLCJpZCI6MywiaWF0IjoxNDg2NjE0NTU3LCJleHAiOjE0ODkyMDY1NTd9.SR8wiLc-QW3QCFhuBeVLFNe4P0Z-FNpG2cVe7WqvWTU"
+}

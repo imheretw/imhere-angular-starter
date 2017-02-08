@@ -1,0 +1,49 @@
+.profile {
+  max-width: 600px;
+  margin: 10px auto;
+  background-color: #fff;
+  padding: 5px;
+  color: #696969;
+}
+
+.profile-header {
+  width: 100%;
+}
+
+.profile-header-item {
+  border: none !important;
+  text-align: center;
+  width: 33.33%;
+}
+
+.profile-header-item:hover {
+  color: #2d6e8c;
+  background-color: #eef4f9;
+  border-radius: 0;
+}
+
+.profile-header-item-focus {
+  color: #2d6e8c !important;
+  background-color: #eef4f9 !important;
+  border-bottom: 3px solid #2d6e8c !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.profile-content {
+  text-align: center;
+}
+
+.profile-personal {
+  margin: 0 auto;
+}
+
+.profile-billing-info {
+  margin: 0 auto;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .profile-mobile-hide {
+    display: none;
+  }
+}

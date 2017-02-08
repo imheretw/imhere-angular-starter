@@ -1,0 +1,21 @@
+<div class="error-background-image"></div>
+
+<div ng-if="errCtrl.title === '404'" class="error-content">
+  <h1>Oops!</h1>
+  <br>
+  <h3>We haven't found any pixels around here.</h4>
+  <h5>You may have mistyped the address or the page may have moved.</h4>
+  <br>
+  <br>
+  <a class="btn btn-info" ui-sref="dashboards">Back</a>
+</div>
+
+<div ng-if="errCtrl.title !== '404'" class="error-content">
+  <h1>Uh oh!</h1>
+  <br>
+  <h3>Something went wrong at our end.</h4>
+  <h5>Don't worry, it's not you --- it's us. Sorry about that.</h4>
+  <br>
+  <br>
+  <a class="btn btn-info" ui-sref="dashboards">Back</a>
+</div>
