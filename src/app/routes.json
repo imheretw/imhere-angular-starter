@@ -1,4 +1,9 @@
 [{
+  "stateName": "admin",
+  "urlPrefix": "/admin",
+  "type": "load",
+  "src": "app/admin/admin"
+},{
   "stateName": "dashboards",
   "urlPrefix": "/dashboard",
   "type": "load",
