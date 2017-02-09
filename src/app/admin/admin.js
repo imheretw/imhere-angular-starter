@@ -1,33 +1,42 @@
 import angular from 'angular';
-
 import { modalModule } from 'common/core';
 import adminDashboardLayoutTemplate from 'common/layouts/admin/admin-dashboard-layout.tpl';
 import adminJSTemplate from 'common/layouts/admin/admin-assets-css-development.tpl';
 import adminCSSTemplate from 'common/layouts/admin/admin-assets-js-development.tpl';
 import adminTemplate from './admin.tpl';
-import adminHeader from 'common/components/panels/admin/header';
-import adminSidebar from 'common/components/panels/admin/sidebar';
+import adminChatLayoutTemplate from './chat/chat.tpl';
+import pannels from 'common/components/panels/index';
 
 /* @ngInject */
 function ConfigureModule($stateProvider) {
-  $stateProvider.state('admin', {
-    url: '/admin',
-    views: {
-      '': {
-        templateUrl: adminDashboardLayoutTemplate.name,
+  $stateProvider
+    .state('admin', {
+      url: '/admin',
+      views: {
+        '': {
+          templateUrl: adminDashboardLayoutTemplate.name,
+        },
+        '@admin': {
+          templateUrl: adminTemplate.name,
+        },
+        'assets-css@admin': {
+          templateUrl: adminCSSTemplate.name,
+        },
+        'assets-js@admin': {
+          templateUrl: adminJSTemplate.name,
+        },
       },
-      '@admin': {
-        templateUrl: adminTemplate.name,
+      reloadOnSearch: false,
+    })
+    .state('admin.chat', {
+      url: '/chat',
+      views: {
+        'content': {
+          templateUrl: adminChatLayoutTemplate.name,
+        },
       },
-      'assets-css@admin': {
-        templateUrl: adminCSSTemplate.name,
-      },
-      'assets-js@admin': {
-        templateUrl: adminJSTemplate.name,
-      },
-    },
-    reloadOnSearch: false,
-  });
+      reloadOnSearch: false,
+    });
 }
 
 export default angular
@@ -37,7 +46,7 @@ export default angular
       adminJSTemplate.name,
       adminCSSTemplate.name,
       adminTemplate.name,
-      adminHeader.name,
-      adminSidebar.name,
+      pannels.name,
+      adminChatLayoutTemplate.name,
   ])
   .config(ConfigureModule);

@@ -42,5 +42,5 @@ const adminHeader = {
 };
 
 export default angular
-  .module('common.components.panels..adminHeader', [])
+  .module('common.components.panels.adminHeader', [])
   .component('adminHeader', adminHeader);
