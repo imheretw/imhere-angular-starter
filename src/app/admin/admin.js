@@ -6,6 +6,7 @@ import adminJSTemplate from 'common/layouts/admin/admin-assets-css-development.t
 import adminCSSTemplate from 'common/layouts/admin/admin-assets-js-development.tpl';
 import adminTemplate from './admin.tpl';
 import adminHeader from 'common/components/panels/admin/header';
+import adminSidebar from 'common/components/panels/admin/sidebar';
 
 /* @ngInject */
 function ConfigureModule($stateProvider) {
@@ -37,5 +38,6 @@ export default angular
       adminCSSTemplate.name,
       adminTemplate.name,
       adminHeader.name,
+      adminSidebar.name,
   ])
   .config(ConfigureModule);

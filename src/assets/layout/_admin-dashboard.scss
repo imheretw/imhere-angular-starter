@@ -1,18 +1,27 @@
 .admin-layout{
-  $sidbar-width:150px;
+  $sidbar-width:230px;
   $sidbar-width-sm:60px;
+  $height:1000px;
 
   &__sidbar{
-    display: inline-block;
     width:$sidbar-width;
+    position: absolute;
+    height: $height;
+    background: #2A3F54;
+    top:0;
+    left: 0;
     &.sm{
       width:$sidbar-width-sm;
     }
   }
   &__main{
-    display: inline-block;
-    width:-moz-calc(100% - 152px);
-    width:-webkit-calc(100% - 152px);
-    width: calc(100% - 152px);
+    position: absolute;
+    top:0;
+    right:0;
+    background: rgb(237, 237, 237);
+    height: $height;
+    width:-moz-calc(100% - 230px);
+    width:-webkit-calc(100% - 230px);
+    width: calc(100% - 230px);
   }
 }
