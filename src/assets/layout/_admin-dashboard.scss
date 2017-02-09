@@ -11,5 +11,8 @@
   }
   &__main{
     display: inline-block;
+    width:-moz-calc(100% - 152px);
+    width:-webkit-calc(100% - 152px);
+    width: calc(100% - 152px);
   }
 }

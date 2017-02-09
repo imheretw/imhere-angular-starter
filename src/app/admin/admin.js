@@ -18,10 +18,10 @@ function ConfigureModule($stateProvider) {
       '@admin': {
         templateUrl: adminTemplate.name,
       },
-      'assets-css': {
+      'assets-css@admin': {
         templateUrl: adminCSSTemplate.name,
       },
-      'assets-js': {
+      'assets-js@admin': {
         templateUrl: adminJSTemplate.name,
       },
     },
