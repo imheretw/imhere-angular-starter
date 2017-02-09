@@ -1,0 +1,15 @@
+.admin-layout{
+  $sidbar-width:150px;
+  $sidbar-width-sm:60px;
+
+  &__sidbar{
+    display: inline-block;
+    width:$sidbar-width;
+    &.sm{
+      width:$sidbar-width-sm;
+    }
+  }
+  &__main{
+    display: inline-block;
+  }
+}
