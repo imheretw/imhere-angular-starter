@@ -29,7 +29,7 @@ const adminHeader = {
             ImHere <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a>Action</a></li>
+            <li><a ui-sref="admin.chat">Action</a></li>
             <li><a>Another action</a></li>
             <li><a>Something else here</a></li>
             <li role="separator" class="divider"></li>

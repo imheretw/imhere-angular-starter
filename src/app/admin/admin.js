@@ -1,11 +1,13 @@
 import angular from 'angular';
 import { modalModule } from 'common/core';
+import AdminController from './AdminController';
 import adminDashboardLayoutTemplate from 'common/layouts/admin/admin-dashboard-layout.tpl';
 import adminJSTemplate from 'common/layouts/admin/admin-assets-css-development.tpl';
 import adminCSSTemplate from 'common/layouts/admin/admin-assets-js-development.tpl';
 import adminTemplate from './admin.tpl';
 import adminChatLayoutTemplate from './chat/chat.tpl';
 import adminSettingLayoutTemplate from './setting/setting.tpl';
+import adminProfileLayoutTemplate from './profile/profile.tpl';
 import adminPanels from 'common/components/panels/admin/index';
 
 /* @ngInject */
@@ -18,6 +20,8 @@ function ConfigureModule($stateProvider) {
           templateUrl: adminDashboardLayoutTemplate.name,
         },
         '@admin': {
+          controller: AdminController,
+          controllerAs: 'vm',
           templateUrl: adminTemplate.name,
         },
         'assets-css@admin': {
@@ -46,6 +50,15 @@ function ConfigureModule($stateProvider) {
         },
       },
       reloadOnSearch: false,
+    })
+    .state('admin.profile', {
+      url: '/profile',
+      views: {
+        'content': {
+          templateUrl: adminProfileLayoutTemplate.name,
+        },
+      },
+      reloadOnSearch: false,
     });
 }
 
@@ -59,5 +72,6 @@ export default angular
       adminPanels.name,
       adminChatLayoutTemplate.name,
       adminSettingLayoutTemplate.name,
+      adminProfileLayoutTemplate.name,
   ])
   .config(ConfigureModule);
