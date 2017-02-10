@@ -5,7 +5,7 @@ import adminJSTemplate from 'common/layouts/admin/admin-assets-css-development.t
 import adminCSSTemplate from 'common/layouts/admin/admin-assets-js-development.tpl';
 import adminTemplate from './admin.tpl';
 import adminChatLayoutTemplate from './chat/chat.tpl';
-import pannels from 'common/components/panels/index';
+import adminPanels from 'common/components/panels/admin/index';
 
 /* @ngInject */
 function ConfigureModule($stateProvider) {
@@ -46,7 +46,7 @@ export default angular
       adminJSTemplate.name,
       adminCSSTemplate.name,
       adminTemplate.name,
-      pannels.name,
+      adminPanels.name,
       adminChatLayoutTemplate.name,
   ])
   .config(ConfigureModule);
