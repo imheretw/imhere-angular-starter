@@ -9,6 +9,10 @@ export default class AdminController {
       this.isLogin = true;
     }
 
+    const user = {
+      name: 'ImHere',
+    };
+
     this.headerLinks = [{
       name: 'My Profile',
       state: 'admin.profile',
@@ -20,9 +24,30 @@ export default class AdminController {
       state: 'admin.setting',
     }];
 
-    this.user =  {
-      name: 'ImHere',
+    this.sideBarData = {
+      logo: 'ImHere',
+      user: user,
     };
+
+    this.sideBarNav = [{
+      name: 'My Profile',
+      state: 'admin.profile',
+    }, {
+      name: 'Chat',
+      state: 'admin.chat',
+    }, {
+      name: 'Setting',
+      state: 'admin.setting',
+    }, {
+      name: 'panels',
+      dropdown: [{
+          name: 'Setting',
+          state: 'admin.setting',
+        },
+      ],
+    }];
+
+    this.user = user;
 
     this.sidbarOpen = true;
 

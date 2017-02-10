@@ -5,7 +5,7 @@
 
   &__sidbar{
     width:$sidbar-width;
-    position: absolute;
+    position: fixed;
     height: $height;
     background: #2A3F54;
     top:0;
@@ -15,7 +15,7 @@
     }
   }
   &__main{
-    position: absolute;
+    position: fixed;
     top:0;
     right:0;
     background: rgb(237, 237, 237);

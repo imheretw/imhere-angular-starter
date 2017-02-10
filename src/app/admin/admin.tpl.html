@@ -1,6 +1,6 @@
 <div calss="admim-layout">
   <div class="admin-layout__sidbar" ng-class="{false:'sm'}[vm.sidbarOpen]">
-    <admin-sidebar></admin-sidebar>
+    <admin-sidebar side-bar-data="vm.sideBarData" side-bar-nav="vm.sideBarNav" on-log-out="vm.logout()"></admin-sidebar>
   </div>
   <div class="admin-layout__main" ng-class="{false:'open'}[vm.sidbarOpen]">
     <admin-header link-datas="vm.headerLinks" user="vm.user" on-log-out="vm.logout()" on-click-icon="vm.chagneSidebar()"></admin-header>
