@@ -5,6 +5,7 @@ import adminJSTemplate from 'common/layouts/admin/admin-assets-css-development.t
 import adminCSSTemplate from 'common/layouts/admin/admin-assets-js-development.tpl';
 import adminTemplate from './admin.tpl';
 import adminChatLayoutTemplate from './chat/chat.tpl';
+import adminSettingLayoutTemplate from './setting/setting.tpl';
 import adminPanels from 'common/components/panels/admin/index';
 
 /* @ngInject */
@@ -36,6 +37,15 @@ function ConfigureModule($stateProvider) {
         },
       },
       reloadOnSearch: false,
+    })
+    .state('admin.setting', {
+      url: '/setting',
+      views: {
+        'content': {
+          templateUrl: adminSettingLayoutTemplate.name,
+        },
+      },
+      reloadOnSearch: false,
     });
 }
 
@@ -48,5 +58,6 @@ export default angular
       adminTemplate.name,
       adminPanels.name,
       adminChatLayoutTemplate.name,
+      adminSettingLayoutTemplate.name,
   ])
   .config(ConfigureModule);
