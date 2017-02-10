@@ -8,8 +8,10 @@ class AdminHeader {
 
 const adminHeader = {
   bindings: {
-    modules: '<',
-    pageDetail: '<',
+    linkDatas: '<',
+    user: '<',
+    onLogOut: '&',
+    onClickIcon: '&',
   },
   transclude: true,
   controller: AdminHeader,
@@ -17,7 +19,7 @@ const adminHeader = {
   template: `
     <div class="navbar navbar-default admin-header">
       <div class="navbar-header">
-        <a class="navbar-brand" >
+        <a class="navbar-brand" ng-click="vm.onClickIcon()">
           <i class="fa fa-bars" aria-hidden="true"></i>
         </a>
       </div>
@@ -26,14 +28,12 @@ const adminHeader = {
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-user-circle" aria-hidden="true"></i>
-            ImHere <span class="caret"></span>
+            {{vm.user.name}} <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a ui-sref="admin.chat">Action</a></li>
-            <li><a>Another action</a></li>
-            <li><a>Something else here</a></li>
+            <li ng-repeat="link in vm.linkDatas"><a ui-sref="{{link.state}}">{{link.name}}</a></li>
             <li role="separator" class="divider"></li>
-            <li><a>Separated link</a></li>
+            <li ng-click="vm.onLogOut()"><a>Log Out <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
           </ul>
         </li>
       </ul>

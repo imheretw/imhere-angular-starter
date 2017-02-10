@@ -8,7 +8,7 @@ import adminTemplate from './admin.tpl';
 import adminChatLayoutTemplate from './chat/chat.tpl';
 import adminSettingLayoutTemplate from './setting/setting.tpl';
 import adminProfileLayoutTemplate from './profile/profile.tpl';
-import adminPanels from 'common/components/panels/admin/index';
+import adminPanels from 'common/components/panels/admin/admin';
 
 /* @ngInject */
 function ConfigureModule($stateProvider) {

@@ -23,5 +23,10 @@
     width:-moz-calc(100% - 230px);
     width:-webkit-calc(100% - 230px);
     width: calc(100% - 230px);
+    &.open{
+      width:-moz-calc(100% - 60px);
+      width:-webkit-calc(100% - 60px);
+      width: calc(100% - 60px);
+    }
   }
 }
