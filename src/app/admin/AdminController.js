@@ -35,14 +35,17 @@ export default class AdminController {
     }, {
       name: 'Chat',
       state: 'admin.chat',
-    }, {
+    },
+    {
       name: 'Setting',
       state: 'admin.setting',
-    }, {
-      name: 'panels',
       dropdown: [{
-          name: 'Setting',
-          state: 'admin.setting',
+          name: 'Widget',
+          state: 'admin.setting.widget',
+        },
+        {
+          name: 'Consultants',
+          state: 'admin.setting.consultants',
         },
       ],
     }];

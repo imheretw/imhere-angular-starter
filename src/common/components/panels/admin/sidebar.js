@@ -1,5 +1,6 @@
 import angular from 'angular';
 import 'common/core';
+import isActiveItem from 'common/directives/isActiveItem';
 
 class AdminSidebar {
   /*@ngInject*/
@@ -35,13 +36,13 @@ const adminSidebar = {
         </div>
       </div>
       <ul class="nav nav-pills nav-stacked admin-sidebar__nav" ng-repeat="nav in vm.sideBarNav">
-        <li class="active" ng-if="!nav.dropdown"><a ui-sref="{{nav.state}}">{{nav.name}}</a></li>
-        <li class="dropdown active" ng-if="nav.dropdown.length>0">
-          <a >
+        <li ng-if="!nav.dropdown"  ><a ui-sref="{{nav.state}}" is-active-item>{{nav.name}}</a></li>
+        <li class="dropdown" ng-if="nav.dropdown.length>0">
+          <a ui-sref="{{nav.state}}" is-active-item>
              {{nav.name}}<i class="fa fa-chevron-down" aria-hidden="true"></i>
           </a>
           <ul class="dropdown-item">
-            <li ng-repeat="dropdown in nav.dropdown" class="active"><a ui-sref="{{dropdown.state}}">{{dropdown.name}}</a></li>
+            <li ng-repeat="dropdown in nav.dropdown"><a ui-sref="{{dropdown.state}}" is-active-item>{{dropdown.name}}</a></li>
           </ul>
         </li>
       </ul>
@@ -53,5 +54,5 @@ const adminSidebar = {
 };
 
 export default angular
-  .module('common.components.panels.adminSidebar', [])
+  .module('common.components.panels.admin.sidebar', [isActiveItem.name])
   .component('adminSidebar', adminSidebar);
