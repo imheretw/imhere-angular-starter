@@ -18,33 +18,35 @@ const adminSidebar = {
   template: `
     <div class="admin-sidebar">
       <div class="admin-sidebar__header">
-        <i class="fa fa-github" aria-hidden="true"></i>
-        {{vm.sideBarData.logo}}
+        <h1>
+          <i class="fa fa-github" aria-hidden="true"></i>
+          {{vm.sideBarData.logo}}
+        </h1>
       </div>
       <div class="media admin-sidebar__user">
-        <div class="media-left admin-sidebar__user--img">
-          <a href="#">
-            <h1><i class="fa fa-user-circle-o" aria-hidden="true"></i><h1>
+        <div class="media-left ">
+          <a ui-sref="admin.profile">
+            <div class="admin-sidebar__user--img" style="background-image: url(http://i.gbc.tw/2010/zone/lol/champion/120/lulu.png);"></div>
           </a>
         </div>
         <div class="media-body admin-sidebar__user--body">
           <p>Welcome!</p>
-          <a><h5 class="media-heading">{{vm.sideBarData.user.name}}</h5></a>
+          <a ui-sref="admin.profile"><h5 class="media-heading">{{vm.sideBarData.user.name}}</h5></a>
         </div>
       </div>
       <ul class="nav nav-pills nav-stacked admin-sidebar__nav" ng-repeat="nav in vm.sideBarNav">
-        <li ng-if="!nav.dropdown"><a ui-sref="{{nav.state}}">{{nav.name}}</a></li>
-        <li class="dropdown" ng-if="nav.dropdown.length>0">
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-             {{nav.name}}<span class="caret"></span>
+        <li class="active" ng-if="!nav.dropdown"><a ui-sref="{{nav.state}}">{{nav.name}}</a></li>
+        <li class="dropdown active" ng-if="nav.dropdown.length>0">
+          <a >
+             {{nav.name}}<i class="fa fa-chevron-down" aria-hidden="true"></i>
           </a>
-          <ul class="dropdown-menu">
-            <li ng-repeat="dropdown in nav.dropdown"><a ui-sref="{{dropdown.state}}">{{dropdown.name}}</a></li>
+          <ul class="dropdown-item">
+            <li ng-repeat="dropdown in nav.dropdown" class="active"><a ui-sref="{{dropdown.state}}">{{dropdown.name}}</a></li>
           </ul>
         </li>
       </ul>
       <div class="admin-sidebar__footer">
-        <li ng-click="vm.onLogOut()"><a>Log Out <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+        <a ng-click="vm.onLogOut()">Log Out  <i class="fa fa-sign-out" aria-hidden="true"></i></a>
       </div>
     </div>
   `,

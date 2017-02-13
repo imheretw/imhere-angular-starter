@@ -27,7 +27,6 @@ const adminHeader = {
         <li><a><i class="fa fa-bell" aria-hidden="true"></i></a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-user-circle" aria-hidden="true"></i>
             {{vm.user.name}} <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
