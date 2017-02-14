@@ -31,7 +31,7 @@ const adminSidebar = {
       <div class="media admin-sidebar__user" ng-show="vm.sideBarOpen">
         <div class="media-left ">
           <a ui-sref="admin.profile">
-            <div class="admin-sidebar__user--img" style="background-image: url(http://i.gbc.tw/2010/zone/lol/champion/120/lulu.png);"></div>
+            <div class="admin-sidebar__user--img" style="background-image: url({{vm.sideBarData.user.img}});"></div>
           </a>
         </div>
         <div class="media-body admin-sidebar__user--body">

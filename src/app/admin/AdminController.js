@@ -11,6 +11,7 @@ export default class AdminController {
 
     const user = {
       name: 'ImHere',
+      img: 'http://i.gbc.tw/2010/zone/lol/champion/120/lulu.png',
     };
 
     this.headerLinks = [{
