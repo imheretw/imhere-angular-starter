@@ -9,7 +9,8 @@ import adminChatLayoutTemplate from './chat/chat.tpl';
 import adminSettingLayoutTemplate from './setting/setting.tpl';
 import adminProfileLayoutTemplate from './profile/profile.tpl';
 import adminPanels from 'common/components/panels/admin/admin';
-
+import adminSettingWidgetTemplate from './setting/widget/widget.tpl';
+import adminSettingConsultantsTemplate from './setting/consultants/consultants.tpl';
 /* @ngInject */
 function ConfigureModule($stateProvider) {
   $stateProvider
@@ -51,6 +52,24 @@ function ConfigureModule($stateProvider) {
       },
       reloadOnSearch: false,
     })
+    .state('admin.setting.widget', {
+      url: '/widget',
+      views: {
+        'setting-content': {
+          templateUrl: adminSettingWidgetTemplate.name,
+        },
+      },
+      reloadOnSearch: false,
+    })
+    .state('admin.setting.consultants', {
+      url: '/consultants',
+      views: {
+        'setting-content': {
+          templateUrl: adminSettingConsultantsTemplate.name,
+        },
+      },
+      reloadOnSearch: false,
+    })
     .state('admin.profile', {
       url: '/profile',
       views: {
@@ -73,5 +92,7 @@ export default angular
       adminChatLayoutTemplate.name,
       adminSettingLayoutTemplate.name,
       adminProfileLayoutTemplate.name,
+      adminSettingWidgetTemplate.name,
+      adminSettingConsultantsTemplate.name,
   ])
   .config(ConfigureModule);
