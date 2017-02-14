@@ -42,6 +42,18 @@
 
   }
   &__nav{
+    &--icon {
+      width: 20px;
+      margin-top: 10px;
+      &.sm{
+        margin-top: 0px;
+        margin-right: 10px;
+      }
+    }
+    &--smname{
+      font-size: 0.8em;
+      margin-top: 2px;
+    }
     & > li{
       &.active{
         border-right: 5px rgb(0, 157, 147) solid;
@@ -139,13 +151,15 @@
 
   &__footer {
     height: 40px;
-    width: 100%;
     background: rgb(21, 33, 47);
     position: fixed;
     bottom: 0;
     text-align: center;
     width: $sidbar-width;
     line-height: 40px;
+    &.sm{
+      width: $sidbar-width-sm;
+    }
     &>a{
       color: #fff;
       cursor: pointer;

@@ -30,15 +30,18 @@ export default class AdminController {
     };
 
     this.sideBarNav = [{
-      name: 'My Profile',
+      name: 'Profile',
       state: 'admin.profile',
+      icon: 'src/assets/images/user.svg',
     }, {
       name: 'Chat',
       state: 'admin.chat',
+      icon: 'src/assets/images/chat.svg',
     },
     {
       name: 'Setting',
       state: 'admin.setting',
+      icon: 'src/assets/images/settings.svg',
       dropdown: [{
           name: 'Widget',
           state: 'admin.setting.widget',
