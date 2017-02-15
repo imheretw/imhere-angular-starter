@@ -20,11 +20,6 @@
         <li><a href="https://test.com" target="_blank">Help</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a ng-show="layoutCtrl.isLogin" ui-sref="profile">
-            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-              Hello, {{ layoutCtrl.currentUser.first_name }}
-          </a>
-        </li>
         <li><a ng-hide="layoutCtrl.isLogin" ui-sref="login">
             <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
               Login

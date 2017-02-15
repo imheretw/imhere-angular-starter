@@ -3,11 +3,6 @@
   "urlPrefix": "/admin",
   "type": "load",
   "src": "app/admin/admin"
-},{
-  "stateName": "dashboards",
-  "urlPrefix": "/dashboard",
-  "type": "load",
-  "src": "app/dashboard/dashboard"
 }, {
   "stateName": "login",
   "urlPrefix": "/login",
