@@ -1,0 +1,10 @@
+<div class="dropdown-panel">
+  <div class="dropdown-panel__header">
+    <h3 class="dropdown-panel__title">{{panelTitle}}</h3>
+    <a class="dropdown-panel__icon" ng-click="close()" ng-show="isOpen"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+    <a class="dropdown-panel__icon" ng-click="open()" ng-show="!isOpen"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+  </div>
+  <div class="dropdown-panel__body" ng-show="isOpen">
+    <ng-transclude></ng-transclude>
+  </div>
+</div>

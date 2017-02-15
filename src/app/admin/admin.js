@@ -13,6 +13,8 @@ import commonPanels from 'common/components/panels/common/common';
 import adminSettingWidgetTemplate from './setting/widget/widget.tpl';
 import adminSettingConsultantsTemplate from './setting/consultants/consultants.tpl';
 import AdminSettingController from './setting/SettingController';
+import AdminSettingConsultantsController from './setting/consultants/ConsultantsController';
+import dropdownPanel from 'common/directives/dropdownPanel';
 /* @ngInject */
 function ConfigureModule($stateProvider) {
   $stateProvider
@@ -69,6 +71,8 @@ function ConfigureModule($stateProvider) {
       url: '/consultants',
       views: {
         'setting-content': {
+          controller: AdminSettingConsultantsController,
+          controllerAs: 'vm',
           templateUrl: adminSettingConsultantsTemplate.name,
         },
       },
@@ -99,5 +103,6 @@ export default angular
       adminSettingWidgetTemplate.name,
       adminSettingConsultantsTemplate.name,
       commonPanels.name,
+      dropdownPanel.name,
   ])
   .config(ConfigureModule);
