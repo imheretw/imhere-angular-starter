@@ -1,0 +1,55 @@
+.pannel-page-header{
+  $main-color:rgb(83, 89, 116);
+  $strong-color:#2A3F54;
+  $border-color: rgb(200, 200, 200);
+  $height:50px;
+  $green: rgb(0, 157, 147);
+  width: 100%;
+  margin: 0;
+  height: $height;
+  border-bottom: 1px $border-color solid;
+  &__header{
+    display: inline-block;
+    width: 20%;
+  }
+  &__title{
+    font-size: 1.8em;
+    color: $main-color;
+    height: $height;
+  }
+  &__main{
+    display: inline-block;
+    width:55%;
+  }
+  &__tab{
+    height: $height;
+    & > li > a {
+      cursor: pointer;
+      color:$strong-color;
+      display: block;
+      height: $height;
+      padding:10px;
+      line-height: $height;
+      &:hover, &:focus {
+        text-decoration: none;
+        color:$green;
+      }
+    }
+
+    & > li.active > a {
+      border-bottom: 3px $green solid;
+      position: relative;
+      &:after{
+        content: '';
+        display: block;
+        background: $green;
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        position: absolute;
+        bottom: -5px;
+        left: 48%;
+      }
+    }
+  }
+}

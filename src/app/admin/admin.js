@@ -9,8 +9,10 @@ import adminChatLayoutTemplate from './chat/chat.tpl';
 import adminSettingLayoutTemplate from './setting/setting.tpl';
 import adminProfileLayoutTemplate from './profile/profile.tpl';
 import adminPanels from 'common/components/panels/admin/admin';
+import commonPanels from 'common/components/panels/common/common';
 import adminSettingWidgetTemplate from './setting/widget/widget.tpl';
 import adminSettingConsultantsTemplate from './setting/consultants/consultants.tpl';
+import AdminSettingController from './setting/SettingController';
 /* @ngInject */
 function ConfigureModule($stateProvider) {
   $stateProvider
@@ -47,6 +49,8 @@ function ConfigureModule($stateProvider) {
       url: '/setting',
       views: {
         'content': {
+          controller: AdminSettingController,
+          controllerAs: 'vm',
           templateUrl: adminSettingLayoutTemplate.name,
         },
       },
@@ -94,5 +98,6 @@ export default angular
       adminProfileLayoutTemplate.name,
       adminSettingWidgetTemplate.name,
       adminSettingConsultantsTemplate.name,
+      commonPanels.name,
   ])
   .config(ConfigureModule);
