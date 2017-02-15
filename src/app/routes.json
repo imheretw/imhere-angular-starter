@@ -19,11 +19,6 @@
   "type": "load",
   "src": "app/auth/register"
 }, {
-  "stateName": "profile",
-  "urlPrefix": "/profile",
-  "type": "load",
-  "src": "app/profile/profile"
-}, {
   "stateName": "error",
   "urlPrefix": "/error",
   "type": "load",
