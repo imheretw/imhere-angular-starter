@@ -15,7 +15,7 @@ export default class LoginController {
       this.authService.login(this.email, this.password)
         .then(() => {
           this.toastrService.success(`Login success, will redirect you to dashboard page.`);
-          this.$state.go('dashboards');
+          this.$state.go('admin');
         })
         .catch((response) => {
           this.toastrService.error(`Unable to login, err msg: ${response.data.error}`);

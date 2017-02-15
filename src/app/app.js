@@ -67,7 +67,7 @@ app.config(['$urlRouterProvider', '$locationProvider', '$compileProvider', '$log
     requireBase: false,
   });
   $httpProvider.useApplyAsync(true);
-  $urlRouterProvider.otherwise('/dashboard');
+  $urlRouterProvider.otherwise('/admin');
 
   if (window.prod) {
     // http://ng-perf.com/2014/10/24/simple-trick-to-speed-up-your-angularjs-app-load-time/
