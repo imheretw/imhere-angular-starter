@@ -1,8 +1,8 @@
 [{
-  "stateName": "dashboards",
-  "urlPrefix": "/dashboard",
+  "stateName": "admin",
+  "urlPrefix": "/admin",
   "type": "load",
-  "src": "app/dashboard/dashboard"
+  "src": "app/admin/admin"
 }, {
   "stateName": "login",
   "urlPrefix": "/login",
@@ -13,11 +13,6 @@
   "urlPrefix": "/register",
   "type": "load",
   "src": "app/auth/register"
-}, {
-  "stateName": "profile",
-  "urlPrefix": "/profile",
-  "type": "load",
-  "src": "app/profile/profile"
 }, {
   "stateName": "error",
   "urlPrefix": "/error",

@@ -1,0 +1,32 @@
+.admin-layout{
+  $sidbar-width:230px;
+  $sidbar-width-sm:60px;
+  $height:1000px;
+
+  &__sidbar{
+    width:$sidbar-width;
+    position: fixed;
+    height: $height;
+    background: #2A3F54;
+    top:0;
+    left: 0;
+    &.sm{
+      width:$sidbar-width-sm;
+    }
+  }
+  &__main{
+    position: fixed;
+    top:0;
+    right:0;
+    background: rgb(237, 237, 237);
+    height: $height;
+    width:-moz-calc(100% - 230px);
+    width:-webkit-calc(100% - 230px);
+    width: calc(100% - 230px);
+    &.open{
+      width:-moz-calc(100% - 60px);
+      width:-webkit-calc(100% - 60px);
+      width: calc(100% - 60px);
+    }
+  }
+}
