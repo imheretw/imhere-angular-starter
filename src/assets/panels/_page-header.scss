@@ -9,6 +9,7 @@
   margin-bottom: 20px;
   height: $height;
   border-bottom: 1px $border-color solid;
+  padding-left: 30px;
   &__header{
     display: inline-block;
     width: 20%;
@@ -20,7 +21,7 @@
   }
   &__main{
     display: inline-block;
-    width:55%;
+    width:75%;
   }
   &__tab{
     height: $height;

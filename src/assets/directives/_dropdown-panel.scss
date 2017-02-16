@@ -14,7 +14,7 @@
   &__title{
     margin: 0;
     padding: 0;
-    font-size: 1.3em;
+    font-size: 1.1em;
     color:rgb(156, 160, 182);
   }
   &__icon{
@@ -27,6 +27,7 @@
     }
   }
   &__body{
-    padding:10px 0;
+    padding:20px 0 10px 0;
+    font-size: 0.9em;
   }
 }

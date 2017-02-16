@@ -1,0 +1,8 @@
+.add-consultant{
+  $green: rgb(0, 157, 147);
+  &__btn{
+    font-size: 30px;
+    color: $green;
+    cursor: pointer;
+  }
+}
