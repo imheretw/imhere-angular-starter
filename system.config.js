@@ -84,6 +84,7 @@ System.config({
     "g00fy-/angular-datepicker": "github:g00fy-/angular-datepicker@2.0.3",
     "jquery": "npm:jquery@2.2.4",
     "json": "github:systemjs/plugin-json@0.1.2",
+    "lodash": "npm:lodash@4.17.4",
     "moment": "npm:moment@2.16.0",
     "ng-dialog": "npm:ng-dialog@0.6.4",
     "ng-lodash": "npm:ng-lodash@0.2.3",
