@@ -1,4 +1,4 @@
-export default class AdminProfileConsultantsController {
+export default class ProfileController {
   /*@ngInject*/
   constructor($state) {
     this.$state = $state;

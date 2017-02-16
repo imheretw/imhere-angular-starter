@@ -1,5 +1,8 @@
 import angular from 'angular';
 import { modalModule } from 'common/core';
+import consultantsModule from './consultants/consultants';
+import widgetsModule from './widget/widget';
+import profileModule from './profile/profile';
 import AdminController from './AdminController';
 import adminDashboardLayoutTemplate from 'common/layouts/admin/admin-dashboard-layout.tpl';
 import adminJSTemplate from 'common/layouts/admin/admin-assets-css-development.tpl';
@@ -7,14 +10,9 @@ import adminCSSTemplate from 'common/layouts/admin/admin-assets-js-development.t
 import adminTemplate from './admin.tpl';
 import adminChatLayoutTemplate from './chat/chat.tpl';
 import adminSettingLayoutTemplate from './setting/setting.tpl';
-import adminProfileLayoutTemplate from './profile/profile.tpl';
 import adminPanels from 'common/components/panels/admin/admin';
 import commonPanels from 'common/components/panels/common/common';
-import adminSettingWidgetTemplate from './setting/widget/widget.tpl';
-import adminSettingConsultantsTemplate from './setting/consultants/consultants.tpl';
 import AdminSettingController from './setting/SettingController';
-import AdminSettingConsultantsController from './setting/consultants/ConsultantsController';
-import AdminSettingWidgetController from './setting/widget/WidgetController';
 import AdminChatController from './chat/ChatController';
 import dropdownPanel from 'common/directives/dropdownPanel';
 /* @ngInject */
@@ -61,43 +59,15 @@ function ConfigureModule($stateProvider) {
         },
       },
       reloadOnSearch: false,
-    })
-    .state('admin.setting.widget', {
-      url: '/widget',
-      views: {
-        'setting-content': {
-          controller: AdminSettingWidgetController,
-          controllerAs: 'vm',
-          templateUrl: adminSettingWidgetTemplate.name,
-        },
-      },
-      reloadOnSearch: false,
-    })
-    .state('admin.setting.consultants', {
-      url: '/consultants',
-      views: {
-        'setting-content': {
-          controller: AdminSettingConsultantsController,
-          controllerAs: 'vm',
-          templateUrl: adminSettingConsultantsTemplate.name,
-        },
-      },
-      reloadOnSearch: false,
-    })
-    .state('admin.profile', {
-      url: '/profile',
-      views: {
-        'content': {
-          templateUrl: adminProfileLayoutTemplate.name,
-        },
-      },
-      reloadOnSearch: false,
     });
 }
 
 export default angular
   .module('admin', [
       modalModule.name,
+      consultantsModule.name,
+      widgetsModule.name,
+      profileModule.name,
       adminDashboardLayoutTemplate.name,
       adminJSTemplate.name,
       adminCSSTemplate.name,
@@ -105,9 +75,6 @@ export default angular
       adminPanels.name,
       adminChatLayoutTemplate.name,
       adminSettingLayoutTemplate.name,
-      adminProfileLayoutTemplate.name,
-      adminSettingWidgetTemplate.name,
-      adminSettingConsultantsTemplate.name,
       commonPanels.name,
       dropdownPanel.name,
   ])
