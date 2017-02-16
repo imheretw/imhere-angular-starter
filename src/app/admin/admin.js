@@ -14,6 +14,8 @@ import adminSettingWidgetTemplate from './setting/widget/widget.tpl';
 import adminSettingConsultantsTemplate from './setting/consultants/consultants.tpl';
 import AdminSettingController from './setting/SettingController';
 import AdminSettingConsultantsController from './setting/consultants/ConsultantsController';
+import AdminSettingWidgetController from './setting/widget/WidgetController';
+import AdminChatController from './chat/ChatController';
 import dropdownPanel from 'common/directives/dropdownPanel';
 /* @ngInject */
 function ConfigureModule($stateProvider) {
@@ -42,6 +44,8 @@ function ConfigureModule($stateProvider) {
       url: '/chat',
       views: {
         'content': {
+          controller: AdminChatController,
+          controllerAs: 'vm',
           templateUrl: adminChatLayoutTemplate.name,
         },
       },
@@ -62,6 +66,8 @@ function ConfigureModule($stateProvider) {
       url: '/widget',
       views: {
         'setting-content': {
+          controller: AdminSettingWidgetController,
+          controllerAs: 'vm',
           templateUrl: adminSettingWidgetTemplate.name,
         },
       },
