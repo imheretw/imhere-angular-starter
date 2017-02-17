@@ -1,0 +1,22 @@
+<dropdown-panel panel-title="'ADD CONSULTANTS'">
+  <add-consultant after-add-consultant="vm.addConsultant(user)"></add-consultant>
+</dropdown-panel>
+
+<dropdown-panel panel-title="'CONSULTANTS'">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="consultant in vm.consultants">
+        <td><img src="{{consultant.img}}" width="30"class="img-circle"></td>
+        <td>{{consultant.name}}</td>
+        <td>{{consultant.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+</dropdown-panel>

@@ -1,0 +1,128 @@
+.pannel-page-header{
+  $main-color:rgb(83, 89, 116);
+  $strong-color:#2A3F54;
+  $border-color: rgb(200, 200, 200);
+  $height:50px;
+  $green: rgb(0, 157, 147);
+  width: 100%;
+  margin: 0;
+  margin-bottom: 20px;
+  height: $height;
+  border-bottom: 1px $border-color solid;
+  padding-left: 30px;
+  &__header{
+    display: inline-block;
+    width: 20%;
+  }
+  &__title{
+    font-size: 1.8em;
+    color: $main-color;
+    height: $height;
+  }
+  &__main{
+    display: inline-block;
+    width:75%;
+  }
+  &__tab{
+    height: $height;
+    & > li > a {
+      cursor: pointer;
+      color:$strong-color;
+      display: block;
+      height: $height;
+      padding:10px;
+      line-height: $height;
+      &:hover, &:focus {
+        text-decoration: none;
+        color:$green;
+      }
+    }
+
+    & > li.active > a {
+      border-bottom: 3px $green solid;
+      position: relative;
+      &:after{
+        content: '';
+        display: block;
+        background: $green;
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        position: absolute;
+        bottom: -5px;
+        left: 48%;
+      }
+    }
+  }
+  &__list{
+    & > li > a {
+      height: $height;
+      color: $main-color;
+      cursor: pointer;
+      &:hover{
+        color: $green;
+        text-decoration: none;
+      }
+    }
+    &--icon{
+      width: 5px;
+      height: 5px;
+      background: $green;
+      border-radius: 100%;
+      display: inline-block;
+      position: relative;
+      top: -2.5px;
+    }
+    &--dropdown{
+      position: relative;
+      list-style: none;
+      &.active{
+        .pannel-page-header__list--dropdown-item{
+          display: block;
+        }
+      }
+    }
+    &--dropdown-item{
+      display: none;
+      list-style: none;
+      background: #fff;
+      position: absolute;
+      top:120%;
+      right: 0;
+      width: 200px;
+      border: 1px $border-color solid;
+      padding-left: 0 !important;
+      text-align: left;
+      & > li > a {
+        height: 40px;
+        display: block;
+        line-height: 40px;
+        padding-left: 30px;
+        position: relative;
+        color: $main-color;
+        &:hover{
+          text-decoration: none;
+          background: rgba(237, 237, 237, 0.61);
+        }
+        &:before{
+          content: '';
+          display: block;
+          width: 1px;
+          height: 100%;
+          background: rgba(221, 221, 221, 0.74);
+          position: absolute;
+          left: 15px;
+        }
+      }
+      &-icon{
+        width: 5px;
+        height: 5px;
+        background: $green;
+        position: absolute;
+        left: 12.5px;
+        top:16px;
+        border-radius: 100%;
+      }
+    }
+  }
+}

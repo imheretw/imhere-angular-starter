@@ -1,6 +1,6 @@
 .admin-header{
   $main-color:rgb(216, 220, 230);
-  $border-color: rgb(200, 200, 200) ;
+  $border-color: rgb(200, 200, 200);
   $height: 60px;
   background: $main-color;
   height: $height;
@@ -59,6 +59,7 @@
         background: rgb(245, 245, 245);
         padding: 0 !important;
         width: 250px;
+        z-index: 999;
 
         & > li > a {
           position: relative;
