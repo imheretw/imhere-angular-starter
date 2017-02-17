@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-export default class AdminSettingConsultantsController {
+export default class ConsultantsController {
   /*@ngInject*/
   constructor($state) {
     this.$state = $state;

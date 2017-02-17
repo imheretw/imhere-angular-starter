@@ -1,5 +1,5 @@
 
-export default class AdminWidgetConsultantsController {
+export default class WidgetController {
   /*@ngInject*/
   constructor($state) {
     this.$state = $state;

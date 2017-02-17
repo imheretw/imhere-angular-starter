@@ -1,18 +1,18 @@
 import angular from 'angular';
 import commonPanels from 'common/components/panels/common/common';
-import consultantsTemplate from './consultants.tpl';
-import ConsultantsController from './ConsultantsController';
+import chatTemplate from './chat.tpl';
+import ChatController from './ChatController';
 import dropdownPanel from 'common/directives/dropdownPanel';
 /* @ngInject */
 function ConfigureModule($stateProvider) {
   $stateProvider
-    .state('admin.setting.consultants', {
-      url: '/consultants',
+    .state('admin.chat', {
+      url: '/chat',
       views: {
-        'setting-content': {
-          controller: ConsultantsController,
+        'content': {
+          controller: ChatController,
           controllerAs: 'vm',
-          templateUrl: consultantsTemplate.name,
+          templateUrl: chatTemplate.name,
         },
       },
       reloadOnSearch: false,
@@ -20,8 +20,8 @@ function ConfigureModule($stateProvider) {
 }
 
 export default angular
-  .module('admin.consultants', [
-      consultantsTemplate.name,
+  .module('admin.chat', [
+      chatTemplate.name,
       commonPanels.name,
       dropdownPanel.name,
   ])

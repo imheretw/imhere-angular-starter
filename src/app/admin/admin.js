@@ -3,17 +3,16 @@ import { modalModule } from 'common/core';
 import consultantsModule from './consultants/consultants';
 import widgetsModule from './widget/widget';
 import profileModule from './profile/profile';
+import chatModule from './chat/chat';
 import AdminController from './AdminController';
 import adminDashboardLayoutTemplate from 'common/layouts/admin/admin-dashboard-layout.tpl';
 import adminJSTemplate from 'common/layouts/admin/admin-assets-css-development.tpl';
 import adminCSSTemplate from 'common/layouts/admin/admin-assets-js-development.tpl';
 import adminTemplate from './admin.tpl';
-import adminChatLayoutTemplate from './chat/chat.tpl';
 import adminSettingLayoutTemplate from './setting/setting.tpl';
 import adminPanels from 'common/components/panels/admin/admin';
 import commonPanels from 'common/components/panels/common/common';
 import AdminSettingController from './setting/SettingController';
-import AdminChatController from './chat/ChatController';
 import dropdownPanel from 'common/directives/dropdownPanel';
 /* @ngInject */
 function ConfigureModule($stateProvider) {
@@ -38,17 +37,6 @@ function ConfigureModule($stateProvider) {
       },
       reloadOnSearch: false,
     })
-    .state('admin.chat', {
-      url: '/chat',
-      views: {
-        'content': {
-          controller: AdminChatController,
-          controllerAs: 'vm',
-          templateUrl: adminChatLayoutTemplate.name,
-        },
-      },
-      reloadOnSearch: false,
-    })
     .state('admin.setting', {
       url: '/setting',
       views: {
@@ -68,12 +56,12 @@ export default angular
       consultantsModule.name,
       widgetsModule.name,
       profileModule.name,
+      chatModule.name,
       adminDashboardLayoutTemplate.name,
       adminJSTemplate.name,
       adminCSSTemplate.name,
       adminTemplate.name,
       adminPanels.name,
-      adminChatLayoutTemplate.name,
       adminSettingLayoutTemplate.name,
       commonPanels.name,
       dropdownPanel.name,
