@@ -20,7 +20,7 @@ function ConfigureModule($stateProvider) {
 }
 
 export default angular
-  .module('admin.consultants', [
+  .module('admin.setting.consultants', [
       consultantsTemplate.name,
       commonPanels.name,
       dropdownPanel.name,

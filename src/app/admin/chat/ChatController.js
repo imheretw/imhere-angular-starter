@@ -1,4 +1,4 @@
-export default class AdminChatController {
+export default class ChatController {
   /*@ngInject*/
   constructor($state) {
     this.$state = $state;
