@@ -6,9 +6,8 @@ import profileModule from './profile/profile';
 import chatModule from './chat/chat';
 import settingModule from './setting/setting';
 import AdminController from './AdminController';
-import adminDashboardLayoutTemplate from 'common/layouts/admin/admin-dashboard-layout.tpl';
-import adminJSTemplate from 'common/layouts/admin/admin-assets-css-development.tpl';
-import adminCSSTemplate from 'common/layouts/admin/admin-assets-js-development.tpl';
+import adminLayoutModule, { dashboard, js, css } from 'common/layouts/admin/index';
+
 import adminTemplate from './admin.tpl';
 import adminPanels from 'common/components/panels/admin/admin';
 /* @ngInject */
@@ -18,7 +17,7 @@ function ConfigureModule($stateProvider) {
       url: '/admin',
       views: {
         '': {
-          templateUrl: adminDashboardLayoutTemplate.name,
+          templateUrl: dashboard.name,
         },
         '@admin': {
           controller: AdminController,
@@ -26,10 +25,10 @@ function ConfigureModule($stateProvider) {
           templateUrl: adminTemplate.name,
         },
         'assets-css@admin': {
-          templateUrl: adminCSSTemplate.name,
+          templateUrl: css.name,
         },
         'assets-js@admin': {
-          templateUrl: adminJSTemplate.name,
+          templateUrl: js.name,
         },
       },
       reloadOnSearch: false,
@@ -44,9 +43,7 @@ export default angular
       profileModule.name,
       chatModule.name,
       settingModule.name,
-      adminDashboardLayoutTemplate.name,
-      adminJSTemplate.name,
-      adminCSSTemplate.name,
+      adminLayoutModule.name,
       adminTemplate.name,
       adminPanels.name,
   ])
