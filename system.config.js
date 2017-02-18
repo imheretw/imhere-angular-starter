@@ -73,6 +73,7 @@ System.config({
     "angular-messages": "npm:angular-messages@1.5.8",
     "angular-mocks": "github:angular/bower-angular-mocks@1.5.5",
     "angular-moment": "npm:angular-moment@1.0.0",
+    "angular-resource": "github:angular/bower-angular-resource@1.6.2",
     "angular-sanitize": "npm:angular-sanitize@1.6.1",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.18",
     "babel": "npm:babel-core@5.8.38",
@@ -99,6 +100,9 @@ System.config({
     },
     "github:angular/bower-angular-mocks@1.5.5": {
       "angular": "github:angular/bower-angular@1.5.5"
+    },
+    "github:angular/bower-angular-resource@1.6.2": {
+      "angular": "github:angular/bower-angular@1.6.2"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
