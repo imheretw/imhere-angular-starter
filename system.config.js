@@ -87,7 +87,6 @@ System.config({
     "lodash": "npm:lodash@4.17.4",
     "moment": "npm:moment@2.16.0",
     "ng-dialog": "npm:ng-dialog@0.6.4",
-    "ng-lodash": "npm:ng-lodash@0.2.3",
     "ngmap": "github:allenhwkim/angularjs-google-maps@1.17.6",
     "ocLazyLoad": "github:ocombe/oclazyload@1.0.9",
     "satellizer": "npm:satellizer@0.15.5",
@@ -453,9 +452,6 @@ System.config({
     },
     "npm:ng-dialog@0.6.4": {
       "http": "github:jspm/nodelibs-http@1.7.1",
-      "process": "github:jspm/nodelibs-process@0.1.2"
-    },
-    "npm:ng-lodash@0.2.3": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:os-browserify@0.1.2": {

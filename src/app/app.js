@@ -11,7 +11,6 @@ import 'angular-moment';
 import 'g00fy-/angular-datepicker';
 import 'ng-dialog';
 import 'moment';
-import 'ng-lodash';
 import 'jquery';
 import 'twbs/bootstrap';
 import 'toastr';
@@ -33,7 +32,7 @@ import ngDatePickerPlain from 'g00fy-/angular-datepicker/dist/angular-datepicker
 
 let app = angular.module('app', [
   'ui.router', 'oc.lazyLoad', 'ngCookies', 'ngDialog', 'ncy-angular-breadcrumb', 'ngMessages',
-  'ngSanitize', 'angularMoment', 'ngLodash', 'datePicker', 'satellizer',
+  'ngSanitize', 'angularMoment', 'datePicker', 'satellizer',
   authModule.name, listenerModule.name,
   apiServiceModule.name, authInterceptor.name, toastrServiceModule.name, dialogService.name,
   dialogModule.name, errorInterceptor.name,

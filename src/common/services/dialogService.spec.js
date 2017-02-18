@@ -1,7 +1,6 @@
 import angular from 'angular';
 import 'angular-mocks';
 import 'angular-cookies';
-import 'ng-lodash';
 import 'ng-dialog';
 import dialogServiceModule from './dialogService';
 
@@ -9,7 +8,6 @@ describe('DialogService', function() {
   beforeEach(() => {
     angular.mock.module('ngCookies');
     angular.mock.module('ngDialog');
-    angular.mock.module('ngLodash');
     angular.mock.module(dialogServiceModule.name);
   });
 

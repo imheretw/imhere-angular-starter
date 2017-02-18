@@ -3,7 +3,6 @@ import 'angular-mocks';
 import 'angular-cookies';
 import 'angular-ui-router';
 import 'angular-moment';
-import 'ng-lodash';
 
 import DialogController from './dialogController';
 import ListenrServiceModule from '../../common/services/listener';
@@ -15,7 +14,6 @@ describe('LoginController', () => {
       angular.mock.module('ngCookies');
       angular.mock.module('ui.router');
       angular.mock.module('angularMoment');
-      angular.mock.module('ngLodash');
       angular.mock.module(ListenrServiceModule.name);
       angular.mock.module(ApiServiceModule.name);
       angular.mock.module(ToastrServiceModule.name);
