@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-class ListenrService {
+class ListenerService {
 
   /*@ngInject*/
   constructor($rootScope) {
@@ -30,4 +30,4 @@ class ListenrService {
 
 export default angular
   .module('listenr', [])
-  .service('ListenrService', ListenrService);
+  .service('ListenerService', ListenerService);

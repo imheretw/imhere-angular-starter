@@ -1,9 +1,9 @@
 export default class DialogController {
 
   /*@ngInject*/
-  constructor($scope, $log, ChildService, ListenrService, ToastrService) {
+  constructor($scope, $log, ChildService, ListenerService, ToastrService) {
     this.childService = ChildService;
-    this.listenrService = ListenrService;
+    this.ListenerService = ListenerService;
     this.toastrService = ToastrService;
     this.$scope = $scope;
     $log.debug(this.$scope.ngDialogData);
@@ -26,8 +26,8 @@ export default class DialogController {
       this.childService.updateChild(this.dialogData.childId, this.$scope.childName).then((value) => {
         if (!value.error) {
           this.$scope.closeThisDialog();
-          this.listenrService.updateMenu();
-          this.listenrService.updateChild();
+          this.ListenerService.updateMenu();
+          this.ListenerService.updateChild();
         }
       }, (error) => {
         this.toastrService.error(`Edit child error, err msg: ${error.error}`);
@@ -40,8 +40,8 @@ export default class DialogController {
   deleteChildConfirm() {
     this.childService.deleteChild(this.dialogData.childId).then((value) => {
       if (!value.error) {
-        this.listenrService.updateMenu();
-        this.listenrService.updateChilds();
+        this.ListenerService.updateMenu();
+        this.ListenerService.updateChilds();
         this.$scope.closeThisDialog();
       } else {
         this.toastrService.error(`Delte child error, err msg: ${value.error}`);
