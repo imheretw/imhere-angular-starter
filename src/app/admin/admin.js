@@ -6,7 +6,7 @@ import profileModule from './profile/profile';
 import chatModule from './chat/chat';
 import settingModule from './setting/setting';
 import AdminController from './AdminController';
-import adminLayoutModule, { dashboard, css } from 'common/layouts/admin/index';
+import adminLayoutModule, { layout, css } from 'common/layouts/admin/index';
 
 import adminTemplate from './admin.tpl';
 import adminPanels from 'common/components/panels/admin/admin';
@@ -17,7 +17,7 @@ function ConfigureModule($stateProvider) {
       url: '/admin',
       views: {
         '': {
-          templateUrl: dashboard.name,
+          templateUrl: layout.name,
         },
         '@admin': {
           controller: AdminController,

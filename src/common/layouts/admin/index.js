@@ -1,10 +1,10 @@
-import dashboard from './admin-dashboard-layout.tpl';
-import css from './admin-assets-css-development.tpl';
+import layout from './admin-layout.tpl';
+import css from './admin-assets-css.tpl';
 
-export { dashboard, css };
+export { layout, css };
 
 export default angular
   .module('layouts.admin', [
-    dashboard.name,
+    layout.name,
     css.name,
   ]);
