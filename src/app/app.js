@@ -40,24 +40,10 @@ let app = angular.module('app', [
 ]);
 
 app.config(routing(app));
-app.config(function($authProvider) {
-    $authProvider.google({
-      responseType: 'token',
-      scope: [
-        'profile',
-        'email',
-        'https://www.googleapis.com/auth/contacts',
-        'https://www.googleapis.com/auth/plus.me',
-        'https://www.google.com/m8/feeds',
-        'https://www.googleapis.com/auth/drive.metadata.readonly',
-        'https://www.googleapis.com/auth/drive.photos.readonly',
-        'https://www.googleapis.com/auth/drive',
-        'https://www.googleapis.com/auth/gmail.modify',
-        'https://picasaweb.google.com/data/',
-      ],
-      clientId: '985015306974-74hsqfn0rh5uhlpovaiqaknbehd23jm9.apps.googleusercontent.com',
-    });
-  });
+
+app.config(function(RestangularProvider) {
+  RestangularProvider.setBaseUrl('/api');
+});
 
 app.config(['$urlRouterProvider', '$locationProvider', '$compileProvider', '$logProvider', '$httpProvider',
   '$ocLazyLoadProvider',

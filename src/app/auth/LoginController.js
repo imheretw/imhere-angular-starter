@@ -13,13 +13,15 @@ export default class LoginController {
   login() {
     if (this.validatation(this.email, this.password)) {
       this.authService.login(this.email, this.password)
-        .then(() => {
-          this.toastrService.success(`Login success, will redirect you to dashboard page.`);
-          this.$state.go('admin');
-        })
-        .catch((response) => {
-          this.toastrService.error(`Unable to login, err msg: ${response.data.error}`);
-        });
+        .then(
+          (user) => {
+            this.toastrService.success(`Login success, will redirect you to dashboard page.`);
+            this.$state.go('admin');
+          },
+          (error) => {
+            this.toastrService.error(`Unable to login, err msg: ${error}`);
+          }
+        );
     }
   }
 
