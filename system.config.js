@@ -26,16 +26,16 @@ System.config({
   separateCSS: false,
 
   meta: {
-    "github:angular/bower-angular@1.5.5/angular": {
+    "github:angular/bower-angular@1.6.2/angular": {
       "format": "global",
       "exports": "angular"
     },
-    "github:angular/bower-angular-mocks@1.5.5/angular-mocks": {
+    "github:angular/bower-angular-mocks@1.6.2/angular-mocks": {
       "deps": [
         "angular"
       ]
     },
-    "github:angular-ui/ui-router@0.2.18/angular-ui-router": {
+    "github:angular-ui/ui-router@0.4.2/angular-ui-router": {
       "deps": [
         "angular"
       ]
@@ -67,15 +67,15 @@ System.config({
 
   map: {
     "algoliasearch": "npm:algoliasearch@3.20.4",
-    "angular": "github:angular/bower-angular@1.5.5",
+    "angular": "github:angular/bower-angular@1.6.2",
     "angular-breadcrumb": "npm:angular-breadcrumb@0.4.1",
-    "angular-cookies": "npm:angular-cookies@1.5.8",
-    "angular-messages": "npm:angular-messages@1.5.8",
-    "angular-mocks": "github:angular/bower-angular-mocks@1.5.5",
+    "angular-cookies": "npm:angular-cookies@1.6.2",
+    "angular-messages": "npm:angular-messages@1.6.2",
+    "angular-mocks": "github:angular/bower-angular-mocks@1.6.2",
     "angular-moment": "npm:angular-moment@1.0.0",
     "angular-resource": "github:angular/bower-angular-resource@1.6.2",
-    "angular-sanitize": "npm:angular-sanitize@1.6.1",
-    "angular-ui-router": "github:angular-ui/ui-router@0.2.18",
+    "angular-sanitize": "npm:angular-sanitize@1.6.2",
+    "angular-ui-router": "github:angular-ui/ui-router@0.4.2",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "bootstrap": "npm:bootstrap@3.3.7",
@@ -95,11 +95,11 @@ System.config({
     "toastr": "npm:toastr@2.1.2",
     "twbs/bootstrap": "github:twbs/bootstrap@3.3.7",
     "ui-router-extras": "npm:ui-router-extras@0.0.14",
-    "github:angular-ui/ui-router@0.2.18": {
-      "angular": "github:angular/bower-angular@1.5.5"
+    "github:angular-ui/ui-router@0.4.2": {
+      "angular": "github:angular/bower-angular@1.6.2"
     },
-    "github:angular/bower-angular-mocks@1.5.5": {
-      "angular": "github:angular/bower-angular@1.5.5"
+    "github:angular/bower-angular-mocks@1.6.2": {
+      "angular": "github:angular/bower-angular@1.6.2"
     },
     "github:angular/bower-angular-resource@1.6.2": {
       "angular": "github:angular/bower-angular@1.6.2"
