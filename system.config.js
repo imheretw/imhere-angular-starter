@@ -90,6 +90,7 @@ System.config({
     "ng-dialog": "npm:ng-dialog@0.6.4",
     "ngmap": "github:allenhwkim/angularjs-google-maps@1.17.6",
     "ocLazyLoad": "github:ocombe/oclazyload@1.0.9",
+    "restangular": "npm:restangular@1.6.1",
     "satellizer": "npm:satellizer@0.15.5",
     "systemjs/plugin-css": "github:systemjs/plugin-css@0.1.21",
     "toastr": "npm:toastr@2.1.2",
@@ -535,6 +536,11 @@ System.config({
     },
     "npm:reduce@1.0.1": {
       "object-keys": "npm:object-keys@1.0.11"
+    },
+    "npm:restangular@1.6.1": {
+      "angular": "npm:angular@1.6.2",
+      "lodash": "npm:lodash@4.17.4",
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:ripemd160@1.0.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",

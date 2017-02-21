@@ -1,13 +1,14 @@
 import 'babel/external-helpers';
 
 import angular from 'angular';
-import 'angular-ui-router';
-import { apiServiceModule, toastrServiceModule } from 'common/core';
 import 'ocLazyLoad';
+import 'angular-ui-router';
 import 'angular-breadcrumb';
 import 'angular-cookies';
 import 'angular-messages';
 import 'angular-moment';
+import 'angular-sanitize';
+import 'restangular';
 import 'g00fy-/angular-datepicker';
 import 'ng-dialog';
 import 'moment';
@@ -15,7 +16,7 @@ import 'jquery';
 import 'twbs/bootstrap';
 import 'toastr';
 import 'satellizer';
-import 'angular-sanitize';
+import { apiServiceModule, toastrServiceModule } from 'common/core';
 import routing from 'common/utils/routing';
 import authModule from 'common/services/auth';
 import dialogModule from 'common/services/dialogService';
@@ -32,7 +33,7 @@ import ngDatePickerPlain from 'g00fy-/angular-datepicker/dist/angular-datepicker
 
 let app = angular.module('app', [
   'ui.router', 'oc.lazyLoad', 'ngCookies', 'ngDialog', 'ncy-angular-breadcrumb', 'ngMessages',
-  'ngSanitize', 'angularMoment', 'datePicker', 'satellizer',
+  'ngSanitize', 'angularMoment', 'datePicker', 'satellizer', 'restangular',
   authModule.name, listenerModule.name,
   apiServiceModule.name, authInterceptor.name, toastrServiceModule.name, dialogService.name,
   dialogModule.name, errorInterceptor.name,

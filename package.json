@@ -84,6 +84,7 @@
       "moment": "npm:moment@^2.15.2",
       "ng-dialog": "npm:ng-dialog@^0.6.2",
       "ocLazyLoad": "github:ocombe/oclazyload@1.0.5",
+      "restangular": "npm:restangular@^1.6.1",
       "satellizer": "npm:satellizer@^0.15.5",
       "toastr": "npm:toastr@^2.1.2",
       "twbs/bootstrap": "github:twbs/bootstrap@^3.3.7",
