@@ -8,6 +8,8 @@ function Model(Restangular) {
     return model;
   });
 
+  User.register = (data) => User.post(data);
+
   return User;
 }
 
