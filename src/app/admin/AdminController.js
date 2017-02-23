@@ -5,6 +5,10 @@ export default class AdminController {
     this.$state = $state;
     this.authService = authService;
 
+    this.start();
+  }
+
+  start() {
     if (this.$cookieStore.get('auth_token')) {
       this.isLogin = true;
     }
@@ -57,7 +61,6 @@ export default class AdminController {
     this.user = user;
 
     this.sidbarOpen = true;
-
   }
 
   logout() {
