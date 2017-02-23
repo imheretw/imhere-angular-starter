@@ -27,7 +27,7 @@ class AuthService {
   }
 
   getCurrentUser() {
-    return this.apiService.getCurrentUser().then(response => response.data);
+    return this.User.getCurrentUser();
   }
 
   logout() {

@@ -1,22 +1,15 @@
 export default class AdminController {
   /*@ngInject*/
-  constructor($cookieStore, $state, authService) {
-    this.$cookieStore = $cookieStore;
+  constructor($state, authService, user) {
     this.$state = $state;
     this.authService = authService;
+    this.user = user;
 
     this.start();
   }
 
   start() {
-    if (this.$cookieStore.get('auth_token')) {
-      this.isLogin = true;
-    }
-
-    const user = {
-      name: 'ImHere',
-      img: 'http://i.gbc.tw/2010/zone/lol/champion/120/lulu.png',
-    };
+    this.user.img = 'http://i.gbc.tw/2010/zone/lol/champion/120/lulu.png';
 
     this.headerLinks = [{
       name: 'My Profile',
@@ -31,7 +24,7 @@ export default class AdminController {
 
     this.sideBarData = {
       logo: 'ImHere',
-      user: user,
+      user: this.user,
     };
 
     this.sideBarNav = [{
@@ -57,8 +50,6 @@ export default class AdminController {
         },
       ],
     }];
-
-    this.user = user;
 
     this.sidbarOpen = true;
   }

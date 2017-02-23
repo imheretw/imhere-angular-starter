@@ -18,6 +18,9 @@ function config(RestangularProvider) {
     // POST /users/login
     user.addRestangularMethod('login', 'post', 'login');
 
+    // GET /users/current
+    user.addRestangularMethod('getCurrentUser', 'get', 'current');
+
     return user;
   });
 
@@ -33,7 +36,7 @@ function config(RestangularProvider) {
           extractedData = data.user;
           extractedData.token = data.token;
         } else {
-          extractedData = data.data;
+          extractedData = data;
         }
       }
 

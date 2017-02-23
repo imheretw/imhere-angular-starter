@@ -29,6 +29,10 @@ function ConfigureModule($stateProvider) {
         },
       },
       reloadOnSearch: false,
+      resolve: {
+        /*@ngInject*/
+        user: (authService) => authService.getCurrentUser(),
+      },
     });
 }
 
