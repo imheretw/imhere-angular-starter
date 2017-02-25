@@ -2,6 +2,7 @@ node_modules
 bower_components
 jspm_packages
 
+.env
 .idea
 .DS_STORE
 *.log

@@ -1,16 +1,16 @@
 set :branch, ENV["CI_BRANCH"]
-set :user, :ubuntu
+set :user, ENV["PRODUCTION_USER"]
 
-role :app, %w{www.test.com}
-role :web, %w{www.test.com}
+role :app, ENV['PRODUCTION_HOST']
+role :web, ENV['PRODUCTION_HOST']
 
-set :deploy_to, '/opt/www/imhere-angular-starter'
+set :deploy_to, ENV['PRODUCTION_DEPLOY_TO']
 
 set :ssh_options, {
   user: fetch(:user),
   auth_methods: %w(publickey),
   keys: [
     File.join(ENV['HOME'], '.ssh', 'id_rsa'),
-    File.join(ENV['HOME'], '.ssh', 'production.pem')
+    File.join(ENV['HOME'], '.ssh', ENV['PRODUCTION_PEM'])
   ],
 }

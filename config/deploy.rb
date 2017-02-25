@@ -3,9 +3,9 @@
 lock '3.6.0'
 
 # application settings
-set :application, 'imhere-angular-starter'
-set :repo_url, "git@github.com:imheretw/imhere-angular-starter.git"
-set :deploy_to, '/opt/www/imhere-angular-starter'
+set :application, ENV['APPLICATION']
+set :repo_url, ENV['REPO']
+set :deploy_to, ENV['DEPLOY_TO']
 set :scm, :git
 
 # others settings
@@ -29,7 +29,7 @@ set :nvm_node_path, -> {
 }
 
 # rvm settings
-set :rvm_map_bins, %w{ruby gulp}
+set :rvm_map_bins, %w{ruby gulp compass bundle}
 
 # yarn setting
 set :yarn_flags, '' # default
