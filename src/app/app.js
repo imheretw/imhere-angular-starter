@@ -25,11 +25,12 @@ import authInterceptor from 'common/utils/auth-interceptors';
 import errorInterceptor from 'common/utils/error-interceptors';
 import dialogService from 'common/dialog/dialog';
 
-import toastr from 'toastr/build/toastr.min.css!'; // eslint-disable-line
-import ngDialog from 'ng-dialog/css/ngDialog.css!'; // eslint-disable-line
-import ngDialogThemeDefault from 'ng-dialog/css/ngDialog-theme-default.css!'; // eslint-disable-line
-import ngDialogThemePlain from 'ng-dialog/css/ngDialog-theme-plain.css!'; // eslint-disable-line
-import ngDatePickerPlain from 'g00fy-/angular-datepicker/dist/angular-datepicker.css!'; // eslint-disable-line
+import 'toastr/build/toastr.min.css!';
+import 'ng-dialog/css/ngDialog.css!';
+import 'twbs/bootstrap/css/bootstrap.css!';
+import 'ng-dialog/css/ngDialog-theme-default.css!';
+import 'ng-dialog/css/ngDialog-theme-plain.css!';
+import 'g00fy-/angular-datepicker/dist/angular-datepicker.css!';
 
 let app = angular.module('app', [
   'ui.router', 'oc.lazyLoad', 'ngCookies', 'ngDialog', 'ncy-angular-breadcrumb', 'ngMessages',
