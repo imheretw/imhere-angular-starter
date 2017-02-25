@@ -13,7 +13,7 @@ export default angular.module('AuthInterceptor', [])
 .factory('authInterceptor', authInterceptor);
 
 /*@ngInject*/
-function authInterceptor($q, $cookieStore, $location, $injector) {
+function authInterceptor($q, $cookieStore, $injector) {
   return {
     request: function (config) {
       config.headers = config.headers || {};
@@ -25,11 +25,10 @@ function authInterceptor($q, $cookieStore, $location, $injector) {
     },
 
     responseError: (rejection) => {
-      const googleException = 'www.googleapis.com/oauth2/v1/userinfo';
-      if (rejection.status === 401 && !rejection.config.url.includes(googleException)) {
+      if (rejection.status === 401) {
         $cookieStore.put('auth_token', '');
         $injector.get('ngDialog').closeAll();
-        $location.path('/login');
+        $injector.get('$state').go('login');
 
         return $q.reject(rejection);
       }
