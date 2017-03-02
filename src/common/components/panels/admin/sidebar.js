@@ -42,21 +42,21 @@ const adminSidebar = {
       <ul class="nav nav-pills nav-stacked admin-sidebar__nav" ng-repeat="nav in vm.sideBarNav">
         <li ng-if="!nav.dropdown">
           <a ui-sref="{{nav.state}}" is-active-item ng-show="vm.sideBarOpen">
-            <img width='15' class="admin-sidebar__nav--icon sm" src="{{nav.icon}}">
+            <img width='15' class="admin-sidebar__nav--icon sm" ng-src="{{nav.icon}}">
             {{nav.name}}
           </a>
           <a ui-sref="{{nav.state}}" is-active-item ng-show="!vm.sideBarOpen">
-            <img class="admin-sidebar__nav--icon" src="{{nav.icon}}">
+            <img class="admin-sidebar__nav--icon" ng-src="{{nav.icon}}">
             <p class="admin-sidebar__nav--smname"> {{nav.name}}</p>
           </a>
         </li>
         <li class="dropdown" ng-if="nav.dropdown.length>0">
           <a ui-sref="{{nav.state}}" is-active-item ng-show="vm.sideBarOpen">
-            <img width='15' class="admin-sidebar__nav--icon sm" src="{{nav.icon}}">
+            <img width='15' class="admin-sidebar__nav--icon sm" ng-src="{{nav.icon}}">
             {{nav.name}}<i class="fa fa-chevron-down" aria-hidden="true" ></i>
           </a>
           <a ui-sref="{{nav.state}}" is-active-item ng-show="!vm.sideBarOpen">
-            <img class="admin-sidebar__nav--icon" src="{{nav.icon}}">
+            <img class="admin-sidebar__nav--icon" ng-src="{{nav.icon}}">
             <p class="admin-sidebar__nav--smname"> {{nav.name}}</p>
           </a>
           <ul class="dropdown-item" ng-show="vm.sideBarOpen">
