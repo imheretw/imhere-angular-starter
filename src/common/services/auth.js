@@ -4,9 +4,8 @@ import UserModule from '../models/User';
 class AuthService {
 
   /*@ngInject*/
-  constructor($cookieStore, ApiService, User) {
+  constructor($cookieStore, User) {
     this.$cookieStore = $cookieStore;
-    this.apiService = ApiService;
     this.User = User;
   }
 

@@ -70,6 +70,7 @@
       "angular-breadcrumb": "npm:angular-breadcrumb@^0.4.1",
       "angular-cookies": "npm:angular-cookies@^1.6.2",
       "angular-messages": "npm:angular-messages@^1.6.2",
+      "angular-mocks": "github:angular/bower-angular-mocks@^1.6.2",
       "angular-moment": "npm:angular-moment@^1.0.0",
       "angular-sanitize": "npm:angular-sanitize@^1.6.1",
       "angular-ui-router": "github:angular-ui/ui-router@0.4.2",
@@ -90,7 +91,6 @@
       "ui-router-extras": "npm:ui-router-extras@0.0.14"
     },
     "devDependencies": {
-      "angular-mocks": "github:angular/bower-angular-mocks@1.5.3",
       "babel": "npm:babel-core@5.8.24",
       "babel-runtime": "npm:babel-runtime@5.8.24",
       "core-js": "npm:core-js@1.1.4"

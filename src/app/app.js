@@ -8,6 +8,7 @@ import 'angular-cookies';
 import 'angular-messages';
 import 'angular-moment';
 import 'angular-sanitize';
+import 'angular-mocks';
 import 'restangular';
 import 'g00fy-/angular-datepicker';
 import 'ng-dialog';
@@ -16,7 +17,7 @@ import 'jquery';
 import 'twbs/bootstrap';
 import 'toastr';
 import 'satellizer';
-import { apiServiceModule, toastrServiceModule } from 'common/core';
+import { mocksServiceModule, toastrServiceModule } from 'common/core';
 import routing from 'common/utils/routing';
 import authModule from 'common/services/auth';
 import dialogModule from 'common/services/dialogService';
@@ -33,10 +34,10 @@ import 'ng-dialog/css/ngDialog-theme-plain.css!';
 import 'g00fy-/angular-datepicker/dist/angular-datepicker.css!';
 
 let app = angular.module('app', [
-  'ui.router', 'oc.lazyLoad', 'ngCookies', 'ngDialog', 'ncy-angular-breadcrumb', 'ngMessages',
+  'ui.router', 'oc.lazyLoad', 'ngCookies', 'ngDialog', 'ncy-angular-breadcrumb', 'ngMessages', 'ngMockE2E',
   'ngSanitize', 'angularMoment', 'datePicker', 'satellizer', 'restangular',
   authModule.name, listenerModule.name,
-  apiServiceModule.name, authInterceptor.name, toastrServiceModule.name, dialogService.name,
+  mocksServiceModule.name, authInterceptor.name, toastrServiceModule.name, dialogService.name,
   dialogModule.name, errorInterceptor.name,
 ]);
 

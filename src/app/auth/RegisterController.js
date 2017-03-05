@@ -15,16 +15,15 @@ export default class RegisterController {
 
   register() {
     if (this.validatation(this.form)) {
-      this.authService.register(this.form).then((value)=> {
-        if (!value.data.error) {
+      this.authService.register(this.form).then(
+        (user)=> {
           this.toastrService.success('Sign up success, please login.');
           this.$state.go('login');
-        } else {
-          this.toastrService.error(`Unable to sign up, error msg: ${value.data.error}`);
+        },
+        (error) => {
+          this.toastrService.error(`Unable to sign up, error msg: ${error}`);
         }
-      }, (error) => {
-          this.toastrService.error(`Unable to sign up, error msg: ${error.data.error.code}`);
-        });
+      );
     }
   }
 

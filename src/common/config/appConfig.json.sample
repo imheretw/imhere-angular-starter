@@ -1,8 +1,6 @@
 {
-  "apiService": {
-    "mock": false
-  },
   "api": {
-    "baseUrl": "http://localhost:3000"
+    "baseUrl": "http://localhost:3000",
+    "mock": true
   }
 }
