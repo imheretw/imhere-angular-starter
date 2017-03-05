@@ -5,7 +5,7 @@ import popupModule from 'common/components/popup';
 import timeModule from 'common/components/time';
 import basicLayoutModule, { layout, css } from 'common/layouts/admin/index';
 
-import authModule from 'common/services/auth';
+import authServiceModule from 'common/services/authService';
 
 import RegisterController from './RegisterController';
 import registerTemplate from './register.tpl';
@@ -36,7 +36,7 @@ export default angular
     popupModule.name,
     timeModule.name,
     basicLayoutModule.name,
-    authModule.name,
+    authServiceModule.name,
     registerTemplate.name,
   ])
   .config(ConfigureModule);

@@ -3,7 +3,7 @@ import angular from 'angular';
 import { modalModule } from 'common/core';
 import popupModule from 'common/components/popup';
 import timeModule from 'common/components/time';
-import authModule from 'common/services/auth';
+import authServiceModule from 'common/services/authService';
 import basicLayoutModule, { layout, css } from 'common/layouts/admin/index';
 import LoginController from './LoginController';
 import loginTemplate from './login.tpl';
@@ -33,7 +33,7 @@ export default angular
     modalModule.name,
     popupModule.name,
     timeModule.name,
-    authModule.name,
+    authServiceModule.name,
     loginTemplate.name,
     basicLayoutModule.name,
   ])

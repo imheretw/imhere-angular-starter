@@ -19,9 +19,9 @@ import 'toastr';
 import 'satellizer';
 import { mocksServiceModule, toastrServiceModule } from 'common/core';
 import routing from 'common/utils/routing';
-import authModule from 'common/services/auth';
+import authServiceModule from 'common/services/authService';
 import dialogModule from 'common/services/dialogService';
-import listenerModule from 'common/services/listener';
+import listenerServiceModule from 'common/services/listenerService';
 import authInterceptor from 'common/utils/auth-interceptors';
 import errorInterceptor from 'common/utils/error-interceptors';
 import dialogService from 'common/dialog/dialog';
@@ -36,7 +36,7 @@ import 'g00fy-/angular-datepicker/dist/angular-datepicker.css!';
 let app = angular.module('app', [
   'ui.router', 'oc.lazyLoad', 'ngCookies', 'ngDialog', 'ncy-angular-breadcrumb', 'ngMessages', 'ngMockE2E',
   'ngSanitize', 'angularMoment', 'datePicker', 'satellizer', 'restangular',
-  authModule.name, listenerModule.name,
+  authServiceModule.name, listenerServiceModule.name,
   mocksServiceModule.name, authInterceptor.name, toastrServiceModule.name, dialogService.name,
   dialogModule.name, errorInterceptor.name,
 ]);
