@@ -10,6 +10,9 @@ import adminLayoutModule, { layout, css } from 'common/layouts/admin/index';
 
 import adminTemplate from './admin.tpl';
 import adminPanels from 'common/components/panels/admin/admin';
+
+import './test.scss';
+
 /* @ngInject */
 function ConfigureModule($stateProvider) {
   $stateProvider

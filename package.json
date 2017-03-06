@@ -56,7 +56,7 @@
     "require-dir": "0.3.0",
     "rsvp": "3.2.1",
     "run-sequence": "1.1.5",
-    "systemjs": "0.19.27",
+    "systemjs": "~0.20.0",
     "systemjs-route-bundler": "1.6.0",
     "vinyl-paths": "2.1.0"
   },
@@ -93,7 +93,8 @@
     "devDependencies": {
       "babel": "npm:babel-core@5.8.24",
       "babel-runtime": "npm:babel-runtime@5.8.24",
-      "core-js": "npm:core-js@1.1.4"
+      "core-js": "npm:core-js@1.1.4",
+      "sass": "github:dougludlow/plugin-sass@^0.6.0"
     }
   },
   "scripts": {
