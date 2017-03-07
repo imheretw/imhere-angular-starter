@@ -17,6 +17,10 @@ import 'jquery';
 import 'twbs/bootstrap';
 import 'toastr';
 import 'satellizer';
+import ngRedux from 'ng-redux';
+import thunk from 'redux-thunk';
+import createLogger from 'redux-logger';
+import rootReducer from 'common/redux/reducers/index';
 import { mocksServiceModule, toastrServiceModule } from 'common/core';
 import routing from 'common/utils/routing';
 import authServiceModule from 'common/services/authService';
@@ -35,7 +39,7 @@ import 'g00fy-/angular-datepicker/dist/angular-datepicker.css!';
 
 let app = angular.module('app', [
   'ui.router', 'oc.lazyLoad', 'ngCookies', 'ngDialog', 'ncy-angular-breadcrumb', 'ngMessages', 'ngMockE2E',
-  'ngSanitize', 'angularMoment', 'datePicker', 'satellizer', 'restangular',
+  'ngSanitize', 'angularMoment', 'datePicker', 'satellizer', 'restangular', ngRedux,
   authServiceModule.name, listenerServiceModule.name,
   mocksServiceModule.name, authInterceptor.name, toastrServiceModule.name, dialogService.name,
   dialogModule.name, errorInterceptor.name,
@@ -70,6 +74,10 @@ app.config(['$urlRouterProvider', '$locationProvider', '$compileProvider', '$log
 
 app.config(function ($httpProvider) {
   $httpProvider.interceptors.push('authInterceptor', 'errorInterceptor');
+});
+
+app.config(function ($ngReduxProvider) {
+  $ngReduxProvider.createStoreWith(rootReducer, [thunk, createLogger()]);
 });
 
 app.config(['ngDialogProvider', function (ngDialogProvider) {
