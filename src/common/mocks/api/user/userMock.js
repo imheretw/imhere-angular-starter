@@ -24,7 +24,7 @@ class UserMock extends Mock {
 }
 
 /*@ngInject*/
-function config($injector) {
+function run($injector) {
   const userMock = $injector.get('userMock');
   if (appConfig.api.mock) {
     userMock.start();
@@ -34,4 +34,4 @@ function config($injector) {
 export default angular
   .module('common.mocks.api.userMock', [])
   .service('userMock', UserMock)
-  .run(config);
+  .run(run);

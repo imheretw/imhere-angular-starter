@@ -1,10 +1,15 @@
 import angular from 'angular';
+import BaseModel from './BaseModel';
 
 /*@ngInject*/
 function Model(Restangular) {
   var User = Restangular.service('users');
   Restangular.extendModel('users', function(model) {
     // you can add instance methods here
+
+    // to extend BaseModel
+    BaseModel.call(model);
+
     return model;
   });
 
@@ -18,9 +23,11 @@ function config(RestangularProvider) {
   RestangularProvider.addElementTransformer('users', true, function(user) {
     // custom static login method
     // POST /users/login
+    // User.login(data);
     user.addRestangularMethod('login', 'post', 'login');
 
     // GET /users/current
+    // User.getCurrentUser(data);
     user.addRestangularMethod('getCurrentUser', 'get', 'current');
 
     return user;
