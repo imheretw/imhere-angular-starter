@@ -87,8 +87,12 @@ System.config({
     "lodash": "npm:lodash@4.17.4",
     "moment": "npm:moment@2.16.0",
     "ng-dialog": "npm:ng-dialog@0.6.4",
+    "ng-redux": "npm:ng-redux@3.4.0-beta.1",
     "ngmap": "github:allenhwkim/angularjs-google-maps@1.17.6",
     "ocLazyLoad": "github:ocombe/oclazyload@1.0.9",
+    "redux": "npm:redux@3.6.0",
+    "redux-logger": "npm:redux-logger@2.8.2",
+    "redux-thunk": "npm:redux-thunk@2.2.0",
     "restangular": "npm:restangular@1.6.1",
     "satellizer": "npm:satellizer@0.15.5",
     "systemjs/plugin-css": "github:systemjs/plugin-css@0.1.21",
@@ -447,6 +451,51 @@ System.config({
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
+    "npm:invariant@2.2.2": {
+      "loose-envify": "npm:loose-envify@1.3.1",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:lodash._baseassign@3.2.0": {
+      "lodash._basecopy": "npm:lodash._basecopy@3.0.1",
+      "lodash.keys": "npm:lodash.keys@3.1.2"
+    },
+    "npm:lodash._createassigner@3.1.1": {
+      "lodash._bindcallback": "npm:lodash._bindcallback@3.0.1",
+      "lodash._isiterateecall": "npm:lodash._isiterateecall@3.0.9",
+      "lodash.restparam": "npm:lodash.restparam@3.6.1"
+    },
+    "npm:lodash.assign@3.2.0": {
+      "lodash._baseassign": "npm:lodash._baseassign@3.2.0",
+      "lodash._createassigner": "npm:lodash._createassigner@3.1.1",
+      "lodash.keys": "npm:lodash.keys@3.1.2"
+    },
+    "npm:lodash.curry@4.1.1": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:lodash.isplainobject@3.2.0": {
+      "lodash._basefor": "npm:lodash._basefor@3.0.3",
+      "lodash.isarguments": "npm:lodash.isarguments@3.1.0",
+      "lodash.keysin": "npm:lodash.keysin@3.0.8"
+    },
+    "npm:lodash.keys@3.1.2": {
+      "lodash._getnative": "npm:lodash._getnative@3.9.1",
+      "lodash.isarguments": "npm:lodash.isarguments@3.1.0",
+      "lodash.isarray": "npm:lodash.isarray@3.0.4"
+    },
+    "npm:lodash.keysin@3.0.8": {
+      "lodash.isarguments": "npm:lodash.isarguments@3.1.0",
+      "lodash.isarray": "npm:lodash.isarray@3.0.4"
+    },
+    "npm:lodash.map@4.6.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:loose-envify@1.3.1": {
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "js-tokens": "npm:js-tokens@3.0.1",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "stream": "github:jspm/nodelibs-stream@0.1.0",
+      "util": "github:jspm/nodelibs-util@0.1.0"
+    },
     "npm:miller-rabin@4.0.0": {
       "bn.js": "npm:bn.js@4.11.6",
       "brorand": "npm:brorand@1.0.6"
@@ -454,6 +503,18 @@ System.config({
     "npm:ng-dialog@0.6.4": {
       "http": "github:jspm/nodelibs-http@1.7.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:ng-redux@3.4.0-beta.1": {
+      "invariant": "npm:invariant@2.2.2",
+      "lodash.assign": "npm:lodash.assign@3.2.0",
+      "lodash.curry": "npm:lodash.curry@4.1.1",
+      "lodash.isarray": "npm:lodash.isarray@3.0.4",
+      "lodash.isfunction": "npm:lodash.isfunction@3.0.8",
+      "lodash.isobject": "npm:lodash.isobject@3.0.2",
+      "lodash.isplainobject": "npm:lodash.isplainobject@3.2.0",
+      "lodash.map": "npm:lodash.map@4.6.0",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "redux": "npm:redux@3.6.0"
     },
     "npm:os-browserify@0.1.2": {
       "os": "github:jspm/nodelibs-os@0.1.0"
@@ -532,6 +593,16 @@ System.config({
     },
     "npm:reduce@1.0.1": {
       "object-keys": "npm:object-keys@1.0.11"
+    },
+    "npm:redux-logger@2.8.2": {
+      "deep-diff": "npm:deep-diff@0.3.4"
+    },
+    "npm:redux@3.6.0": {
+      "lodash": "npm:lodash@4.17.4",
+      "lodash-es": "npm:lodash-es@4.17.4",
+      "loose-envify": "npm:loose-envify@1.3.1",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "symbol-observable": "npm:symbol-observable@1.0.4"
     },
     "npm:restangular@1.6.1": {
       "angular": "npm:angular@1.6.2",
