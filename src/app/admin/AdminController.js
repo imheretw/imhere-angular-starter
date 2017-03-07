@@ -1,7 +1,11 @@
+import * as usersActions from 'common/redux/actions/userActions';
+
 export default class AdminController {
   /*@ngInject*/
-  constructor($state, authService, user) {
+  constructor($scope, $state, $ngRedux, authService, user) {
+    this.$scope = $scope;
     this.$state = $state;
+    this.$ngRedux = $ngRedux;
     this.authService = authService;
     this.user = user;
 
@@ -9,7 +13,10 @@ export default class AdminController {
   }
 
   start() {
-    this.user.img = 'http://i.gbc.tw/2010/zone/lol/champion/120/lulu.png';
+    this.unsubscribe = this.$ngRedux.connect(this.mapStateToThis, usersActions)(this);
+    this.setCurrentUser(this.user);
+
+    this.$scope.$on('$destroy', this.unsubscribe);
 
     this.headerLinks = [{
       name: 'My Profile',
@@ -62,6 +69,15 @@ export default class AdminController {
 
   chagneSidebar() {
     this.sidbarOpen = !this.sidbarOpen;
+  }
+
+  // Which part of the Redux global state does our component want to receive?
+  mapStateToThis(state) {
+    const { currentUser } = state;
+
+    return {
+      currentUser,
+    };
   }
 
 }

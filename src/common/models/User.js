@@ -10,6 +10,8 @@ function Model(Restangular) {
     // to extend BaseModel
     BaseModel.call(model);
 
+    model.img = 'http://i.gbc.tw/2010/zone/lol/champion/120/lulu.png';
+
     return model;
   });
 

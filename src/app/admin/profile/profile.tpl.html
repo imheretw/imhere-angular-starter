@@ -1,1 +1,8 @@
 <page-header title="'My Profile'"></page-header>
+
+<div>
+  <p><img ng-src="{{ vm.currentUser.img }}"></p>
+  <p>Name: {{ vm.currentUser.name }}</p>
+  <p>Email: {{ vm.currentUser.email }}</p>
+  <p>Join at: {{ vm.currentUser.createdAt() | date: 'yyyy/MM/dd' }}</p>
+</div>

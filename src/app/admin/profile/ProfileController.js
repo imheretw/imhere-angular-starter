@@ -1,7 +1,19 @@
+import * as usersActions from 'common/redux/actions/userActions';
+
 export default class ProfileController {
   /*@ngInject*/
-  constructor($state) {
+  constructor($scope, $state, $ngRedux) {
+    this.$scope = $scope;
     this.$state = $state;
+    this.$ngRedux = $ngRedux;
+
+    this.start();
+  }
+
+  start() {
+    this.unsubscribe = this.$ngRedux.connect(this.mapStateToThis, usersActions)(this);
+
+    this.$scope.$on('$destroy', this.unsubscribe);
 
     const widgets = [
       {
@@ -16,4 +28,12 @@ export default class ProfileController {
     this.widgets = widgets;
   }
 
+  // Which part of the Redux global state does our component want to receive?
+  mapStateToThis(state) {
+    const { currentUser } = state;
+
+    return {
+      currentUser,
+    };
+  }
 }
