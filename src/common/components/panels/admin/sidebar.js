@@ -8,7 +8,8 @@ class AdminSidebar {
 
 const adminSidebar = {
   bindings: {
-    sideBarData: '<',
+    user: '<',
+    logo: '<',
     sideBarNav: '<',
     onLogOut: '&',
     sideBarOpen: '=',
@@ -21,7 +22,7 @@ const adminSidebar = {
       <div class="admin-sidebar__header">
         <h1 ng-show="vm.sideBarOpen">
           <i class="fa fa-github" aria-hidden="true"></i>
-          {{vm.sideBarData.logo}}
+          {{vm.logo}}
         </h1>
         <h1 ng-show="!vm.sideBarOpen">
           <i class="fa fa-github" aria-hidden="true"></i>
@@ -31,12 +32,12 @@ const adminSidebar = {
       <div class="media admin-sidebar__user" ng-show="vm.sideBarOpen">
         <div class="media-left ">
           <a ui-sref="admin.profile">
-            <div class="admin-sidebar__user--img" style="background-image: url({{vm.sideBarData.user.img}});"></div>
+            <div class="admin-sidebar__user--img" style="background-image: url({{vm.user.img}});"></div>
           </a>
         </div>
         <div class="media-body admin-sidebar__user--body">
           <p>Welcome!</p>
-          <a ui-sref="admin.profile"><h5 class="media-heading">{{vm.sideBarData.user.name}}</h5></a>
+          <a ui-sref="admin.profile"><h5 class="media-heading">{{vm.user.name}}</h5></a>
         </div>
       </div>
       <ul class="nav nav-pills nav-stacked admin-sidebar__nav" ng-repeat="nav in vm.sideBarNav">

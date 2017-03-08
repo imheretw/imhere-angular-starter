@@ -14,6 +14,8 @@ export default class AdminController {
 
     this.$scope.$on('$destroy', this.unsubscribe);
 
+    this.logo = 'ImHere';
+
     this.headerLinks = [{
       name: 'My Profile',
       state: 'admin.profile',
@@ -24,11 +26,6 @@ export default class AdminController {
       name: 'Setting',
       state: 'admin.setting',
     }];
-
-    this.sideBarData = {
-      logo: 'ImHere',
-      user: this.currentUser,
-    };
 
     this.sideBarNav = [{
       name: 'Profile',
