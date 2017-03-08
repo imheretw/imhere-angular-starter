@@ -1,20 +1,16 @@
-import * as usersActions from 'common/redux/actions/userActions';
-
 export default class AdminController {
   /*@ngInject*/
-  constructor($scope, $state, $ngRedux, authService, user) {
+  constructor($scope, $state, $ngRedux, authService) {
     this.$scope = $scope;
     this.$state = $state;
     this.$ngRedux = $ngRedux;
     this.authService = authService;
-    this.user = user;
 
     this.start();
   }
 
   start() {
-    this.unsubscribe = this.$ngRedux.connect(this.mapStateToThis, usersActions)(this);
-    this.setCurrentUser(this.user);
+    this.unsubscribe = this.$ngRedux.connect(this.mapStateToThis)(this);
 
     this.$scope.$on('$destroy', this.unsubscribe);
 
@@ -31,7 +27,7 @@ export default class AdminController {
 
     this.sideBarData = {
       logo: 'ImHere',
-      user: this.user,
+      user: this.currentUser,
     };
 
     this.sideBarNav = [{

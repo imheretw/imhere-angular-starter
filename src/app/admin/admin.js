@@ -10,6 +10,9 @@ import adminLayoutModule, { layout, css } from 'common/layouts/admin/index';
 
 import adminTemplate from './admin.tpl';
 import adminPanels from 'common/components/panels/admin/admin';
+
+import * as usersActions from 'common/redux/ducks/currentUserDuck';
+
 /* @ngInject */
 function ConfigureModule($stateProvider) {
   $stateProvider
@@ -31,7 +34,11 @@ function ConfigureModule($stateProvider) {
       reloadOnSearch: false,
       resolve: {
         /*@ngInject*/
-        user: (authService) => authService.getCurrentUser(),
+        auth: ($ngRedux, authService) => authService.getCurrentUser()
+          .then((user) => {
+            // save currentUser to store
+            $ngRedux.dispatch(usersActions.setCurrentUser(user));
+          }),
       },
     });
 }

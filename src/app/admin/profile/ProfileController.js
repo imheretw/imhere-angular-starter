@@ -1,5 +1,3 @@
-import * as usersActions from 'common/redux/actions/userActions';
-
 export default class ProfileController {
   /*@ngInject*/
   constructor($scope, $state, $ngRedux) {
@@ -11,7 +9,7 @@ export default class ProfileController {
   }
 
   start() {
-    this.unsubscribe = this.$ngRedux.connect(this.mapStateToThis, usersActions)(this);
+    this.unsubscribe = this.$ngRedux.connect(this.mapStateToThis)(this);
 
     this.$scope.$on('$destroy', this.unsubscribe);
 

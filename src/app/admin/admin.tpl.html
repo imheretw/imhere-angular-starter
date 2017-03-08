@@ -3,7 +3,7 @@
     <admin-sidebar side-bar-data="vm.sideBarData" side-bar-nav="vm.sideBarNav" on-log-out="vm.logout()" side-bar-open="vm.sidbarOpen"></admin-sidebar>
   </div>
   <div class="admin-layout__main" ng-class="{false:'open'}[vm.sidbarOpen]">
-    <admin-header link-datas="vm.headerLinks" user="vm.user" on-log-out="vm.logout()" on-click-icon="vm.chagneSidebar()"></admin-header>
+    <admin-header link-datas="vm.headerLinks" user="vm.currentUser" on-log-out="vm.logout()" on-click-icon="vm.chagneSidebar()"></admin-header>
     <div ui-view="content"></div>
   </div>
 </div>
