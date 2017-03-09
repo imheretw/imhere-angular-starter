@@ -1,10 +1,8 @@
 import angular from 'angular';
 
 import { modalModule } from 'common/core';
-import popupModule from 'common/components/popup';
-import timeModule from 'common/components/time';
 import authServiceModule from 'common/services/authService';
-import basicLayoutModule, { layout, css } from 'common/layouts/admin/index';
+import basicLayoutModule, { layout, css } from 'common/layouts/auth/index';
 import LoginController from './LoginController';
 import loginTemplate from './login.tpl';
 
@@ -31,8 +29,6 @@ function ConfigureModule($stateProvider) {
 export default angular
   .module('login', [
     modalModule.name,
-    popupModule.name,
-    timeModule.name,
     authServiceModule.name,
     loginTemplate.name,
     basicLayoutModule.name,
