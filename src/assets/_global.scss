@@ -1,5 +1,9 @@
 $blue-main:#2A3F54;
 
+body{
+  margin: 0;
+}
+
 .scrollow-able-container{
   height: -moz-calc(100vh - 180px);
   height: -webkit-calc(100vh- 180px);
@@ -7,7 +11,6 @@ $blue-main:#2A3F54;
   overflow-y: auto;
   padding-bottom: 30px;
 }
-
 
 .dialog-close {
   font-size: 12px;
