@@ -3,6 +3,7 @@ import commonPanels from 'common/components/panels/common/common';
 import chatTemplate from './chat.tpl';
 import ChatController from './ChatController';
 import dropdownPanel from 'common/directives/dropdownPanel';
+import ballLoader from 'common/directives/ballLoader';
 /* @ngInject */
 function ConfigureModule($stateProvider) {
   $stateProvider
@@ -24,5 +25,6 @@ export default angular
       chatTemplate.name,
       commonPanels.name,
       dropdownPanel.name,
+      ballLoader.name,
   ])
   .config(ConfigureModule);
