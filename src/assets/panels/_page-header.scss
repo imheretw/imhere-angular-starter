@@ -85,7 +85,7 @@
     &--dropdown-item{
       display: none;
       list-style: none;
-      background: #fff;
+      background: rgb(50, 62, 88);
       position: absolute;
       top:120%;
       right: 0;
@@ -97,19 +97,21 @@
         height: 40px;
         display: block;
         line-height: 40px;
+        font-size: 0.8em;
         padding-left: 30px;
         position: relative;
-        color: $main-color;
+        color: #fff;
+        cursor: pointer;
         &:hover{
           text-decoration: none;
-          background: rgba(237, 237, 237, 0.61);
+          background: rgba(34, 39, 51, 0.75);
         }
         &:before{
           content: '';
           display: block;
           width: 1px;
           height: 100%;
-          background: rgba(221, 221, 221, 0.74);
+          background: rgba(76, 83, 106, 1);
           position: absolute;
           left: 15px;
         }
