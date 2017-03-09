@@ -1,16 +1,15 @@
-.login {
-  width: 100%;
+.login-panel {
+  h3 {
+    margin: 0px;
+    padding: 25px;
+  }
 }
 
-.login-form {
-  text-align: center;
-  background-color: #fff;
-  max-width: 480px;
-  margin: 0 auto;
-  border-radius: 10px;
-  padding: 5px 5px;
+.login-form-container {
+  padding: 0px 25px;
+  margin: 25px auto;
 }
 
-.login-image {
-  margin-bottom: 10px;
+.login-form-signup {
+  padding-top: 10px;
 }
