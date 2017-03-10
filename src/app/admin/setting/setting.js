@@ -1,18 +1,16 @@
 import angular from 'angular';
 import commonPanels from 'common/components/panels/common/common';
-import settingTemplate from './setting.tpl';
-import SettingController from './SettingController';
 import dropdownPanel from 'common/directives/dropdownPanel';
+import settingComponent from './components/setting';
+
 /* @ngInject */
-function ConfigureModule($stateProvider) {
+function config($stateProvider) {
   $stateProvider
     .state('admin.setting', {
       url: '/setting',
       views: {
         'content': {
-          controller: SettingController,
-          controllerAs: 'vm',
-          templateUrl: settingTemplate.name,
+          component: 'setting',
         },
       },
       reloadOnSearch: false,
@@ -21,8 +19,8 @@ function ConfigureModule($stateProvider) {
 
 export default angular
   .module('admin.setting', [
-      settingTemplate.name,
+      settingComponent.name,
       commonPanels.name,
       dropdownPanel.name,
   ])
-  .config(ConfigureModule);
+  .config(config);
