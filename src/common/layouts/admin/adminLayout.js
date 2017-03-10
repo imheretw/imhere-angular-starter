@@ -6,7 +6,6 @@ class AdminLayout {
 
 const adminLayout = {
   bindings: {
-    afterAddConsultant: '&',
   },
   transclude: true,
   controller: AdminLayout,

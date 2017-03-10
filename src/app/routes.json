@@ -7,12 +7,12 @@
   "stateName": "login",
   "urlPrefix": "/login",
   "type": "load",
-  "src": "app/auth/login"
+  "src": "app/auth/login/login"
 }, {
   "stateName": "register",
   "urlPrefix": "/register",
   "type": "load",
-  "src": "app/auth/register"
+  "src": "app/auth/register/register"
 }, {
   "stateName": "error",
   "urlPrefix": "/error",
