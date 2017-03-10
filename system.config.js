@@ -98,7 +98,7 @@ System.config({
     "systemjs/plugin-css": "github:systemjs/plugin-css@0.1.21",
     "toastr": "npm:toastr@2.1.2",
     "twbs/bootstrap": "github:twbs/bootstrap@3.3.7",
-    "ui-router-extras": "npm:ui-router-extras@0.0.14",
+    "ui-router-extras": "npm:ui-router-extras@0.1.3",
     "github:angular/bower-angular-mocks@1.6.2": {
       "angular": "github:angular/bower-angular@1.6.2"
     },
@@ -696,7 +696,7 @@ System.config({
       "tls": "github:jspm/nodelibs-tls@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
-    "npm:ui-router-extras@0.0.14": {
+    "npm:ui-router-extras@0.1.3": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:url@0.10.3": {
