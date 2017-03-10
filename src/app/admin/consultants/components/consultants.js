@@ -1,6 +1,8 @@
+import angular from 'angular';
+import 'common/core';
 import _ from 'lodash';
 
-export default class ConsultantsController {
+class ConsultantsController {
   /*@ngInject*/
   constructor($state) {
     this.$state = $state;
@@ -45,5 +47,40 @@ export default class ConsultantsController {
     consultant.img = 'https://avatars0.githubusercontent.com/coomysky';
     this.consultants = [consultant, ...this.consultants];
   }
-
 }
+
+const consultants = {
+  bindings: {
+  },
+  transclude: true,
+  controller: ConsultantsController,
+  controllerAs: 'vm',
+  template: `
+  <dropdown-panel panel-title="'ADD CONSULTANTS'">
+    <add-consultant after-add-consultant="vm.addConsultant(user)"></add-consultant>
+  </dropdown-panel>
+
+  <dropdown-panel panel-title="'CONSULTANTS'">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="consultant in vm.consultants">
+          <td><img ng-src="{{consultant.img}}" width="30"class="img-circle"></td>
+          <td>{{consultant.name}}</td>
+          <td>{{consultant.email}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </dropdown-panel>
+  `,
+};
+
+export default angular
+  .module('app.admin.components.consultants', [])
+  .component('consultants', consultants);
