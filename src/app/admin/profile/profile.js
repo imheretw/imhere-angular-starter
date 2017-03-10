@@ -1,18 +1,16 @@
 import angular from 'angular';
 import commonPanels from 'common/components/panels/common/common';
-import profilTemplate from './profile.tpl';
-import ProfileController from './ProfileController';
 import dropdownPanel from 'common/directives/dropdownPanel';
+import profileComponent from './components/profile';
+
 /* @ngInject */
-function ConfigureModule($stateProvider) {
+function config($stateProvider) {
   $stateProvider
     .state('admin.profile', {
       url: '/profile',
       views: {
         'content': {
-          controller: ProfileController,
-          controllerAs: 'vm',
-          templateUrl: profilTemplate.name,
+          component: 'profile',
         },
       },
       reloadOnSearch: false,
@@ -21,8 +19,8 @@ function ConfigureModule($stateProvider) {
 
 export default angular
   .module('admin.profile', [
-      profilTemplate.name,
+      profileComponent.name,
       commonPanels.name,
       dropdownPanel.name,
   ])
-  .config(ConfigureModule);
+  .config(config);
