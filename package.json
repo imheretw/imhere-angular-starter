@@ -73,7 +73,7 @@
       "angular-mocks": "github:angular/bower-angular-mocks@^1.6.2",
       "angular-moment": "npm:angular-moment@^1.0.0",
       "angular-sanitize": "npm:angular-sanitize@^1.6.1",
-      "angular-ui-router": "github:angular-ui/ui-router@0.4.2",
+      "angular-ui-router": "github:angular-ui/angular-ui-router-bower@1.0.0-rc.1",
       "bootstrap": "npm:bootstrap@^3.3.7",
       "clean-css": "npm:clean-css@3.4.12",
       "css": "github:systemjs/plugin-css@0.1.21",

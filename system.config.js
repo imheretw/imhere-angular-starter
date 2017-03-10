@@ -74,7 +74,7 @@ System.config({
     "angular-mocks": "github:angular/bower-angular-mocks@1.6.2",
     "angular-moment": "npm:angular-moment@1.0.0",
     "angular-sanitize": "npm:angular-sanitize@1.6.2",
-    "angular-ui-router": "github:angular-ui/ui-router@0.4.2",
+    "angular-ui-router": "github:angular-ui/angular-ui-router-bower@1.0.0-rc.1",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "bootstrap": "npm:bootstrap@3.3.7",
@@ -99,9 +99,6 @@ System.config({
     "toastr": "npm:toastr@2.1.2",
     "twbs/bootstrap": "github:twbs/bootstrap@3.3.7",
     "ui-router-extras": "npm:ui-router-extras@0.0.14",
-    "github:angular-ui/ui-router@0.4.2": {
-      "angular": "github:angular/bower-angular@1.6.2"
-    },
     "github:angular/bower-angular-mocks@1.6.2": {
       "angular": "github:angular/bower-angular@1.6.2"
     },
