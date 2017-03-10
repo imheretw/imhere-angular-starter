@@ -1,19 +1,16 @@
 import angular from 'angular';
 import commonPanels from 'common/components/panels/common/common';
-import chatTemplate from './chat.tpl';
-import ChatController from './ChatController';
+import chatComponent from './components/chat';
 import dropdownPanel from 'common/directives/dropdownPanel';
 import ballLoader from 'common/directives/ballLoader';
 /* @ngInject */
-function ConfigureModule($stateProvider) {
+function config($stateProvider) {
   $stateProvider
     .state('admin.chat', {
       url: '/chat',
       views: {
         'content': {
-          controller: ChatController,
-          controllerAs: 'vm',
-          templateUrl: chatTemplate.name,
+          component: 'chat',
         },
       },
       reloadOnSearch: false,
@@ -22,9 +19,9 @@ function ConfigureModule($stateProvider) {
 
 export default angular
   .module('admin.chat', [
-      chatTemplate.name,
-      commonPanels.name,
-      dropdownPanel.name,
-      ballLoader.name,
+    chatComponent.name,
+    commonPanels.name,
+    dropdownPanel.name,
+    ballLoader.name,
   ])
-  .config(ConfigureModule);
+  .config(config);

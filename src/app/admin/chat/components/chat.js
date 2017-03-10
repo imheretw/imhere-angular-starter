@@ -1,4 +1,7 @@
-export default class ChatController {
+import angular from 'angular';
+import 'common/core';
+
+class ChatController {
   /*@ngInject*/
   constructor($state) {
     this.$state = $state;
@@ -66,3 +69,20 @@ export default class ChatController {
   }
 
 }
+
+const chat = {
+  bindings: {
+  },
+  transclude: true,
+  controller: ChatController,
+  controllerAs: 'vm',
+  template: `
+  <page-header title="'Chat'"list="vm.consultantsList"></page-header>
+  <ball-loader></ball-loader>
+  <p class="text-center">Comming Soon</p>
+  `,
+};
+
+export default angular
+  .module('app.admin.components.chat', [])
+  .component('chat', chat);
