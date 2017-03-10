@@ -1,18 +1,16 @@
 import angular from 'angular';
 import commonPanels from 'common/components/panels/common/common';
-import widgetTemplate from './widget.tpl';
-import WidgetController from './WidgetController';
 import dropdownPanel from 'common/directives/dropdownPanel';
+import widgetComponent from './components/widget';
+
 /* @ngInject */
-function ConfigureModule($stateProvider) {
+function config($stateProvider) {
   $stateProvider
     .state('admin.setting.widget', {
       url: '/widget',
       views: {
         'setting-content': {
-          controller: WidgetController,
-          controllerAs: 'vm',
-          templateUrl: widgetTemplate.name,
+          component: 'widget',
         },
       },
       reloadOnSearch: false,
@@ -21,8 +19,8 @@ function ConfigureModule($stateProvider) {
 
 export default angular
   .module('admin.setting.widget', [
-      widgetTemplate.name,
+      widgetComponent.name,
       commonPanels.name,
       dropdownPanel.name,
   ])
-  .config(ConfigureModule);
+  .config(config);
