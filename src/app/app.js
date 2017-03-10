@@ -30,6 +30,12 @@ import authInterceptor from 'common/utils/auth-interceptors';
 import errorInterceptor from 'common/utils/error-interceptors';
 import dialogService from 'common/dialog/dialog';
 
+// temporary solution for ui-sref not working on FutureState
+// https://github.com/christopherthielen/ui-router-extras/issues/367
+// https://github.com/christopherthielen/ui-router-extras/issues/59
+import adminModule from './admin/admin';
+import authModule from './auth/auth';
+
 import 'toastr/build/toastr.min.css!';
 import 'ng-dialog/css/ngDialog.css!';
 import 'twbs/bootstrap/css/bootstrap.css!';
@@ -40,6 +46,7 @@ import 'g00fy-/angular-datepicker/dist/angular-datepicker.css!';
 let app = angular.module('app', [
   'ui.router', 'oc.lazyLoad', 'ngCookies', 'ngDialog', 'ncy-angular-breadcrumb', 'ngMessages', 'ngMockE2E',
   'ngSanitize', 'angularMoment', 'datePicker', 'satellizer', 'restangular', ngRedux,
+  adminModule.name, authModule.name,
   authServiceModule.name, listenerServiceModule.name,
   mocksServiceModule.name, authInterceptor.name, toastrServiceModule.name, dialogService.name,
   dialogModule.name, errorInterceptor.name,

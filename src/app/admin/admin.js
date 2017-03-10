@@ -37,7 +37,7 @@ function ConfigureModule($stateProvider) {
 }
 
 export default angular
-  .module('admin', [
+  .module('app.admin', [
       modalModule.name,
       consultantsModule.name,
       widgetsModule.name,
