@@ -1,4 +1,7 @@
-export default class AdminController {
+import angular from 'angular';
+import 'common/core';
+
+class AdminController {
   /*@ngInject*/
   constructor($scope, $state, $ngRedux, authService) {
     this.$scope = $scope;
@@ -72,5 +75,27 @@ export default class AdminController {
       currentUser,
     };
   }
-
 }
+
+const admin = {
+  bindings: {
+  },
+  transclude: true,
+  controller: AdminController,
+  controllerAs: 'vm',
+  template: `
+  <div calss="admim-layout">
+    <div class="admin-layout__sidbar" ng-class="{false:'sm'}[vm.sidbarOpen]">
+      <admin-sidebar user="vm.currentUser" logo="vm.logo" side-bar-nav="vm.sideBarNav" on-log-out="vm.logout()" side-bar-open="vm.sidbarOpen"></admin-sidebar>
+    </div>
+    <div class="admin-layout__main" ng-class="{false:'open'}[vm.sidbarOpen]">
+      <admin-header link-datas="vm.headerLinks" user="vm.currentUser" on-log-out="vm.logout()" on-click-icon="vm.chagneSidebar()"></admin-header>
+      <div ui-view="content"></div>
+    </div>
+  </div>
+  `,
+};
+
+export default angular
+  .module('app.admin.components.admin', [])
+  .component('admin', admin);

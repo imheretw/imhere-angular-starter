@@ -5,10 +5,8 @@ import widgetsModule from './widget/widget';
 import profileModule from './profile/profile';
 import chatModule from './chat/chat';
 import settingModule from './setting/setting';
-import AdminController from './AdminController';
-import adminLayoutModule, { layout, css } from 'common/layouts/admin/index';
-
-import adminTemplate from './admin.tpl';
+import adminComponentModule from './components/admin';
+import adminLayoutModule from 'common/layouts/admin/adminLayout';
 import adminPanels from 'common/components/panels/admin/admin';
 
 import * as usersActions from 'common/redux/ducks/currentUserDuck';
@@ -20,15 +18,10 @@ function ConfigureModule($stateProvider) {
       url: '/admin',
       views: {
         '': {
-          templateUrl: layout.name,
+          component: 'adminLayout',
         },
         '@admin': {
-          controller: AdminController,
-          controllerAs: 'vm',
-          templateUrl: adminTemplate.name,
-        },
-        'assets-css@admin': {
-          templateUrl: css.name,
+          component: 'admin',
         },
       },
       reloadOnSearch: false,
@@ -52,7 +45,7 @@ export default angular
       chatModule.name,
       settingModule.name,
       adminLayoutModule.name,
-      adminTemplate.name,
+      adminComponentModule.name,
       adminPanels.name,
   ])
   .config(ConfigureModule);
