@@ -45,52 +45,54 @@ const component = {
   controller: LoginController,
   controllerAs: 'vm',
   template: `
-  <div class="col-xs-collapse-right  col-xs-collapse-left  col-sm-4 col-sm-offset-4 col-xs-10 col-xs-offset-1">
-    <div class="imhere-panel-container">
-      <div class="imhere-panel login-panel">
-        <div class="text-center bg-darkblue fg-white">
-          <h3>Sign in to Imhere</h3>
-        </div>
+  <div class="row">
+    <div class="col-xs-collapse-right  col-xs-collapse-left  col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1">
+      <div class="imhere-panel-container">
+        <div class="imhere-panel login-panel">
+          <div class="text-center bg-darkblue fg-white">
+            <h3>Sign in to Imhere</h3>
+          </div>
 
-        <div class="login-form-container">
-          <form autocomplete="off" ng-submit="vm.login()">
-            <div class="form-group">
-              <span class="input-group input-group-lg">
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-envelope"></span>
+          <div class="login-form-container">
+            <form autocomplete="off" ng-submit="vm.login()">
+              <div class="form-group">
+                <span class="input-group input-group-lg">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                  </span>
+                  <input type="email"
+                    class="border-focus-blue form-control"
+                    id="email"
+                    placeholder="Enter email"
+                    ng-model="vm.email"
+                    name="userEmail" required/>
                 </span>
-                <input type="email"
-                  class="border-focus-blue form-control"
-                  id="email"
-                  placeholder="Enter email"
-                  ng-model="vm.email"
-                  name="userEmail" required/>
-              </span>
-            </div>
-            <div class="form-group">
-              <span class="input-group input-group-lg">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                <input type="password"
-                  class="border-focus-blue form-control"
-                  id="password"
-                  placeholder="Password"
-                  ng-model="vm.password"
-                  name="userPassword" required/>
-              </span>
-            </div>
-            <div class="form-group">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-xs-collapse-right col-xs-collapse-left col-xs-6 login-form-signup">
-                    <a ui-sref="register">Create a Imhere account</a>
-                  </div>
-                  <div class="col-xs-collapse-right  col-xs-collapse-left  text-right col-xs-6">
-                    <button type="submit" ng-disabled="loginForm.$invalid" class="btn-blue btn-outlined btn btn-lg btn-default">Login</button>
+              </div>
+              <div class="form-group">
+                <span class="input-group input-group-lg">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                  <input type="password"
+                    class="border-focus-blue form-control"
+                    id="password"
+                    placeholder="Password"
+                    ng-model="vm.password"
+                    name="userPassword" required/>
+                </span>
+              </div>
+              <div class="form-group">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-xs-collapse-right col-xs-collapse-left col-xs-6 login-form-signup">
+                      <a ui-sref="register">Create a Imhere account</a>
+                    </div>
+                    <div class="col-xs-collapse-right  col-xs-collapse-left  text-right col-xs-6">
+                      <button type="submit" ng-disabled="loginForm.$invalid" class="btn-blue btn-outlined btn btn-lg btn-default">Login</button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
