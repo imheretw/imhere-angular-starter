@@ -37,7 +37,6 @@ import authModule from './auth/auth';
 
 import 'toastr/build/toastr.min.css!';
 import 'ng-dialog/css/ngDialog.css!';
-import 'twbs/bootstrap/css/bootstrap.css!';
 import 'ng-dialog/css/ngDialog-theme-default.css!';
 import 'ng-dialog/css/ngDialog-theme-plain.css!';
 import 'g00fy-/angular-datepicker/dist/angular-datepicker.css!';
