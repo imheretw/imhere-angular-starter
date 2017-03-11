@@ -2,20 +2,65 @@ import angular from 'angular';
 import 'common/core';
 import isActiveItem from 'common/directives/isActiveItem';
 
-class AdminSidebar {
+class AdminSidebarController {
   /*@ngInject*/
+  constructor($scope, $state, $ngRedux, authService) {
+    this.$ngRedux = $ngRedux;
+    this.$scope = $scope;
+    this.$state = $state;
+    this.authService = authService;
+
+    this.unsubscribe = this.$ngRedux.connect(this.mapStateToThis)(this);
+
+    this.$scope.$on('$destroy', this.unsubscribe);
+
+    this.logo = 'ImHere';
+    this.sideBarOpen = true;
+    this.sideBarNav = [{
+      name: 'Profile',
+      state: 'admin.profile',
+      icon: 'dist/assets/images/user.svg',
+    }, {
+      name: 'Chat',
+      state: 'admin.chat',
+      icon: 'dist/assets/images/chat.svg',
+    },
+    {
+      name: 'Setting',
+      state: 'admin.setting',
+      icon: 'dist/assets/images/settings.svg',
+      dropdown: [{
+          name: 'Widget',
+          state: 'admin.setting.widget',
+        },
+        {
+          name: 'Consultants',
+          state: 'admin.setting.consultants',
+        },
+      ],
+    }];
+  }
+
+  logout() {
+    if (this.authService.logout()) {
+      this.$state.go('login');
+    }
+  }
+
+  mapStateToThis(state) {
+    const { currentUser } = state;
+
+    return {
+      currentUser,
+    };
+  }
 }
 
 const adminSidebar = {
   bindings: {
-    user: '<',
-    logo: '<',
-    sideBarNav: '<',
-    onLogOut: '&',
-    sideBarOpen: '=',
   },
   transclude: true,
-  controller: AdminSidebar,
+  controller: AdminSidebarController,
   controllerAs: 'vm',
   template: `
     <div class="admin-sidebar">
@@ -32,12 +77,12 @@ const adminSidebar = {
       <div class="media admin-sidebar__user" ng-show="vm.sideBarOpen">
         <div class="media-left ">
           <a ui-sref="admin.profile">
-            <div class="admin-sidebar__user--img" style="background-image: url({{vm.user.img}});"></div>
+            <div class="admin-sidebar__user--img" style="background-image: url({{vm.currentUser.img}});"></div>
           </a>
         </div>
         <div class="media-body admin-sidebar__user--body">
           <p>Welcome!</p>
-          <a ui-sref="admin.profile"><h5 class="media-heading">{{vm.user.name}}</h5></a>
+          <a ui-sref="admin.profile"><h5 class="media-heading">{{vm.currentUser.name}}</h5></a>
         </div>
       </div>
       <ul class="nav nav-pills nav-stacked admin-sidebar__nav" ng-repeat="nav in vm.sideBarNav">
@@ -66,8 +111,8 @@ const adminSidebar = {
         </li>
       </ul>
       <div class="admin-sidebar__footer" ng-class="{false:'sm'}[vm.sideBarOpen]">
-        <a ng-click="vm.onLogOut()" ng-show="vm.sideBarOpen">Log Out  <i class="fa fa-sign-out" aria-hidden="true"></i></a>
-        <a ng-click="vm.onLogOut()" ng-show="!vm.sideBarOpen"><h4><i class="fa fa-sign-out" aria-hidden="true"></i></h4></a>
+        <a ng-click="vm.logout()" ng-show="vm.sideBarOpen">Log Out  <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+        <a ng-click="vm.logout()" ng-show="!vm.sideBarOpen"><h4><i class="fa fa-sign-out" aria-hidden="true"></i></h4></a>
       </div>
     </div>
   `,

@@ -1,13 +1,20 @@
 import angular from 'angular';
+
+// layout
+import adminLayoutModule from 'common/layouts/admin/adminLayout';
+
+// components
+import headerComponentModule from './components/adminHeader';
+import sidebarComponentModule from './components/adminSidebar';
+
+// routes
 import consultantsModule from './consultants/consultants';
+import settingModule from './setting/setting';
 import widgetsModule from './widget/widget';
 import profileModule from './profile/profile';
 import chatModule from './chat/chat';
-import settingModule from './setting/setting';
-import adminComponentModule from './components/admin';
-import adminLayoutModule from 'common/layouts/admin/adminLayout';
-import adminPanels from 'common/components/panels/admin/admin';
 
+// redux actions
 import * as usersActions from 'common/redux/ducks/currentUserDuck';
 
 /* @ngInject */
@@ -19,8 +26,11 @@ function ConfigureModule($stateProvider) {
         '': {
           component: 'adminLayout',
         },
-        '@admin': {
-          component: 'admin',
+        'sidebar@admin': {
+          component: 'adminSidebar',
+        },
+        'header@admin': {
+          component: 'adminHeader',
         },
       },
       reloadOnSearch: false,
@@ -37,13 +47,13 @@ function ConfigureModule($stateProvider) {
 
 export default angular
   .module('app.admin', [
+      adminLayoutModule.name,
+      headerComponentModule.name,
+      sidebarComponentModule.name,
       consultantsModule.name,
       widgetsModule.name,
       profileModule.name,
       chatModule.name,
       settingModule.name,
-      adminLayoutModule.name,
-      adminComponentModule.name,
-      adminPanels.name,
   ])
   .config(ConfigureModule);
