@@ -4,17 +4,20 @@ Seed project for ES6 modules via SystemJS with ES6 syntax using Babel that lazy-
 
 This project does:
 
+- AngularJS 1.6.x + ui-router 1.0.0 +
 - ES6 Syntax via Babel with source maps
 - ES6 Modules via SystemJS
+- Single source of truth for state with ngRedux
 - Karma / Jasmine unit tests with coverage report
 - Lazy-loading modules via routes with AngularJS
 - Easy watch/browser-sync/lint/test/build setup via Gulp
-- LESS CSS Support with source maps and minification
+- SASS CSS Support with source maps and minification
 - AngularJS Template Compilation
 - AngularJS Annotatation
 - Bundle builds via SystemJS Builder
 - Cache Busting with SystemJS
 - Demonstrates on-demand theme loading
+- Component-based design
 
 This seed project demonstrates the [systemjs-route-bundler](https://github.com/swimlane/systemjs-route-bundler) build tool.
 
