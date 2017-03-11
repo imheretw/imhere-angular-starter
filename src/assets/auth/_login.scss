@@ -3,13 +3,35 @@
     margin: 0px;
     padding: 25px;
   }
-}
 
-.login-form-container {
-  padding: 0px 25px;
-  margin: 25px auto;
-}
+  .socal-container {
+    padding: 12.5px;
+  }
 
-.login-form-signup {
-  padding-top: 10px;
+  .facebook-btn-container {
+    margin-top: 12.5px;
+    margin-bottom: 12.5px;
+  }
+
+  .btn.facebook-btn {
+    position: relative;
+    border-radius: 4px;
+    background: #2960B1;
+    text-transform: none;
+    border-color: #2960B1;
+
+    &:hover {
+      background: #1f4a88;
+      border-color: #1f4a88;
+    }
+  }
+
+  .login-form-container {
+    padding: 0px 25px;
+    margin: 25px auto;
+  }
+
+  .login-form-signup {
+    padding-top: 10px;
+  }
 }

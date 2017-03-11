@@ -52,7 +52,7 @@ const component = {
           <div class="text-center bg-darkblue fg-white">
             <h3>Sign in to Imhere</h3>
           </div>
-
+          <social-signin></social-signin>
           <div class="login-form-container">
             <form autocomplete="off" ng-submit="vm.login()">
               <div class="form-group">
@@ -86,7 +86,7 @@ const component = {
                       <a ui-sref="register">Create a Imhere account</a>
                     </div>
                     <div class="col-xs-collapse-right  col-xs-collapse-left  text-right col-xs-6">
-                      <button type="submit" ng-disabled="loginForm.$invalid" class="btn-blue btn-outlined btn btn-lg btn-default">Login</button>
+                      <button type="submit" ng-disabled="loginForm.$invalid" class="btn-blue btn-outlined btn btn-lg btn-default text-uppercase">Login</button>
                     </div>
                   </div>
                 </div>
