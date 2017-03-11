@@ -18,6 +18,7 @@ dependencies:
     - gem install compass
     - yarn install
     - npm rebuild
+    - cp src/common/config/appConfig.json.sample src/common/config/appConfig.json
 test:
   override:
     - bash -c "scripts/eslint-pr.sh"
