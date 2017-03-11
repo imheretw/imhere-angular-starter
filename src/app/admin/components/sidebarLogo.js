@@ -15,12 +15,9 @@ const component = {
   controllerAs: 'vm',
   template: `
   <div class="admin-sidebar__header">
-    <h1 ng-show="vm.fullMode">
+    <h1>
       <i class="fa fa-github" aria-hidden="true"></i>
-      {{ vm.logo }}
-    </h1>
-    <h1 ng-show="!vm.fullMode">
-      <i class="fa fa-github" aria-hidden="true"></i>
+      <span ng-if="vm.fullMode">{{ vm.logo }}</span>
     </h1>
   </div>
   `,
