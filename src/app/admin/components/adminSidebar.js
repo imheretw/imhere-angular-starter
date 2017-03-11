@@ -3,8 +3,10 @@ import angular from 'angular';
 import 'common/core';
 import ReduxController from 'common/controllers/ReduxController';
 import isActiveItem from 'common/directives/isActiveItem';
-import sidebarNavMenuModule from './sidebarNavMenu';
+import sidebarLogoModule from './sidebarLogo';
 import sidebarAvatarModule from './sidebarAvatar';
+import sidebarNavMenuModule from './sidebarNavMenu';
+import sidebarLogoutModule from './sidebarLogout';
 
 class AdminSidebarController extends ReduxController {
   /*@ngInject*/
@@ -66,29 +68,20 @@ const adminSidebar = {
   controllerAs: 'vm',
   template: `
     <div class="admin-sidebar">
-      <div class="admin-sidebar__header">
-        <h1 ng-show="vm.adminLayout.sideBarOpened">
-          <i class="fa fa-github" aria-hidden="true"></i>
-          {{vm.logo}}
-        </h1>
-        <h1 ng-show="!vm.adminLayout.sideBarOpened">
-          <i class="fa fa-github" aria-hidden="true"></i>
-        </h1>
-      </div>
+      <sidebar-logo logo="vm.logo" full-mode="vm.adminLayout.sideBarOpened"></sidebar-logo>
       <sidebar-avatar user="vm.currentUser" full-mode="vm.adminLayout.sideBarOpened"></sidebar-avatar>
       <sidebar-nav-menu items="vm.sideBarNav" full-mode="vm.adminLayout.sideBarOpened"></sidebar-nav-menu>
-      <div class="admin-sidebar__footer" ng-class="{false:'sm'}[vm.adminLayout.sideBarOpened]">
-        <a ng-click="vm.logout()" ng-show="vm.adminLayout.sideBarOpened">Log Out  <i class="fa fa-sign-out" aria-hidden="true"></i></a>
-        <a ng-click="vm.logout()" ng-show="!vm.adminLayout.sideBarOpened"><h4><i class="fa fa-sign-out" aria-hidden="true"></i></h4></a>
-      </div>
+      <sidebar-logout on-logout="vm.logout()" full-mode="vm.adminLayout.sideBarOpened"></sidebar-logout>
     </div>
   `,
 };
 
 export default angular
   .module('common.components.panels.admin.sidebar', [
-    sidebarNavMenuModule.name,
+    sidebarLogoModule.name,
     sidebarAvatarModule.name,
+    sidebarNavMenuModule.name,
+    sidebarLogoutModule.name,
     isActiveItem.name,
   ])
   .component('adminSidebar', adminSidebar);
