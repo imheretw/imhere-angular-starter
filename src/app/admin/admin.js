@@ -1,5 +1,4 @@
 import angular from 'angular';
-import { modalModule } from 'common/core';
 import consultantsModule from './consultants/consultants';
 import widgetsModule from './widget/widget';
 import profileModule from './profile/profile';
@@ -38,7 +37,6 @@ function ConfigureModule($stateProvider) {
 
 export default angular
   .module('app.admin', [
-      modalModule.name,
       consultantsModule.name,
       widgetsModule.name,
       profileModule.name,

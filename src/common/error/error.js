@@ -1,6 +1,5 @@
 import angular from 'angular';
 
-import { modalModule } from 'common/core';
 import adminLayoutModule, { dashboard, css } from 'common/layouts/admin/index';
 
 import ErrorController from 'common/error/ErrorController';
@@ -28,7 +27,6 @@ function ConfigureModule($stateProvider) {
 
 export default angular
   .module('error', [
-    modalModule.name,
     adminLayoutModule.name,
     errorTemplate.name,
   ])

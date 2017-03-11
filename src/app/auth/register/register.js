@@ -1,6 +1,5 @@
 import angular from 'angular';
 
-import { modalModule } from 'common/core';
 import authServiceModule from 'common/services/authService';
 import authLayoutModule from 'common/layouts/auth/authLayout';
 import registerComponent from './components/register';
@@ -22,7 +21,6 @@ function config($stateProvider) {
 
 export default angular
   .module('register', [
-    modalModule.name,
     authServiceModule.name,
     authLayoutModule.name,
     registerComponent.name,
