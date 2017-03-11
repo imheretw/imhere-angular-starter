@@ -1,21 +1,20 @@
 import angular from 'angular';
-import 'common/core';
 
-class ProfileController {
+import 'common/core';
+import ReduxController from 'common/controllers/ReduxController';
+
+class ProfileController extends ReduxController {
   /*@ngInject*/
   constructor($scope, $state, $ngRedux) {
+    super($ngRedux);
+
     this.$scope = $scope;
     this.$state = $state;
-    this.$ngRedux = $ngRedux;
 
     this.start();
   }
 
   start() {
-    this.unsubscribe = this.$ngRedux.connect(this.mapStateToThis)(this);
-
-    this.$scope.$on('$destroy', this.unsubscribe);
-
     const widgets = [
       {
         twilio_sid: '1231313d',

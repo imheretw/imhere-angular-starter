@@ -1,18 +1,9 @@
 import angular from 'angular';
+
 import 'common/core';
+import ReduxController from 'common/controllers/ReduxController';
 
-class AdminLayoutController {
-  /*@ngInject*/
-  constructor($ngRedux) {
-    this.$ngRedux = $ngRedux;
-
-    this.unsubscribe = this.$ngRedux.connect(this.mapStateToThis)(this);
-  }
-
-  onDestroy() {
-    this.unsubscribe();
-  }
-
+class AdminLayoutController extends ReduxController {
   mapStateToThis(state) {
     const { adminLayout } = state;
 

@@ -1,16 +1,17 @@
 import angular from 'angular';
+
 import 'common/core';
+import ReduxController from 'common/controllers/ReduxController';
 import isActiveItem from 'common/directives/isActiveItem';
 
-class AdminSidebarController {
+class AdminSidebarController extends ReduxController {
   /*@ngInject*/
   constructor($scope, $state, $ngRedux, authService) {
-    this.$ngRedux = $ngRedux;
+    super($ngRedux);
+
     this.$scope = $scope;
     this.$state = $state;
     this.authService = authService;
-
-    this.unsubscribe = this.$ngRedux.connect(this.mapStateToThis)(this);
 
     this.logo = 'ImHere';
     this.adminLayout.sideBarOpened = true;

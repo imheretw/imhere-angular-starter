@@ -1,19 +1,19 @@
 import angular from 'angular';
 
 import 'common/core';
+import ReduxController from 'common/controllers/ReduxController';
 import * as layoutActions from 'common/redux/ducks/adminLayoutDuck';
 
-class AdminHeader {
+class AdminHeader extends ReduxController {
   /*@ngInject*/
   constructor($scope, $state, $ngRedux, authService) {
-    this.$ngRedux = $ngRedux;
+    super($ngRedux);
+
     this.$scope = $scope;
     this.$state = $state;
     this.authService = authService;
 
     this.selectedUser = false;
-
-    this.unsubscribe = this.$ngRedux.connect(this.mapStateToThis, layoutActions)(this);
 
     this.headerLinks = [{
       name: 'My Profile',
@@ -50,9 +50,8 @@ class AdminHeader {
     };
   }
 
-  // built-in hook
-  onDestory() {
-    this.unsubscribe();
+  mapDispatchToThis() {
+    return layoutActions;
   }
 }
 
