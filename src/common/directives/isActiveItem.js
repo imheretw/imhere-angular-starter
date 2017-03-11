@@ -2,7 +2,7 @@ import angular from 'angular';
 import 'common/core';
 
 /*@ngInject*/
-function directive($state) {
+function directive($state, $transitions) {
   return {
     restrict: 'AE',
     link: link,
@@ -10,8 +10,10 @@ function directive($state) {
 
   function link(scope, el, attrs) {
     updateClass($state.current, el, attrs);
-    scope.$on('$stateChangeSuccess', function(event, toState) {
-      updateClass(toState, el, attrs);
+    $transitions.onSuccess({}, function(trans) {
+      trans.promise.then((state) => {
+        updateClass(state, el, attrs);
+      });
     });
   }
 }
