@@ -57,8 +57,8 @@ gulp.task('bundle', function () {
     ignoredPaths: [
       'jspm_packages',
       'npm:',
-      'github:'
-    ]
+      'github:',
+    ],
   };
 
   return routeBundler.build(config);

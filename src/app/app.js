@@ -22,7 +22,6 @@ import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 import rootReducer from 'common/redux/reducers/index';
 import { mocksServiceModule, toastrServiceModule } from 'common/core';
-import routing from 'common/utils/routing';
 import authServiceModule from 'common/services/authService';
 import dialogModule from 'common/services/dialogService';
 import listenerServiceModule from 'common/services/listenerService';
@@ -51,8 +50,6 @@ let app = angular.module('app', [
   mocksServiceModule.name, authInterceptor.name, toastrServiceModule.name, dialogService.name,
   dialogModule.name, errorInterceptor.name,
 ]);
-
-app.config(routing(app));
 
 app.config(function(RestangularProvider) {
   RestangularProvider.setBaseUrl('/api');
