@@ -13,7 +13,7 @@ const component = {
         <span>Sign up with Facebook</span>
       </button>
     </div>
-    <div style="margin-top: 25px;">
+    <div class="signup-form-login">
       Already have an account?
       <a ui-sref="login">Login</a>
     </div>

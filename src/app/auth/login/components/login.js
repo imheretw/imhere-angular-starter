@@ -48,12 +48,12 @@ const component = {
   <div class="row">
     <div class="col-xs-collapse-right  col-xs-collapse-left  col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1">
       <div class="imhere-panel-container">
-        <div class="imhere-panel login-panel">
+        <div class="imhere-panel auth-panel">
           <div class="text-center bg-darkblue fg-white">
             <h3>Sign in to Imhere</h3>
           </div>
           <social-signin></social-signin>
-          <div class="login-form-container">
+          <div class="auth-form-container">
             <form autocomplete="off" ng-submit="vm.login()">
               <div class="form-group">
                 <span class="input-group input-group-lg">

@@ -7,19 +7,26 @@
 @import 'bootstrap/panels';
 @import 'bootstrap/colors';
 
+@import 'auth/auth';
 @import 'auth/login';
 @import 'auth/register';
+
 @import 'dialog/dialog';
+
 @import 'layout/admin';
 @import 'layout/auth';
 @import 'layout/header';
-@import 'error/error';
 @import 'layout/admin-dashboard';
+
+@import 'error/error';
+
 @import 'panels/admin-sidebar';
 @import 'panels/admin-header';
 @import 'panels/page-header';
 @import 'panels/add-consultant';
+
 @import 'directives/dropdown-panel';
+
 @import 'animation/ball-loader';
 
 @import './colors';

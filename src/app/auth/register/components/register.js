@@ -50,23 +50,21 @@ const component = {
   <div class="row">
     <div class="col-xs-collapse-right  col-xs-collapse-left  col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1">
       <div class="imhere-panel-container">
-        <div class="imhere-panel login-panel">
+        <div class="imhere-panel auth-panel">
           <div class="text-center bg-darkblue fg-white">
             <h3>Sign up</h3>
           </div>
-          <div class="login-form-container">
+          <div class="auth-form-container">
             <form autocomplete="off" ng-submit="vm.register()">
               <div class="form-group">
                 <span class="input-group input-group-lg">
                   <span class="input-group-addon">
                     <span class="glyphicon glyphicon-user"></span>
                   </span>
-                  <input type="text"
+                  <input
+                    type="text" id="name" name="userName" placeholder="Name"
                     class="border-focus-blue form-control"
-                    id="name"
-                    placeholder="Name"
-                    ng-model="vm.form.name"
-                    name="userName" required/>
+                    ng-model="vm.form.name" required>
                 </span>
               </div>
               <div class="form-group">
@@ -74,30 +72,26 @@ const component = {
                   <span class="input-group-addon">
                     <span class="glyphicon glyphicon-envelope"></span>
                   </span>
-                  <input type="email"
+                  <input
                     class="border-focus-blue form-control"
-                    id="email"
-                    placeholder="support@imhere.com.tw"
-                    ng-model="vm.form.email"
-                    name="userEmail" required/>
+                    type="email" id="email" name="userEmail" placeholder="support@imhere.com.tw"
+                    ng-model="vm.form.email" required>
                 </span>
               </div>
               <div class="form-group">
                 <span class="input-group input-group-lg">
                   <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                  <input type="password"
+                  <input
+                    type="password" id="password" name="userPassword" placeholder="Password"
                     class="border-focus-blue form-control"
-                    id="password"
-                    placeholder="Password"
-                    ng-model="vm.form.password"
-                    name="userPassword" required/>
+                    ng-model="vm.form.password" required/>
                 </span>
               </div>
               <div class="form-group">
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-xs-collapse-right col-xs-collapse-left col-xs-12">
-                      <button type="submit" ng-disabled="loginForm.$invalid"
+                      <button type="submit" ng-disabled="registerForm.$invalid"
                         class="btn-blue btn-block btn-outlined btn btn-lg btn-default text-uppercase">
                         Create Account
                       </button>
