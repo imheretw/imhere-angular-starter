@@ -3,6 +3,7 @@ import angular from 'angular';
 import authServiceModule from 'common/services/authService';
 import authLayoutModule from 'common/layouts/auth/authLayout';
 import registerComponent from './components/register';
+import socialSignupComponent from './components/socialSignup';
 
 /* @ngInject */
 function config($stateProvider) {
@@ -24,5 +25,6 @@ export default angular
     authServiceModule.name,
     authLayoutModule.name,
     registerComponent.name,
+    socialSignupComponent.name,
   ])
   .config(config);

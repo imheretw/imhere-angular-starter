@@ -47,56 +47,70 @@ const component = {
   controller: RegisterController,
   controllerAs: 'vm',
   template: `
-  <div class="register">
-    <form name="registerForm" class="form-validation register-form" ng-submit="vm.register()">
-      <h3>Signup</h3>
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text"
-          class="form-control"
-          id="name"
-          placeholder="Enter Name"
-          ng-model="vm.form.name"
-          name="name"
-          required>
+  <div class="row">
+    <div class="col-xs-collapse-right  col-xs-collapse-left  col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1">
+      <div class="imhere-panel-container">
+        <div class="imhere-panel login-panel">
+          <div class="text-center bg-darkblue fg-white">
+            <h3>Sign up</h3>
+          </div>
+          <div class="login-form-container">
+            <form autocomplete="off" ng-submit="vm.register()">
+              <div class="form-group">
+                <span class="input-group input-group-lg">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                  </span>
+                  <input type="text"
+                    class="border-focus-blue form-control"
+                    id="name"
+                    placeholder="Name"
+                    ng-model="vm.form.name"
+                    name="userName" required/>
+                </span>
+              </div>
+              <div class="form-group">
+                <span class="input-group input-group-lg">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                  </span>
+                  <input type="email"
+                    class="border-focus-blue form-control"
+                    id="email"
+                    placeholder="support@imhere.com.tw"
+                    ng-model="vm.form.email"
+                    name="userEmail" required/>
+                </span>
+              </div>
+              <div class="form-group">
+                <span class="input-group input-group-lg">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                  <input type="password"
+                    class="border-focus-blue form-control"
+                    id="password"
+                    placeholder="Password"
+                    ng-model="vm.form.password"
+                    name="userPassword" required/>
+                </span>
+              </div>
+              <div class="form-group">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-xs-collapse-right col-xs-collapse-left col-xs-12">
+                      <button type="submit" ng-disabled="loginForm.$invalid"
+                        class="btn-blue btn-block btn-outlined btn btn-lg btn-default text-uppercase">
+                        Create Account
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <social-signup></social-signup>
+        </div>
       </div>
-      <span ng-show="registerForm.name.$invalid && registerForm.name.$touched"
-        class="input-group form-validation-msg">
-        Name field is required!
-      </span>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email"
-          class="form-control"
-          id="email"
-          placeholder="Enter Email"
-          ng-model="vm.form.email"
-          name="email"
-          required>
-      </div>
-      <div ng-if="registerForm.email.$touched">
-        <span ng-show="registerForm.email.$error.email"
-          class="form-validation-msg input-group">
-            Email field is not valid!
-        </span>
-        <span ng-show="registerForm.email.$error.required"
-          class="form-validation-msg input-group">
-            Email field is required!
-        </span>
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.form.password" name="password" required>
-      </div>
-      <span ng-show="registerForm.password.$error.required && registerForm.password.$touched"
-        class="form-validation-msg input-group">
-          Password field is required!
-      </span>
-      <div class="form-group">
-        <button type="submit" class="btn btn-block btn-success" ng-disabled="registerForm.$invalid">Singup</button>
-        <a class="btn btn-block btn-info" ui-sref="login">Already have account...</a>
-      </div>
-    </form>
+    </div>
   </div>
   `,
 };
