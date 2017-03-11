@@ -1,3 +1,9 @@
+@mixin generate-button($name, $color, $hover-color) {
+  .btn-#{$name} {
+    @include button-variant($color, $hover-color);
+  }
+}
+
 @mixin generate-bg-colors($name, $color, $hover-color) {
   .bg-#{$name} {
     background: $color !important;
@@ -56,6 +62,7 @@
 }
 
 @mixin generateColors($name, $color, $hover-color) {
+  @include generate-button($name, $color, $hover-color);
   @include generate-bg-colors($name, $color, $hover-color);
   @include generate-fg-colors($name, $color, $hover-color);
   @include generate-border-colors($name, $color, $hover-color);
