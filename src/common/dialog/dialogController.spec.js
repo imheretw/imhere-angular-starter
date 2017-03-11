@@ -5,16 +5,16 @@ import 'angular-ui-router';
 import 'angular-moment';
 
 import DialogController from './dialogController';
-import ListenerServiceModule from '../../common/services/listener';
-import ToastrServiceModule from '../../common/services/toastrService';
+import listenerServiceModule from '../../common/services/listenerService';
+import toastrServiceModule from '../../common/services/toastrService';
 
 describe('DialogController', () => {
     beforeEach(() => {
       angular.mock.module('ngCookies');
       angular.mock.module('ui.router');
       angular.mock.module('angularMoment');
-      angular.mock.module(ListenerServiceModule.name);
-      angular.mock.module(ToastrServiceModule.name);
+      angular.mock.module(listenerServiceModule.name);
+      angular.mock.module(toastrServiceModule.name);
     });
 
     let $scope;

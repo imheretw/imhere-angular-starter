@@ -1,15 +1,15 @@
 import angular from 'angular';
 import DialogController from 'common/dialog/dialogController';
+import _ from 'lodash';
 
 class DialogService {
 
   /*@ngInject*/
-  constructor($log, $cookieStore, $location, ngDialog, lodash) {
+  constructor($log, $cookieStore, $location, ngDialog) {
     this.$log = $log;
     this.$cookieStore = $cookieStore;
     this.ngDialog = ngDialog;
     this.$location = $location;
-    this._ = lodash;
     this.openDialogMap = {
       demoDialog: {},
     };
@@ -24,9 +24,9 @@ class DialogService {
 
   openDialogOptionsHelper(routeDialog, options) {
     let returnOptions = {};
-    const finalOptions = this._.map(this.openDialogMap[routeDialog], val => ({ [val]: options[val] }));
-    this._.forEach(finalOptions, (data) => {
-      this._.forEach(Object.keys(data), (item) => returnOptions[item] = data[item]);
+    const finalOptions = _.map(this.openDialogMap[routeDialog], val => ({ [val]: options[val] }));
+    _.forEach(finalOptions, (data) => {
+      _.forEach(Object.keys(data), (item) => returnOptions[item] = data[item]);
     });
     return returnOptions;
   }
