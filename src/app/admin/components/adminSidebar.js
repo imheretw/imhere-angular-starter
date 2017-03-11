@@ -12,10 +12,8 @@ class AdminSidebarController {
 
     this.unsubscribe = this.$ngRedux.connect(this.mapStateToThis)(this);
 
-    this.$scope.$on('$destroy', this.unsubscribe);
-
     this.logo = 'ImHere';
-    this.sideBarOpen = true;
+    this.adminLayout.sideBarOpened = true;
     this.sideBarNav = [{
       name: 'Profile',
       state: 'admin.profile',
@@ -48,10 +46,11 @@ class AdminSidebarController {
   }
 
   mapStateToThis(state) {
-    const { currentUser } = state;
+    const { currentUser, adminLayout } = state;
 
     return {
       currentUser,
+      adminLayout,
     };
   }
 }
@@ -65,16 +64,16 @@ const adminSidebar = {
   template: `
     <div class="admin-sidebar">
       <div class="admin-sidebar__header">
-        <h1 ng-show="vm.sideBarOpen">
+        <h1 ng-show="vm.adminLayout.sideBarOpened">
           <i class="fa fa-github" aria-hidden="true"></i>
           {{vm.logo}}
         </h1>
-        <h1 ng-show="!vm.sideBarOpen">
+        <h1 ng-show="!vm.adminLayout.sideBarOpened">
           <i class="fa fa-github" aria-hidden="true"></i>
         </h1>
 
       </div>
-      <div class="media admin-sidebar__user" ng-show="vm.sideBarOpen">
+      <div class="media admin-sidebar__user" ng-show="vm.adminLayout.sideBarOpened">
         <div class="media-left ">
           <a ui-sref="admin.profile">
             <div class="admin-sidebar__user--img" style="background-image: url({{vm.currentUser.img}});"></div>
@@ -87,32 +86,32 @@ const adminSidebar = {
       </div>
       <ul class="nav nav-pills nav-stacked admin-sidebar__nav" ng-repeat="nav in vm.sideBarNav">
         <li ng-if="!nav.dropdown">
-          <a ui-sref="{{nav.state}}" is-active-item ng-show="vm.sideBarOpen">
+          <a ui-sref="{{nav.state}}" is-active-item ng-show="vm.adminLayout.sideBarOpened">
             <img width='15' class="admin-sidebar__nav--icon sm" ng-src="{{nav.icon}}">
             {{nav.name}}
           </a>
-          <a ui-sref="{{nav.state}}" is-active-item ng-show="!vm.sideBarOpen">
+          <a ui-sref="{{nav.state}}" is-active-item ng-show="!vm.adminLayout.sideBarOpened">
             <img class="admin-sidebar__nav--icon" ng-src="{{nav.icon}}">
             <p class="admin-sidebar__nav--smname"> {{nav.name}}</p>
           </a>
         </li>
         <li class="dropdown" ng-if="nav.dropdown.length>0">
-          <a ui-sref="{{nav.state}}" is-active-item ng-show="vm.sideBarOpen">
+          <a ui-sref="{{nav.state}}" is-active-item ng-show="vm.adminLayout.sideBarOpened">
             <img width='15' class="admin-sidebar__nav--icon sm" ng-src="{{nav.icon}}">
             {{nav.name}}<i class="fa fa-chevron-down" aria-hidden="true" ></i>
           </a>
-          <a ui-sref="{{nav.state}}" is-active-item ng-show="!vm.sideBarOpen">
+          <a ui-sref="{{nav.state}}" is-active-item ng-show="!vm.adminLayout.sideBarOpened">
             <img class="admin-sidebar__nav--icon" ng-src="{{nav.icon}}">
             <p class="admin-sidebar__nav--smname"> {{nav.name}}</p>
           </a>
-          <ul class="dropdown-item" ng-show="vm.sideBarOpen">
+          <ul class="dropdown-item" ng-show="vm.adminLayout.sideBarOpened">
             <li ng-repeat="dropdown in nav.dropdown"><a ui-sref="{{dropdown.state}}" is-active-item>{{dropdown.name}}</a></li>
           </ul>
         </li>
       </ul>
-      <div class="admin-sidebar__footer" ng-class="{false:'sm'}[vm.sideBarOpen]">
-        <a ng-click="vm.logout()" ng-show="vm.sideBarOpen">Log Out  <i class="fa fa-sign-out" aria-hidden="true"></i></a>
-        <a ng-click="vm.logout()" ng-show="!vm.sideBarOpen"><h4><i class="fa fa-sign-out" aria-hidden="true"></i></h4></a>
+      <div class="admin-sidebar__footer" ng-class="{false:'sm'}[vm.adminLayout.sideBarOpened]">
+        <a ng-click="vm.logout()" ng-show="vm.adminLayout.sideBarOpened">Log Out  <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+        <a ng-click="vm.logout()" ng-show="!vm.adminLayout.sideBarOpened"><h4><i class="fa fa-sign-out" aria-hidden="true"></i></h4></a>
       </div>
     </div>
   `,

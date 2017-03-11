@@ -1,5 +1,7 @@
 import angular from 'angular';
+
 import 'common/core';
+import * as layoutActions from 'common/redux/ducks/adminLayoutDuck';
 
 class AdminHeader {
   /*@ngInject*/
@@ -11,9 +13,7 @@ class AdminHeader {
 
     this.selectedUser = false;
 
-    this.unsubscribe = this.$ngRedux.connect(this.mapStateToThis)(this);
-
-    this.$scope.$on('$destroy', this.unsubscribe);
+    this.unsubscribe = this.$ngRedux.connect(this.mapStateToThis, layoutActions)(this);
 
     this.headerLinks = [{
       name: 'My Profile',
@@ -38,15 +38,21 @@ class AdminHeader {
   }
 
   toggleSidebar() {
-    // TODO call switch sidebar action
+    this.toggleSideBar();
   }
 
   mapStateToThis(state) {
-    const { currentUser } = state;
+    const { currentUser, adminLayout } = state;
 
     return {
       currentUser,
+      adminLayout,
     };
+  }
+
+  // built-in hook
+  onDestory() {
+    this.unsubscribe();
   }
 }
 
