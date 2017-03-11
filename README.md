@@ -1,4 +1,4 @@
-# imhere-angular-starter
+# imhere-angular-starter ![CircleCI Build Status](https://circleci.com/gh/imheretw/imhere-angular-starter.svg?style=shield&circle-token=86e04f476d21b9b2164053879588dc4e676fc520)
 
 Seed project for ES6 modules via SystemJS with ES6 syntax using Babel that lazy-load and bundle build with AngularJS.
 
