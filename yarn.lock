@@ -4314,7 +4314,7 @@ loader-runner@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.3.0.tgz#f482aea82d543e07921700d5a46ef26fdac6b8a2"
 
-loader-utils@^0.2.15, loader-utils@^0.2.16, loader-utils@^0.2.3, loader-utils@^0.2.5, loader-utils@~0.2.2, loader-utils@~0.2.5:
+loader-utils@^0.2.15, loader-utils@^0.2.16, loader-utils@^0.2.3, loader-utils@^0.2.5, loader-utils@^0.2.6, loader-utils@~0.2.2, loader-utils@~0.2.5:
   version "0.2.17"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-0.2.17.tgz#f86e6374d43205a6e6c60e9196f17c0299bfb348"
   dependencies:
@@ -5035,6 +5035,15 @@ negotiator@0.6.1:
 next-tick@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-0.2.2.tgz#75da4a927ee5887e39065880065b7336413b310d"
+
+ng-annotate-loader@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ng-annotate-loader/-/ng-annotate-loader-0.2.0.tgz#d462dc063dd69d2cdd71aa04a46c6ed0a006e523"
+  dependencies:
+    loader-utils "^0.2.6"
+    ng-annotate "1.2.1"
+    normalize-path "^2.0.1"
+    source-map "^0.5.6"
 
 ng-annotate@1.2.1, ng-annotate@^1.2.1:
   version "1.2.1"

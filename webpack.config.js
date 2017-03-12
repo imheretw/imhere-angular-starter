@@ -89,7 +89,8 @@ module.exports = function makeWebpackConfig() {
   config.module = {
     rules: [{
       test: /\.js$/,
-      loader: 'ng-annotate-loader?single_quotes',
+      exclude: /(node_modules|bower_components)/,
+      loaders: ['ng-annotate-loader', 'babel-loader?presets[]=es2015'],
       enforce: 'post'
     }, {
       test: /\.json$/,
@@ -174,6 +175,9 @@ module.exports = function makeWebpackConfig() {
    * List: http://webpack.github.io/docs/list-of-plugins.html
    */
   config.plugins = [
+    new webpack.ProvidePlugin({
+      "window.jQuery": "jquery"
+    }),
     new webpack.LoaderOptionsPlugin({
       test: /\.scss$/i,
       options: {

@@ -96,6 +96,7 @@
     "karma-webpack": "2.0.1",
     "mocha": "^3.2.0",
     "ng-annotate": "1.2.1",
+    "ng-annotate-loader": "^0.2.0",
     "node-libs-browser": "2.0.0",
     "null-loader": "^0.1.1",
     "object.assign": "4.0.3",
