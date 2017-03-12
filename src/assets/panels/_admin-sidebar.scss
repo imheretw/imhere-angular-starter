@@ -43,15 +43,10 @@
   &__nav{
     &--icon {
       width: 20px;
-      margin-top: 10px;
-      &.sm{
-        margin-top: 0px;
-        margin-right: 10px;
+      margin: 10px 0;
+      &.sm {
+        margin: 0 10px 0 0;
       }
-    }
-    &--smname{
-      font-size: 0.8em;
-      margin-top: 2px;
     }
     & > li{
       &.active{

@@ -20,7 +20,7 @@ System.config({
     "npm:*": "jspm_packages/npm/*",
     "jspm_packages/*": "jspm_packages/*",
     "github:twbs/bootstrap@3.3.7": "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js",
-    "npm:jquery@2.2.4": "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"
+    "npm:jquery@2.2.4": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"
   },
   buildCSS: true,
   separateCSS: false,

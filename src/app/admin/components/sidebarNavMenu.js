@@ -2,7 +2,34 @@ import angular from 'angular';
 
 import 'common/core';
 
-class SidebarNavMenuController {
+class Controller {
+  $onInit() {
+    this.menuItems = this.items && this.items.map((item) => new NavMenuItem(item));
+  }
+}
+
+class NavMenuItem {
+  constructor(item) {
+    this.name = item.name;
+    this.state = item.state;
+    this.icon = item.icon;
+    this.dropdown = item.dropdown;
+
+    if (this.hasDropdown()) {
+      this.dropdownItems = this.dropdown.map((item) => new NavMenuDropdownItem(item));
+    }
+  }
+
+  hasDropdown() {
+    return this.dropdown && this.dropdown.length;
+  }
+}
+
+class NavMenuDropdownItem {
+  constructor(item) {
+    this.name = item.name;
+    this.state = item.state;
+  }
 }
 
 const component = {
@@ -11,31 +38,23 @@ const component = {
     'items': '<',
   },
   transclude: true,
-  controller: SidebarNavMenuController,
+  controller: Controller,
   controllerAs: 'vm',
   template: `
-  <ul class="nav nav-pills nav-stacked admin-sidebar__nav" ng-repeat="nav in vm.items">
-    <li ng-if="!nav.dropdown">
-      <a ui-sref="{{nav.state}}" is-active-item ng-show="vm.fullMode">
-        <img width='15' class="admin-sidebar__nav--icon sm" ng-src="{{nav.icon}}">
-        {{nav.name}}
+  <ul class="nav nav-pills nav-stacked admin-sidebar__nav" ng-repeat="menuItem in vm.menuItems">
+    <li class="nav-menu__item" ng-class="{ dropdown: menuItem.hasDropdown() }">
+      <a ui-sref="{{ menuItem.state }}" is-active-item ng-if="vm.fullMode">
+        <img width='15' class="admin-sidebar__nav--icon sm" ng-src="{{ menuItem.icon }}">
+        {{ menuItem.name }}
+        <i ng-if="menuItem.hasDropdown()" class="fa fa-chevron-down" aria-hidden="true" ></i>
       </a>
-      <a ui-sref="{{nav.state}}" is-active-item ng-show="!vm.fullMode">
-        <img class="admin-sidebar__nav--icon" ng-src="{{nav.icon}}">
-        <p class="admin-sidebar__nav--smname"> {{nav.name}}</p>
+      <a ui-sref="{{ menuItem.state }}" is-active-item ng-if="!vm.fullMode">
+        <img class="admin-sidebar__nav--icon" ng-src="{{ menuItem.icon }}">
       </a>
-    </li>
-    <li class="dropdown" ng-if="nav.dropdown.length>0">
-      <a ui-sref="{{nav.state}}" is-active-item ng-show="vm.fullMode">
-        <img width='15' class="admin-sidebar__nav--icon sm" ng-src="{{nav.icon}}">
-        {{nav.name}}<i class="fa fa-chevron-down" aria-hidden="true" ></i>
-      </a>
-      <a ui-sref="{{nav.state}}" is-active-item ng-show="!vm.fullMode">
-        <img class="admin-sidebar__nav--icon" ng-src="{{nav.icon}}">
-        <p class="admin-sidebar__nav--smname"> {{nav.name}}</p>
-      </a>
-      <ul class="dropdown-item" ng-show="vm.fullMode">
-        <li ng-repeat="dropdown in nav.dropdown"><a ui-sref="{{dropdown.state}}" is-active-item>{{dropdown.name}}</a></li>
+      <ul class="dropdown-item" ng-if="vm.fullMode">
+        <li ng-repeat="dropdownItem in menuItem.dropdownItems">
+          <a ui-sref="{{dropdownItem.state}}" is-active-item>{{ dropdownItem.name }}</a>
+        </li>
       </ul>
     </li>
   </ul>
