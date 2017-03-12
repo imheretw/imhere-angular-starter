@@ -1,8 +1,45 @@
 import angular from 'angular';
 import 'angular-mocks';
-import sidebarNavMenuModule from './sidebarNavMenu';
+import sidebarNavMenuModule, { NavMenuItem, NavMenuDropdownItem } from './sidebarNavMenu';
 
 describe('Component: sidebarNavMenu', function() {
+  let scope;
+  let element;
+  const items = [
+    {
+      name: 'Profile',
+      state: 'admin.profile',
+      icon: 'dist/assets/images/user.svg',
+    },
+    {
+      name: 'Setting',
+      state: 'admin.setting',
+      icon: 'dist/assets/images/settings.svg',
+      dropdown: [{
+          name: 'Widget',
+          state: 'admin.setting.widget',
+        },
+        {
+          name: 'Consultants',
+          state: 'admin.setting.consultants',
+        },
+      ],
+    },
+  ];
+
+  function render(items, fullMode) {
+    inject(function($rootScope, $compile) {
+      scope = $rootScope.$new();
+      element = angular.element(`
+        <sidebar-nav-menu items="items" full-mode="fullMode"></sidebar-nav-menu>
+      `);
+      scope.items = items;
+      scope.fullMode = fullMode;
+      element = $compile(element)(scope);
+      scope.$apply();
+    });
+  }
+
   beforeEach(() => {
     angular.mock.module(sidebarNavMenuModule.name);
   });
@@ -11,47 +48,11 @@ describe('Component: sidebarNavMenu', function() {
     const NAV_SELECTOR = '.nav';
     const ICON_SELECTOR = '.admin-sidebar__nav--icon';
 
-    let element;
-    let scope;
     let item;
     let navElm;
     let menuItemElm;
     let menuItemIconElm;
     let menuItemName;
-    let items = [
-      {
-        name: 'Profile',
-        state: 'admin.profile',
-        icon: 'dist/assets/images/user.svg',
-      },
-      {
-        name: 'Setting',
-        state: 'admin.setting',
-        icon: 'dist/assets/images/settings.svg',
-        dropdown: [{
-            name: 'Widget',
-            state: 'admin.setting.widget',
-          },
-          {
-            name: 'Consultants',
-            state: 'admin.setting.consultants',
-          },
-        ],
-      },
-    ];
-
-    function render(items, fullMode) {
-      inject(function($rootScope, $compile) {
-        scope = $rootScope.$new();
-        element = angular.element(`
-          <sidebar-nav-menu items="items" full-mode="fullMode"></sidebar-nav-menu>
-        `);
-        scope.items = items;
-        scope.fullMode = fullMode;
-        element = $compile(element)(scope);
-        scope.$apply();
-      });
-    }
 
     function preloadVariables(index, dropdown) {
       const dropdownClass = dropdown ? '.dropdown' : '';
@@ -123,6 +124,62 @@ describe('Component: sidebarNavMenu', function() {
         let dropdownItemElms = navElm.find('.dropdown-item li a');
 
         expect(dropdownItemElms.length).to.eq(0);
+      });
+    });
+  });
+
+  describe('Controller', () => {
+    it('should generate menuItems in $onInit', () => {
+      render(items, true);
+      let controller = element.controller('sidebarNavMenu');
+
+      expect(controller.menuItems.length).to.eq(2);
+    });
+  });
+
+  describe('NavMenuItem', () => {
+    describe('when calling constructor', () => {
+      it('should contain name, state, icon, dropdown properties', () => {
+        const navMenuItem = new NavMenuItem(items[1]);
+
+        expect(navMenuItem).to.have.property('name');
+        expect(navMenuItem).to.have.property('state');
+        expect(navMenuItem).to.have.property('icon');
+        expect(navMenuItem).to.have.property('dropdown');
+      });
+
+      it('should contain dropdownItems properties if dropdown exists', () => {
+        const navMenuItem = new NavMenuItem(items[1]);
+        const dropdownItems = navMenuItem.dropdownItems;
+        const dropdownItem = dropdownItems[0];
+
+        expect(dropdownItems.length).to.eq(2);
+        expect(dropdownItem).to.be.instanceof(NavMenuDropdownItem);
+      });
+    });
+
+    describe('when calling hasDropdown', () => {
+      it('should return false', () => {
+        const navMenuItem = new NavMenuItem(items[0]);
+
+        expect(navMenuItem.hasDropdown()).to.eq.false;
+      });
+
+      it('should return true', () => {
+        const navMenuItem = new NavMenuItem(items[1]);
+
+        expect(navMenuItem.hasDropdown()).to.eq.true;
+      });
+    });
+  });
+
+  describe('NavMenuDropdownItem', () => {
+    describe('when calling constructor', () => {
+      it('should contain name, state properties', () => {
+        const dropdownItem = new NavMenuDropdownItem(items[1].dropdown[0]);
+
+        expect(dropdownItem).to.have.property('name');
+        expect(dropdownItem).to.have.property('state');
       });
     });
   });

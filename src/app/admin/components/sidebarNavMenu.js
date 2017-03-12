@@ -8,7 +8,7 @@ class Controller {
   }
 }
 
-class NavMenuItem {
+export class NavMenuItem {
   constructor(item) {
     this.name = item.name;
     this.state = item.state;
@@ -25,7 +25,7 @@ class NavMenuItem {
   }
 }
 
-class NavMenuDropdownItem {
+export class NavMenuDropdownItem {
   constructor(item) {
     this.name = item.name;
     this.state = item.state;
