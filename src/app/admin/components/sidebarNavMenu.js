@@ -47,7 +47,7 @@ const component = {
         <a ui-sref="{{ menuItem.state }}" is-active-item>
           <img class="admin-sidebar__nav--icon" ng-class="{ sm: vm.fullMode }" ng-src="{{ menuItem.icon }}">
           <span ng-if="vm.fullMode">{{ menuItem.name }}</span>
-          <i ng-if="menuItem.hasDropdown()" class="fa fa-chevron-right" aria-hidden="true" ></i>
+          <i ng-if="vm.fullMode && menuItem.hasDropdown()" class="fa fa-chevron-right" aria-hidden="true" ></i>
         </a>
         <ul class="dropdown-item" ng-if="vm.fullMode">
           <li ng-repeat="dropdownItem in menuItem.dropdownItems">

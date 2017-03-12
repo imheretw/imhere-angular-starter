@@ -69,7 +69,7 @@ const adminSidebar = {
   template: `
     <div class="container-fluid">
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 col-xs-collapse-left col-xs-collapse-right">
           <div class="admin-sidebar">
             <sidebar-logo logo="vm.logo" full-mode="vm.adminLayout.sideBarOpened"></sidebar-logo>
             <sidebar-avatar user="vm.currentUser" full-mode="vm.adminLayout.sideBarOpened"></sidebar-avatar>
