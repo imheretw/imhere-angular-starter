@@ -35,6 +35,7 @@ import 'toastr/build/toastr.min.css';
 import 'ng-dialog/css/ngDialog.css';
 import 'ng-dialog/css/ngDialog-theme-default.css';
 import 'ng-dialog/css/ngDialog-theme-plain.css';
+import '../assets/app.scss';
 
 let app = angular.module('app', [
   'ui.router', 'oc.lazyLoad', 'ngCookies', 'ngDialog', 'ncy-angular-breadcrumb', 'ngMessages', 'ngMockE2E',

@@ -69,7 +69,7 @@ const adminHeader = {
         </a>
       </div>
       <ul class="nav navbar-nav pull-right admin-header__nav" >
-        <li><a><img width='20' class="admin-header__nav--icon" src="dist/assets/images/bell.png"></a></li>
+        <li><a><img width='20' class="admin-header__nav--icon" src="images/bell.png"></a></li>
         <li class="dropdown" ng-class = "{true:'active'}[vm.selectedUser]">
           <a class="admin-header__user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-click="vm.onUserLinkClick()">
             <div class="admin-header__user--img" style="background-image: url({{vm.currentUser.img}});" ></div>

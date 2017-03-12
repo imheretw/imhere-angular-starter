@@ -125,6 +125,15 @@ module.exports = function makeWebpackConfig() {
         ],
       })
     }, {
+      test: /\.scss$/,
+      use: [{
+        loader: "style-loader"
+      }, {
+        loader: "css-loader"
+      }, {
+        loader: "sass-loader",
+      }]
+    }, {
       // ASSET LOADER
       // Reference: https://github.com/webpack/file-loader
       // Copy png, jpg, jpeg, gif, svg, woff, woff2, ttf, eot files to output
@@ -223,7 +232,7 @@ module.exports = function makeWebpackConfig() {
       // Copy assets from the public folder
       // Reference: https://github.com/kevlened/copy-webpack-plugin
       new CopyWebpackPlugin([{
-        from: __dirname + '/src/public'
+        from: __dirname + '/src/assets'
       }])
     )
   }
@@ -234,7 +243,7 @@ module.exports = function makeWebpackConfig() {
    * Reference: http://webpack.github.io/docs/webpack-dev-server.html
    */
   config.devServer = {
-    contentBase: './src/public',
+    contentBase: './src/assets',
     stats: 'minimal'
   };
 
