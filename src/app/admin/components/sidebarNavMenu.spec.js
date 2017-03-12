@@ -50,29 +50,30 @@ describe('Component: sidebarNavMenu', function() {
 
     let item;
     let navElm;
+    let menuItemContainerElm;
     let menuItemElm;
     let menuItemIconElm;
     let menuItemName;
 
-    function preloadVariables(index, dropdown) {
-      const dropdownClass = dropdown ? '.dropdown' : '';
+    function preloadVariables(index) {
       item = items[index];
-      navElm = element.find(`${NAV_SELECTOR}:eq(${index})`);
-      menuItemElm = navElm.find(`.nav-menu__item${dropdownClass} a:eq(0)`);
+      navElm = element.find(NAV_SELECTOR);
+      menuItemContainerElm = navElm.find(`> li:eq(${index})`);
+      menuItemElm = menuItemContainerElm.find(`a:eq(0)`);
       menuItemIconElm = menuItemElm.find(ICON_SELECTOR);
       menuItemName = menuItemElm.text().trim();
     }
 
-    it('should two navs in full mode', () => {
+    it('should have two nav items in full mode', () => {
       render(items, true);
-      let navElms = element.find(NAV_SELECTOR);
-      expect(navElms.length).to.eq(2);
+      preloadVariables(0);
+      expect(navElm.length).to.eq(1);
     });
 
-    it('should two navs in non full mode', () => {
+    it('should have two nav items in non full mode', () => {
       render(items, false);
-      let navElms = element.find(NAV_SELECTOR);
-      expect(navElms.length).to.eq(2);
+      preloadVariables(0);
+      expect(navElm.length).to.eq(1);
     });
 
     describe('without dropdown', () => {
@@ -97,7 +98,7 @@ describe('Component: sidebarNavMenu', function() {
     describe('with dropdown', () => {
       it('should render menu item with dropdown icon in full mode', () => {
         render(items, true);
-        preloadVariables(1, true);
+        preloadVariables(1);
         let dropdownIconElm = menuItemElm.find('.fa');
 
         expect(menuItemIconElm.attr('src')).to.eq(item.icon);
@@ -107,8 +108,8 @@ describe('Component: sidebarNavMenu', function() {
 
       it('should render dropdown items in full mode', () => {
         render(items, true);
-        preloadVariables(1, true);
-        let dropdownItemElms = navElm.find('.dropdown-item li a');
+        preloadVariables(1);
+        let dropdownItemElms = navElm.find('.dropdown-item > li a');
         let dropdownItemElm = dropdownItemElms.first();
         let dropdownItems = item.dropdown;
         let dropdownItem = dropdownItems[0];
@@ -120,7 +121,7 @@ describe('Component: sidebarNavMenu', function() {
 
       it('should not render dropdown items in non full mode', () => {
         render(items, false);
-        preloadVariables(1, true);
+        preloadVariables(1);
         let dropdownItemElms = navElm.find('.dropdown-item li a');
 
         expect(dropdownItemElms.length).to.eq(0);

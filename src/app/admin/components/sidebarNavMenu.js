@@ -41,15 +41,14 @@ const component = {
   controller: Controller,
   controllerAs: 'vm',
   template: `
-  <ul class="nav nav-pills nav-stacked admin-sidebar__nav" ng-repeat="menuItem in vm.menuItems">
-    <li class="nav-menu__item" ng-class="{ dropdown: menuItem.hasDropdown() }">
-      <a ui-sref="{{ menuItem.state }}" is-active-item ng-if="vm.fullMode">
-        <img width='15' class="admin-sidebar__nav--icon sm" ng-src="{{ menuItem.icon }}">
-        {{ menuItem.name }}
-        <i ng-if="menuItem.hasDropdown()" class="fa fa-chevron-down" aria-hidden="true" ></i>
-      </a>
-      <a ui-sref="{{ menuItem.state }}" is-active-item ng-if="!vm.fullMode">
-        <img class="admin-sidebar__nav--icon" ng-src="{{ menuItem.icon }}">
+  <ul class="nav nav-pills nav-stacked admin-sidebar__nav">
+    <li class="nav-menu__item" ng-class="{ dropdown: menuItem.hasDropdown() }" ng-repeat="menuItem in vm.menuItems">
+      <a ui-sref="{{ menuItem.state }}" is-active-item>
+        <img class="admin-sidebar__nav--icon" ng-class="{ sm: vm.fullMode }" ng-src="{{ menuItem.icon }}">
+        <span ng-if="vm.fullMode">
+          {{ menuItem.name }}
+          <i ng-if="menuItem.hasDropdown()" class="fa fa-chevron-down" aria-hidden="true" ></i>
+        </span>
       </a>
       <ul class="dropdown-item" ng-if="vm.fullMode">
         <li ng-repeat="dropdownItem in menuItem.dropdownItems">

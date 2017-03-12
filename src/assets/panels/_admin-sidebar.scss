@@ -48,9 +48,13 @@
         margin: 0 10px 0 0;
       }
     }
-    & > li{
+    // for none first li
+    & > li + li {
+      margin-top: 0;
+    }
+    & > li {
       &.active{
-        border-right: 5px rgb(0, 157, 147) solid;
+        border-left: 5px rgb(0, 157, 147) solid;
         border-radius: 0;
         & > a{
           border-radius: 0;
