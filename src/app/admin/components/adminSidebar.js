@@ -67,11 +67,17 @@ const adminSidebar = {
   controller: AdminSidebarController,
   controllerAs: 'vm',
   template: `
-    <div class="admin-sidebar">
-      <sidebar-logo logo="vm.logo" full-mode="vm.adminLayout.sideBarOpened"></sidebar-logo>
-      <sidebar-avatar user="vm.currentUser" full-mode="vm.adminLayout.sideBarOpened"></sidebar-avatar>
-      <sidebar-nav-menu items="vm.sideBarNav" full-mode="vm.adminLayout.sideBarOpened"></sidebar-nav-menu>
-      <sidebar-logout on-logout="vm.logout()" full-mode="vm.adminLayout.sideBarOpened"></sidebar-logout>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="admin-sidebar">
+            <sidebar-logo logo="vm.logo" full-mode="vm.adminLayout.sideBarOpened"></sidebar-logo>
+            <sidebar-avatar user="vm.currentUser" full-mode="vm.adminLayout.sideBarOpened"></sidebar-avatar>
+            <sidebar-nav-menu items="vm.sideBarNav" full-mode="vm.adminLayout.sideBarOpened"></sidebar-nav-menu>
+            <sidebar-logout on-logout="vm.logout()" full-mode="vm.adminLayout.sideBarOpened"></sidebar-logout>
+          </div>
+        </div>
+      </div>
     </div>
   `,
 };

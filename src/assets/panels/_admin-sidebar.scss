@@ -41,6 +41,9 @@
 
   }
   &__nav{
+    margin-left: -15px;
+    margin-right: -15px;
+
     &--icon {
       width: 20px;
       margin: 10px 0;
@@ -57,6 +60,7 @@
         border-left: 5px rgb(0, 157, 147) solid;
         border-radius: 0;
         & > a{
+          padding-left: 10px;
           border-radius: 0;
           background:rgba(54, 173, 95, 0) !important;
         }
@@ -66,7 +70,7 @@
       width: 100%;
       border-radius: 0;
       color: #fff;
-      font-size: 0.9em;
+      font-size: 1em;
       &:hover, &:visited, &:focus{
         background: rgba(89, 106, 122, 0.55) !important;
         border-radius: 0;
@@ -82,6 +86,10 @@
       }
       &.active {
         border-top: 1px rgb(86, 106, 144) solid;
+
+        >a>i {
+          transform: rotate(90deg);
+        }
       }
       &.active > ul.dropdown-item{
         border-top: 1px rgb(19, 35, 52 ) solid;
@@ -137,11 +145,11 @@
           border-radius: 0;
         }
 
-        &>i{
+        &>i {
           position: absolute;
           right: 20px;
-          top:10px;
-          font-size: 10px;
+          top:13px;
+          font-size: 1em;
         }
       }
     }
