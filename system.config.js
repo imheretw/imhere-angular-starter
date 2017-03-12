@@ -28,7 +28,10 @@ System.config({
   meta: {
     "github:angular/bower-angular@1.6.2/angular": {
       "format": "global",
-      "exports": "angular"
+      "exports": "angular",
+      "deps": [
+        "jquery"
+      ]
     },
     "github:angular/bower-angular-mocks@1.6.2/angular-mocks": {
       "deps": [

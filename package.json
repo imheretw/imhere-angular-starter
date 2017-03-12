@@ -2,6 +2,15 @@
   "name": "imhere-angular-starter",
   "version": "1.0.0",
   "repository": "git@github.com:imheretw/imhere-angular-starter.git",
+  "scripts": {
+    "postinstall": "jspm install",
+    "start": "gulp watch serve",
+    "test": "gulp test",
+    "test:watch": "gulp test:watch",
+    "eslint": "eslint src test",
+    "eslint-pre-commit": "./scripts/eslint-pre-commit.sh",
+    "jscs-pre-commit": "./scripts/jscs-pre-commit.sh"
+  },
   "devDependencies": {
     "babel-core": "6.7.7",
     "babel-eslint": "6.1.2",
@@ -99,15 +108,6 @@
       "babel-runtime": "npm:babel-runtime@5.8.24",
       "core-js": "npm:core-js@1.1.4"
     }
-  },
-  "scripts": {
-    "postinstall": "jspm install",
-    "start": "gulp watch serve",
-    "test": "gulp test",
-    "test:watch": "gulp test:watch",
-    "eslint": "eslint src test",
-    "eslint-pre-commit": "./scripts/eslint-pre-commit.sh",
-    "jscs-pre-commit": "./scripts/jscs-pre-commit.sh"
   },
   "pre-commit": [
     "eslint-pre-commit",
