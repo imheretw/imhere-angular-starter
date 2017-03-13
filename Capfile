@@ -25,7 +25,6 @@ require 'capistrano/bundler'
 require 'capistrano/env-config'
 require 'capistrano/nvm'
 require 'capistrano/yarn'
-require 'capistrano/gulp'
 require 'capistrano/rvm'
 # require 'net/ssh/proxy/command' # live deploy use proxy
 # require 'cap-ec2/capistrano'

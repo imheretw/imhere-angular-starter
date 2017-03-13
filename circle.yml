@@ -12,7 +12,6 @@ dependencies:
   pre:
   cache_directories:
     - ~/.yarn-cache
-    - ~/.jspm
   override:
     - bundle
     - gem install compass

@@ -9,7 +9,7 @@ import 'angular-mocks';
 import 'jquery';
 import 'ng-dialog';
 import 'moment';
-import 'ocLazyLoad';
+import 'oclazyload';
 import 'restangular';
 import 'satellizer';
 import 'toastr';
@@ -31,10 +31,10 @@ import dialogService from 'common/dialog/dialog';
 import adminModule from './admin/admin';
 import authModule from './auth/auth';
 
-import 'toastr/build/toastr.min.css';
-import 'ng-dialog/css/ngDialog.css';
-import 'ng-dialog/css/ngDialog-theme-default.css';
-import 'ng-dialog/css/ngDialog-theme-plain.css';
+// import 'toastr/build/toastr.min.css';
+// import 'ng-dialog/css/ngDialog.css';
+// import 'ng-dialog/css/ngDialog-theme-default.css';
+// import 'ng-dialog/css/ngDialog-theme-plain.css';
 import '../assets/app.scss';
 
 let app = angular.module('app', [

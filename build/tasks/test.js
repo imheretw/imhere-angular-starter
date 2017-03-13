@@ -5,11 +5,11 @@ var karma = require('karma');
 var gulp_protractor = require('gulp-protractor');
 var paths = require('../paths');
 
-gulp.task('test', ['build'], function(done) {
+gulp.task('test', function(done) {
   runTest(true, done);
 });
 
-gulp.task('test:watch', ['build'], function(done) {
+gulp.task('test:watch', function(done) {
   runTest(false, done);
 });
 

@@ -31,6 +31,10 @@ module.exports = function makeWebpackConfig() {
    */
   config.entry = isTest ? void 0 : {
     app: './src/app/app.js',
+    vendor: [
+      'angular',
+      'oclazyload',
+    ],
   };
 
   /**
@@ -187,14 +191,14 @@ module.exports = function makeWebpackConfig() {
     new webpack.ProvidePlugin({
       'window.jQuery': 'jquery',
     }),
-    new webpack.LoaderOptionsPlugin({
-      test: /\.scss$/i,
-      options: {
-        postcss: {
-          plugins: [autoprefixer],
-        },
-      },
-    }),
+    // new webpack.LoaderOptionsPlugin({
+    //   test: /\.scss$/i,
+    //   options: {
+    //     postcss: {
+    //       plugins: [autoprefixer],
+    //     },
+    //   },
+    // }),
   ];
 
   // Skip rendering index.html in test mode
@@ -219,11 +223,7 @@ module.exports = function makeWebpackConfig() {
     config.plugins.push(
       // Reference: http://webpack.github.io/docs/list-of-plugins.html#noerrorsplugin
       // Only emit files when there are no errors
-      new webpack.NoErrorsPlugin(),
-
-      // Reference: http://webpack.github.io/docs/list-of-plugins.html#dedupeplugin
-      // Dedupe modules in the output
-      new webpack.optimize.DedupePlugin(),
+      new webpack.NoEmitOnErrorsPlugin(),
 
       // Reference: http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
       // Minify all javascript, switch loaders to minimizing mode

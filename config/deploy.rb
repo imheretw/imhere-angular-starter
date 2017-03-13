@@ -19,7 +19,7 @@ set :linked_files, %w(src/common/config/appConfig.json)
 # nvm settings
 set :nvm_type, :user # or :system, depends on your nvm setup
 set :nvm_node, 'v6.2.2'
-set :nvm_map_bins, %w{node yarn gulp}
+set :nvm_map_bins, %w{node yarn}
 set :nvm_node_path, -> {
   if fetch(:nvm_type, :user) == :system
     '/usr/local/nvm/'
@@ -29,15 +29,12 @@ set :nvm_node_path, -> {
 }
 
 # rvm settings
-set :rvm_map_bins, %w{ruby gulp compass bundle}
+set :rvm_map_bins, %w{ruby compass bundle}
 
 # yarn setting
 set :yarn_flags, '' # default
 set :yarn_roles, :all                                      # default
 set :yarn_env_variables, {}                                # default
-
-# gulp tasks
-set :gulp_tasks, 'lint'
 
 namespace :yarn do
   desc "build production"
@@ -54,6 +51,5 @@ end
 
 # hooks
 namespace :deploy do
-  after :updated, :gulp
   after :updated, 'yarn:build'
 end

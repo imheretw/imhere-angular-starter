@@ -15,8 +15,6 @@ GEM
     capistrano-env-config (0.3.0)
       capistrano (~> 3.0)
       dotenv (~> 2.0)
-    capistrano-gulp (0.0.2)
-      capistrano (~> 3.0)
     capistrano-harrow (0.5.3)
     capistrano-nvm (0.0.6)
       capistrano (~> 3.1)
@@ -61,7 +59,6 @@ DEPENDENCIES
   capistrano
   capistrano-bundler
   capistrano-env-config
-  capistrano-gulp
   capistrano-nvm
   capistrano-rvm
   capistrano-yarn
