@@ -13,7 +13,7 @@ set :format, :pretty
 set :log_level, :debug
 set :pty, true
 set :keep_releases, 5
-set :linked_dirs, %w{node_modules jspm_packages}
+set :linked_dirs, %w{node_modules}
 set :linked_files, %w(src/common/config/appConfig.json)
 
 # nvm settings
@@ -37,9 +37,23 @@ set :yarn_roles, :all                                      # default
 set :yarn_env_variables, {}                                # default
 
 # gulp tasks
-set :gulp_tasks, 'release'
+set :gulp_tasks, 'lint'
+
+namespace :yarn do
+  desc "build production"
+  task :build do
+    on roles fetch(:yarn_roles) do
+      within fetch(:yarn_target_path, release_path) do
+        with fetch(:yarn_env_variables, {}) do
+          execute :yarn, 'build'
+        end
+      end
+    end
+  end
+end
 
 # hooks
 namespace :deploy do
   after :updated, :gulp
+  after :updated, 'yarn:build'
 end
