@@ -1,7 +1,4 @@
-import 'babel/external-helpers';
-
 import angular from 'angular';
-import 'ocLazyLoad';
 import 'angular-ui-router';
 import 'angular-breadcrumb';
 import 'angular-cookies';
@@ -9,14 +6,13 @@ import 'angular-messages';
 import 'angular-moment';
 import 'angular-sanitize';
 import 'angular-mocks';
-import 'restangular';
-import 'g00fy-/angular-datepicker';
+import 'jquery';
 import 'ng-dialog';
 import 'moment';
-import 'jquery';
-import 'twbs/bootstrap';
-import 'toastr';
+import 'ocLazyLoad';
+import 'restangular';
 import 'satellizer';
+import 'toastr';
 import ngRedux from 'ng-redux';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
@@ -35,15 +31,15 @@ import dialogService from 'common/dialog/dialog';
 import adminModule from './admin/admin';
 import authModule from './auth/auth';
 
-import 'toastr/build/toastr.min.css!';
-import 'ng-dialog/css/ngDialog.css!';
-import 'ng-dialog/css/ngDialog-theme-default.css!';
-import 'ng-dialog/css/ngDialog-theme-plain.css!';
-import 'g00fy-/angular-datepicker/dist/angular-datepicker.css!';
+import 'toastr/build/toastr.min.css';
+import 'ng-dialog/css/ngDialog.css';
+import 'ng-dialog/css/ngDialog-theme-default.css';
+import 'ng-dialog/css/ngDialog-theme-plain.css';
+import '../assets/app.scss';
 
 let app = angular.module('app', [
   'ui.router', 'oc.lazyLoad', 'ngCookies', 'ngDialog', 'ncy-angular-breadcrumb', 'ngMessages', 'ngMockE2E',
-  'ngSanitize', 'angularMoment', 'datePicker', 'satellizer', 'restangular', ngRedux,
+  'ngSanitize', 'angularMoment', 'satellizer', 'restangular', ngRedux,
   adminModule.name, authModule.name,
   authServiceModule.name, listenerServiceModule.name,
   mocksServiceModule.name, authInterceptor.name, toastrServiceModule.name, dialogService.name,

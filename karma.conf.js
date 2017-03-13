@@ -8,16 +8,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['systemjs', 'mocha', 'chai'],
-
-    plugins: [
-      'karma-chai',
-      'karma-systemjs',
-      'karma-electron-launcher',
-      'karma-mocha',
-      'karma-junit-reporter',
-      // 'karma-coverage',
-    ],
+    frameworks: ['mocha', 'chai'],
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
@@ -27,11 +18,6 @@ module.exports = function(config) {
       show: false,
     },
 
-    phantomjsLauncher: {
-      // Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
-      exitOnResourceError: true,
-    },
-
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
@@ -39,51 +25,20 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // enable / disable colors in the output (reporters and logs)
     colors: true,
 
     // list of files / patterns to load in the browser
     files: [
-      'dist/**/*.spec.js',
-      'test/*.spec.js',
-      'test/**/*.spec.js',
+      './tests.webpack.js',
     ],
 
     // list of files to exclude
     exclude: [
       'test/e2e/*',
     ],
-
-    systemjs: {
-      configFile: 'system.config.js',
-      config: {
-        transpiler: 'babel',
-        packages: 'jspm_packages',
-        paths: {
-          'github:*': '/base/jspm_packages/github/*',
-          'npm:*': '/base/jspm_packages/npm/*',
-          'es6-module-loader': 'node_modules/es6-module-loader/dist/es6-module-loader.js',
-          'systemjs': 'node_modules/systemjs/dist/system.js',
-          'system-polyfills': 'node_modules/systemjs/dist/system-polyfills.js',
-          'babel': 'node_modules/babel-core/browser.js',
-        },
-      },
-
-      serveFiles: [
-        'jspm_packages/**/*',
-        'dist/**/*.js',
-        'dist/**/*.css',
-        'dist/**/*.json',
-      ],
-    },
-
-    proxies: {
-      '/test': '/base/test',
-      '/dist': '/base/dist',
-      '/node_modules': '/base/node_modules',
-    },
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
@@ -93,16 +48,23 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'src/!(*spec).js': ['coverage'],
+      './tests.webpack.js': ['webpack', 'sourcemap'],
     },
 
     // optionally, configure the reporter
     coverageReporter: {
-      type: 'html',
       dir: 'coverage/',
-      instrumenters: { isparta: require('isparta') },
-      instrumenter: {
-        '**/*.js': 'isparta',
-      },
+      reporters: [
+        {type: 'text-summary'},
+        {type: 'html'},
+      ],
+    },
+
+    webpack: require('./webpack.config'),
+
+    // Hide webpack build information from output
+    webpackMiddleware: {
+      noInfo: 'errors-only',
     },
   });
 };

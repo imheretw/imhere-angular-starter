@@ -1,5 +1,6 @@
 import angular from 'angular';
 import 'common/core';
+import ballLoaderTemplate from 'common/directives/template/ballLoader.tpl.html';
 
 /*@ngInject*/
 function directive($state) {
@@ -7,7 +8,7 @@ function directive($state) {
     replace: true,
     retrict: 'AE',
     transclude: true,
-    templateUrl: 'src/common/directives/template/ballLoader.tpl.html',
+    templateUrl: ballLoaderTemplate.name,
   };
 }
 

@@ -1,4 +1,5 @@
 import angular from 'angular';
+import toastr from 'toastr';
 
 class ToastrService {
 

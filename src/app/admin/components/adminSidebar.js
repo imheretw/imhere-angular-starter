@@ -22,16 +22,16 @@ class AdminSidebarController extends ReduxController {
     this.sideBarNav = [{
       name: 'Profile',
       state: 'admin.profile',
-      icon: 'dist/assets/images/user.svg',
+      icon: 'images/user.svg',
     }, {
       name: 'Chat',
       state: 'admin.chat',
-      icon: 'dist/assets/images/chat.svg',
+      icon: 'images/chat.svg',
     },
     {
       name: 'Setting',
       state: 'admin.setting',
-      icon: 'dist/assets/images/settings.svg',
+      icon: 'images/settings.svg',
       dropdown: [{
           name: 'Widget',
           state: 'admin.setting.widget',
