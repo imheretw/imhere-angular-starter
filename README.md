@@ -1,25 +1,22 @@
 # imhere-angular-starter ![CircleCI Build Status](https://circleci.com/gh/imheretw/imhere-angular-starter.svg?style=shield&circle-token=86e04f476d21b9b2164053879588dc4e676fc520)
 
-Seed project for ES6 modules via SystemJS with ES6 syntax using Babel that lazy-load and bundle build with AngularJS.
+Seed project for ES6 modules via Webpack2 with ES6 syntax using Babel that lazy-load and bundle build with AngularJS.
 
 This project does:
 
 - AngularJS 1.6.x + ui-router 1.0.0 +
 - ES6 Syntax via Babel with source maps
-- ES6 Modules via SystemJS
+- ES6 Modules via Webpack
 - Single source of truth for state with ngRedux
-- Karma / Jasmine unit tests with coverage report
+- Karma / Mocha / Chai unit tests with coverage report
 - Lazy-loading modules via routes with AngularJS
-- Easy watch/browser-sync/lint/test/build setup via Gulp
+- Easy watch/browser-sync/lint/test/build setup via Webpack
 - SASS CSS Support with source maps and minification
 - AngularJS Template Compilation
 - AngularJS Annotatation
-- Bundle builds via SystemJS Builder
-- Cache Busting with SystemJS
+- Bundle builds via Webpack
 - Demonstrates on-demand theme loading
 - Component-based design
-
-This seed project demonstrates the [systemjs-route-bundler](https://github.com/swimlane/systemjs-route-bundler) build tool.
 
 ### Install & Run
 
@@ -29,7 +26,7 @@ This seed project demonstrates the [systemjs-route-bundler](https://github.com/s
 
 #### Install tools
 ```shell
-$ npm install -g yarn jspm gulp
+$ npm install -g yarn webpack gulp
 $ gem install bundler # for capistrano to deploy
 ```
 
@@ -55,9 +52,10 @@ $ yarn start
 ```
 Browse to `http://localhost:3000`
 
-### Gulp Tasks
+### Tasks
 
-- `gulp test` to run karma tests
+- `yarn start` to run karma tests
+- `yarn test` to run karma tests
+- `yarn test:watch` to watch and run karma tests
+- `yarn build` to bundle, cache busting, and minify
 - `gulp webdriver-standalone` and `gulp sauce-test` to run e2e test
-- `gulp lint` to run jshint
-- `gulp release` to bundle, cache busting, and minify
