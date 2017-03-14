@@ -8,7 +8,7 @@ import sidebarAvatarModule from './sidebarAvatar';
 import sidebarNavMenuModule from './sidebarNavMenu';
 import sidebarLogoutModule from './sidebarLogout';
 
-class AdminSidebarController extends ReduxController {
+class Controller extends ReduxController {
   /*@ngInject*/
   constructor($scope, $state, $ngRedux, authService) {
     super($ngRedux);
@@ -60,25 +60,25 @@ class AdminSidebarController extends ReduxController {
   }
 }
 
-const adminSidebar = {
+const component = {
   bindings: {
   },
   transclude: true,
-  controller: AdminSidebarController,
+  controller: Controller,
   controllerAs: 'vm',
   template: `
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-12 col-xs-collapse-left col-xs-collapse-right">
-          <div class="admin-sidebar">
-            <sidebar-logo logo="vm.logo" full-mode="vm.adminLayout.sideBarOpened"></sidebar-logo>
-            <sidebar-avatar user="vm.currentUser" full-mode="vm.adminLayout.sideBarOpened"></sidebar-avatar>
-            <sidebar-nav-menu items="vm.sideBarNav" full-mode="vm.adminLayout.sideBarOpened"></sidebar-nav-menu>
-            <sidebar-logout on-logout="vm.logout()" full-mode="vm.adminLayout.sideBarOpened"></sidebar-logout>
-          </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-xs-collapse-left col-xs-collapse-right">
+        <div class="admin-sidebar">
+          <sidebar-logo logo="vm.logo" full-mode="vm.adminLayout.sideBarOpened"></sidebar-logo>
+          <sidebar-avatar user="vm.currentUser" full-mode="vm.adminLayout.sideBarOpened"></sidebar-avatar>
+          <sidebar-nav-menu items="vm.sideBarNav" full-mode="vm.adminLayout.sideBarOpened"></sidebar-nav-menu>
+          <sidebar-logout on-logout="vm.logout()" full-mode="vm.adminLayout.sideBarOpened"></sidebar-logout>
         </div>
       </div>
     </div>
+  </div>
   `,
 };
 
@@ -90,4 +90,4 @@ export default angular
     sidebarLogoutModule.name,
     isActiveItem.name,
   ])
-  .component('adminSidebar', adminSidebar);
+  .component('adminSidebar', component);
