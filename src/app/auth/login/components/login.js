@@ -13,18 +13,15 @@ class LoginController {
     this.moment = moment;
   }
 
-  login() {
+  async login() {
     if (this.validatation(this.email, this.password)) {
-      this.authService.login(this.email, this.password)
-        .then(
-          (user) => {
-            this.toastrService.success(`Login success, will redirect you to dashboard page.`);
-            this.$state.go('admin');
-          },
-          (error) => {
-            this.toastrService.error(`Unable to login, err msg: ${error}`);
-          }
-        );
+      try {
+        await this.authService.login(this.email, this.password);
+        this.toastrService.success(`Login success, will redirect you to dashboard page.`);
+        this.$state.go('admin');
+      } catch (error) {
+        this.toastrService.error(`Unable to login, err msg: ${error}`);
+      }
     }
   }
 

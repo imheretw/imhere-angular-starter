@@ -16,17 +16,15 @@ class RegisterController {
     }
   }
 
-  register() {
+  async register() {
     if (this.validatation(this.form)) {
-      this.authService.register(this.form).then(
-        (user)=> {
-          this.toastrService.success('Sign up success, please login.');
-          this.$state.go('login');
-        },
-        (error) => {
-          this.toastrService.error(`Unable to sign up, error msg: ${error}`);
-        }
-      );
+      try {
+        await this.authService.register(this.form);
+        this.toastrService.success('Sign up success, please login.');
+        this.$state.go('login');
+      } catch (error) {
+        this.toastrService.error(`Unable to sign up, error msg: ${error}`);
+      }
     }
   }
 
