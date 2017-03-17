@@ -2,7 +2,7 @@
 
 // Modules
 var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
+// var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -31,10 +31,7 @@ module.exports = function makeWebpackConfig() {
    */
   config.entry = isTest ? void 0 : {
     app: './src/app/app.js',
-    vendor: [
-      'angular',
-      'oclazyload',
-    ],
+    vendor: './src/app/vendor.js',
   };
 
   /**
@@ -52,12 +49,12 @@ module.exports = function makeWebpackConfig() {
     publicPath: isProd ? '/' : 'http://localhost:3000/',
 
     // Filename for entry points
-    // Only adds hash in build mode
-    filename: isProd ? '[name].[hash].js' : '[name].bundle.js',
+    // Only adds chunkhash in build mode
+    filename: isProd ? '[name].[chunkhash].js' : '[name].bundle.js',
 
     // Filename for non-entry points
-    // Only adds hash in build mode
-    chunkFilename: isProd ? '[name].[hash].js' : '[name].bundle.js',
+    // Only adds chunkhash in build mode
+    chunkFilename: isProd ? '[name].[chunkhash].js' : '[name].bundle.js',
   };
 
   config.resolve = {
@@ -199,6 +196,9 @@ module.exports = function makeWebpackConfig() {
     //     },
     //   },
     // }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['vendor']
+    }),
   ];
 
   // Skip rendering index.html in test mode
