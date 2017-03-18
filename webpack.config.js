@@ -31,7 +31,7 @@ module.exports = function makeWebpackConfig() {
    */
   config.entry = isTest ? void 0 : {
     app: './src/app/app.js',
-    vendor: './src/app/vendor.js',
+    vendor: './src/vendor.js',
   };
 
   /**
@@ -197,7 +197,7 @@ module.exports = function makeWebpackConfig() {
     //   },
     // }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['vendor']
+      name: ['vendor'],
     }),
   ];
 
