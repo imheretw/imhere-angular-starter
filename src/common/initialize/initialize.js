@@ -1,4 +1,7 @@
-import angular from 'angular';
+import thunk from 'redux-thunk';
+import createLogger from 'redux-logger';
+
+import rootReducer from 'common/redux/reducers';
 
 function initialize(module) {
   module.config(function(RestangularProvider) {
@@ -39,12 +42,6 @@ function initialize(module) {
       closeByDocument: false,
     });
   }]);
-
-  angular.element(document).ready(function () {
-    angular.bootstrap(document.body, [module.name], {
-      strictDi: true,
-    });
-  });
 }
 
 export default initialize;
