@@ -3,13 +3,7 @@ import ngRedux from 'ng-redux';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 import rootReducer from 'common/redux/reducers/index';
-import { mocksServiceModule, toastrServiceModule } from 'common/core';
-import authServiceModule from 'common/services/authService';
-import dialogModule from 'common/services/dialogService';
-import listenerServiceModule from 'common/services/listenerService';
-import authInterceptor from 'common/utils/auth-interceptors';
-import errorInterceptor from 'common/utils/error-interceptors';
-import dialogService from 'common/dialog/dialog';
+import coreModule from 'common/core';
 
 // temporary solution for ui-sref not working on FutureState
 // https://github.com/christopherthielen/ui-router-extras/issues/367
@@ -26,10 +20,9 @@ import '../assets/app.scss';
 let app = angular.module('app', [
   'ui.router', 'oc.lazyLoad', 'ngCookies', 'ngDialog', 'ncy-angular-breadcrumb', 'ngMessages', 'ngMockE2E',
   'ngSanitize', 'angularMoment', 'satellizer', 'restangular', ngRedux,
-  adminModule.name, authModule.name,
-  authServiceModule.name, listenerServiceModule.name,
-  mocksServiceModule.name, authInterceptor.name, toastrServiceModule.name, dialogService.name,
-  dialogModule.name, errorInterceptor.name,
+  coreModule.name,
+  adminModule.name,
+  authModule.name,
 ]);
 
 app.config(function(RestangularProvider) {

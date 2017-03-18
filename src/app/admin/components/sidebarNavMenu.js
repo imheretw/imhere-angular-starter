@@ -1,7 +1,5 @@
 import angular from 'angular';
 
-import 'common/core';
-
 class Controller {
   $onInit() {
     this.menuItems = this.items && this.items.map((item) => new NavMenuItem(item));

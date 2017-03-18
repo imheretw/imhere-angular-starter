@@ -1,5 +1,4 @@
 import angular from 'angular';
-import 'common/core';
 import _ from 'lodash';
 
 class ConsultantsController {

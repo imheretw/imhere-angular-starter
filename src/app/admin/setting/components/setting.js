@@ -1,5 +1,4 @@
 import angular from 'angular';
-import 'common/core';
 
 class AdminSettingController {
   /*@ngInject*/

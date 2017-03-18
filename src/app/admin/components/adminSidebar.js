@@ -1,6 +1,5 @@
 import angular from 'angular';
 
-import 'common/core';
 import ReduxController from 'common/controllers/ReduxController';
 import isActiveItem from 'common/directives/isActiveItem';
 import sidebarLogoModule from './sidebarLogo';

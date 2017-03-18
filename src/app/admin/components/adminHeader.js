@@ -1,6 +1,5 @@
 import angular from 'angular';
 
-import 'common/core';
 import ReduxController from 'common/controllers/ReduxController';
 import * as layoutActions from 'common/redux/ducks/adminLayoutDuck';
 
