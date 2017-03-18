@@ -1,6 +1,7 @@
 import angular from 'angular';
-import DialogController from 'common/dialog/dialogController';
 import _ from 'lodash';
+
+import DialogController from 'common/dialog/dialogController';
 
 class DialogService {
 
