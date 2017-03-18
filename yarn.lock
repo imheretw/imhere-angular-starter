@@ -589,11 +589,9 @@ babel-plugin-syntax-class-properties@^6.3.13:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-class-properties/-/babel-plugin-syntax-class-properties-6.13.0.tgz#d7eb23b79a317f8543962c505b827c7d6cac27de"
 
-babel-plugin-syntax-decorators@6.5.0, babel-plugin-syntax-decorators@^6.1.18:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-syntax-decorators/-/babel-plugin-syntax-decorators-6.5.0.tgz#867ff6425e28b9f2ca11d5c5cf4bfa0e791af16a"
-  dependencies:
-    babel-runtime "^5.0.0"
+babel-plugin-syntax-decorators@^6.1.18, babel-plugin-syntax-decorators@^6.13.0:
+  version "6.13.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-syntax-decorators/-/babel-plugin-syntax-decorators-6.13.0.tgz#312563b4dbde3cc806cee3e416cceeaddd11ac0b"
 
 babel-plugin-syntax-exponentiation-operator@^6.8.0:
   version "6.13.0"
@@ -1705,13 +1703,13 @@ copy-webpack-plugin@4.0.1:
     minimatch "^3.0.0"
     node-dir "^0.1.10"
 
-core-js@1.1.4, core-js@^1.0.0:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.1.4.tgz#e0c75b4505ac3d2119db508b9a9ebabb368bfea3"
-
-core-js@^2.2.0, core-js@^2.4.0:
+core-js@2.4.1, core-js@^2.2.0, core-js@^2.4.0:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.4.1.tgz#4de911e667b0eae9124e34254b53aea6fc618d3e"
+
+core-js@^1.0.0:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.1.4.tgz#e0c75b4505ac3d2119db508b9a9ebabb368bfea3"
 
 core-util-is@~1.0.0:
   version "1.0.2"

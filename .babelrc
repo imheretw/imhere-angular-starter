@@ -8,5 +8,6 @@
       },
     ],
     "transform-object-rest-spread",
+    "syntax-decorators"
   ]
 }
