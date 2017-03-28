@@ -1,5 +1,5 @@
 {
-  "extends": ["eslint:recommended", "plugin:mocha/recommended"],
+  "extends": ["eslint:recommended", "plugin:mocha/recommended", "airbnb"],
   "env": {
     "browser": true,
     "es6": true,
