@@ -7,7 +7,7 @@ import register from './data/register.json';
 
 class UserMock extends Mock {
 
-  /*@ngInject*/
+  /* @ngInject */
   constructor($httpBackend) {
     super($httpBackend);
 
@@ -23,7 +23,7 @@ class UserMock extends Mock {
   }
 }
 
-/*@ngInject*/
+/* @ngInject */
 function run($injector) {
   const userMock = $injector.get('userMock');
   if (appConfig.api.mock) {

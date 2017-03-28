@@ -1,5 +1,5 @@
 export default function initialize(module) {
-  module.config(['ngDialogProvider', function (ngDialogProvider) {
+  module.config(['ngDialogProvider', (ngDialogProvider) => {
     ngDialogProvider.setDefaults({
       closeByDocument: false,
     });

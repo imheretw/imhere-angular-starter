@@ -5,7 +5,7 @@ import DialogController from 'common/dialog/dialogController';
 
 class DialogService {
 
-  /*@ngInject*/
+  /* @ngInject */
   constructor($log, $cookieStore, $location, ngDialog) {
     this.$log = $log;
     this.$cookieStore = $cookieStore;
@@ -24,17 +24,17 @@ class DialogService {
   }
 
   openDialogOptionsHelper(routeDialog, options) {
-    let returnOptions = {};
+    const returnOptions = {};
     const finalOptions = _.map(this.openDialogMap[routeDialog], val => ({ [val]: options[val] }));
     _.forEach(finalOptions, (data) => {
-      _.forEach(Object.keys(data), (item) => returnOptions[item] = data[item]);
+      _.forEach(Object.keys(data), (item) => { returnOptions[item] = data[item]; });
     });
     return returnOptions;
   }
 
   demoDialog() {
     this.$location.search('dialog', 'demoDialog');
-    let demoDialog = this.ngDialog.open({
+    const demoDialog = this.ngDialog.open({
       template: 'common/dialog/dialog.tpl.html',
       controllerAs: 'dialogCtrl',
       controller: DialogController,

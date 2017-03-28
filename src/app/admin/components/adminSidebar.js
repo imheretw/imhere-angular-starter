@@ -8,7 +8,7 @@ import sidebarNavMenuModule from './sidebarNavMenu';
 import sidebarLogoutModule from './sidebarLogout';
 
 class Controller extends ReduxController {
-  /*@ngInject*/
+  /* @ngInject */
   constructor($scope, $state, $ngRedux, authService) {
     super($ngRedux);
 
@@ -32,14 +32,13 @@ class Controller extends ReduxController {
       state: 'admin.setting',
       icon: 'images/settings.svg',
       dropdown: [{
-          name: 'Widget',
-          state: 'admin.setting.widget',
-        },
-        {
-          name: 'Consultants',
-          state: 'admin.setting.consultants',
-        },
-      ],
+        name: 'Widget',
+        state: 'admin.setting.widget',
+      },
+      {
+        name: 'Consultants',
+        state: 'admin.setting.consultants',
+      }],
     }];
   }
 

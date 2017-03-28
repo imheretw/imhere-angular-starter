@@ -2,7 +2,7 @@ import angular from 'angular';
 import 'common/core';
 import dropdownPanelTemplate from 'common/directives/template/dropdownPanel.tpl.html';
 
-/*@ngInject*/
+/* @ngInject */
 function directive($state) {
   return {
     replace: true,
@@ -12,7 +12,7 @@ function directive($state) {
     scope: {
       panelTitle: '=',
     },
-    link: link,
+    link,
   };
 
   function link(scope, el, attrs) {
@@ -27,7 +27,6 @@ function directive($state) {
     function open() {
       scope.isOpen = true;
     }
-
   }
 }
 

@@ -1,7 +1,7 @@
 import angular from 'angular';
 import apiMockModule from './api/apiMock';
 
-/*@ngInject*/
+/* @ngInject */
 function run($httpBackend) {
   $httpBackend.when('GET').passThrough();
   $httpBackend.when('POST').passThrough();

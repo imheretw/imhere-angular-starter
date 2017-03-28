@@ -2,10 +2,10 @@ import angular from 'angular';
 import 'angular-mocks';
 import sidebarNavMenuModule, { NavMenuItem, NavMenuDropdownItem } from './sidebarNavMenu';
 
-describe('Component: sidebarNavMenu', function() {
+describe('Component: sidebarNavMenu', () => {
   let scope;
   let element;
-  const items = [
+  const ITEMS = [
     {
       name: 'Profile',
       state: 'admin.profile',
@@ -16,19 +16,18 @@ describe('Component: sidebarNavMenu', function() {
       state: 'admin.setting',
       icon: 'dist/assets/images/settings.svg',
       dropdown: [{
-          name: 'Widget',
-          state: 'admin.setting.widget',
-        },
-        {
-          name: 'Consultants',
-          state: 'admin.setting.consultants',
-        },
-      ],
+        name: 'Widget',
+        state: 'admin.setting.widget',
+      },
+      {
+        name: 'Consultants',
+        state: 'admin.setting.consultants',
+      }],
     },
   ];
 
   function render(items, fullMode) {
-    inject(function($rootScope, $compile) {
+    inject(($rootScope, $compile) => {
       scope = $rootScope.$new();
       element = angular.element(`
         <sidebar-nav-menu items="items" full-mode="fullMode"></sidebar-nav-menu>
@@ -44,7 +43,7 @@ describe('Component: sidebarNavMenu', function() {
     angular.mock.module(sidebarNavMenuModule.name);
   });
 
-  describe('UI', function() {
+  describe('UI', () => {
     const NAV_SELECTOR = '.nav';
     const ICON_SELECTOR = '.admin-sidebar__nav--icon';
 
@@ -56,38 +55,38 @@ describe('Component: sidebarNavMenu', function() {
     let menuItemName;
 
     function preloadVariables(index) {
-      item = items[index];
+      item = ITEMS[index];
       navElm = element.find(NAV_SELECTOR);
       menuItemContainerElm = navElm.find(`> li:eq(${index})`);
-      menuItemElm = menuItemContainerElm.find(`a:eq(0)`);
+      menuItemElm = menuItemContainerElm.find('a:eq(0)');
       menuItemIconElm = menuItemElm.find(ICON_SELECTOR);
       menuItemName = menuItemElm.text().trim();
     }
 
     it('should have two nav items in full mode', () => {
-      render(items, true);
+      render(ITEMS, true);
       preloadVariables(0);
       expect(navElm.length).to.eq(1);
     });
 
     it('should have two nav items in non full mode', () => {
-      render(items, false);
+      render(ITEMS, false);
       preloadVariables(0);
       expect(navElm.length).to.eq(1);
     });
 
     describe('without dropdown', () => {
       it('should render image and item name in full mode', () => {
-        render(items, true);
+        render(ITEMS, true);
         preloadVariables(0);
 
-        expect(menuItemIconElm.attr('src')).to.eq(items[0].icon);
+        expect(menuItemIconElm.attr('src')).to.eq(ITEMS[0].icon);
         expect(menuItemIconElm.hasClass('sm')).be.true;
-        expect(menuItemName).to.eq(items[0].name);
+        expect(menuItemName).to.eq(ITEMS[0].name);
       });
 
       it('should only render image in non full mode', () => {
-        render(items, false);
+        render(ITEMS, false);
         preloadVariables(0);
 
         expect(menuItemIconElm.hasClass('sm')).be.false;
@@ -97,9 +96,9 @@ describe('Component: sidebarNavMenu', function() {
 
     describe('with dropdown', () => {
       it('should render menu item with dropdown icon in full mode', () => {
-        render(items, true);
+        render(ITEMS, true);
         preloadVariables(1);
-        let dropdownIconElm = menuItemElm.find('.fa');
+        const dropdownIconElm = menuItemElm.find('.fa');
 
         expect(menuItemIconElm.attr('src')).to.eq(item.icon);
         expect(menuItemName).to.eq(item.name);
@@ -107,12 +106,12 @@ describe('Component: sidebarNavMenu', function() {
       });
 
       it('should render dropdown items in full mode', () => {
-        render(items, true);
+        render(ITEMS, true);
         preloadVariables(1);
-        let dropdownItemElms = navElm.find('.dropdown-item > li a');
-        let dropdownItemElm = dropdownItemElms.first();
-        let dropdownItems = item.dropdown;
-        let dropdownItem = dropdownItems[0];
+        const dropdownItemElms = navElm.find('.dropdown-item > li a');
+        const dropdownItemElm = dropdownItemElms.first();
+        const dropdownItems = item.dropdown;
+        const dropdownItem = dropdownItems[0];
 
         expect(dropdownItemElms.length).to.eq(dropdownItems.length);
         expect(dropdownItemElm.attr('ui-sref')).to.eq(dropdownItem.state);
@@ -120,9 +119,9 @@ describe('Component: sidebarNavMenu', function() {
       });
 
       it('should not render dropdown items in non full mode', () => {
-        render(items, false);
+        render(ITEMS, false);
         preloadVariables(1);
-        let dropdownItemElms = navElm.find('.dropdown-item li a');
+        const dropdownItemElms = navElm.find('.dropdown-item li a');
 
         expect(dropdownItemElms.length).to.eq(0);
       });
@@ -131,8 +130,8 @@ describe('Component: sidebarNavMenu', function() {
 
   describe('Controller', () => {
     it('should generate menuItems in $onInit', () => {
-      render(items, true);
-      let controller = element.controller('sidebarNavMenu');
+      render(ITEMS, true);
+      const controller = element.controller('sidebarNavMenu');
 
       expect(controller.menuItems.length).to.eq(2);
     });
@@ -141,7 +140,7 @@ describe('Component: sidebarNavMenu', function() {
   describe('NavMenuItem', () => {
     describe('when calling constructor', () => {
       it('should contain name, state, icon, dropdown properties', () => {
-        const navMenuItem = new NavMenuItem(items[1]);
+        const navMenuItem = new NavMenuItem(ITEMS[1]);
 
         expect(navMenuItem).to.have.property('name');
         expect(navMenuItem).to.have.property('state');
@@ -150,7 +149,7 @@ describe('Component: sidebarNavMenu', function() {
       });
 
       it('should contain dropdownItems properties if dropdown exists', () => {
-        const navMenuItem = new NavMenuItem(items[1]);
+        const navMenuItem = new NavMenuItem(ITEMS[1]);
         const dropdownItems = navMenuItem.dropdownItems;
         const dropdownItem = dropdownItems[0];
 
@@ -161,13 +160,13 @@ describe('Component: sidebarNavMenu', function() {
 
     describe('when calling hasDropdown', () => {
       it('should return false', () => {
-        const navMenuItem = new NavMenuItem(items[0]);
+        const navMenuItem = new NavMenuItem(ITEMS[0]);
 
         expect(navMenuItem.hasDropdown()).to.eq.false;
       });
 
       it('should return true', () => {
-        const navMenuItem = new NavMenuItem(items[1]);
+        const navMenuItem = new NavMenuItem(ITEMS[1]);
 
         expect(navMenuItem.hasDropdown()).to.eq.true;
       });
@@ -177,7 +176,7 @@ describe('Component: sidebarNavMenu', function() {
   describe('NavMenuDropdownItem', () => {
     describe('when calling constructor', () => {
       it('should contain name, state properties', () => {
-        const dropdownItem = new NavMenuDropdownItem(items[1].dropdown[0]);
+        const dropdownItem = new NavMenuDropdownItem(ITEMS[1].dropdown[0]);
 
         expect(dropdownItem).to.have.property('name');
         expect(dropdownItem).to.have.property('state');

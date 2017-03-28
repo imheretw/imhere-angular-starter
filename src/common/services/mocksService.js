@@ -2,7 +2,7 @@ import angular from 'angular';
 import mocksModule from '../mocks/mocks';
 
 class MocksService {
-  /*@ngInject*/
+  /* @ngInject */
   constructor($http, $cookieStore, apiDao) {
     this.$http = $http;
     this.$cookieStore = $cookieStore;

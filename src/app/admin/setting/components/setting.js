@@ -1,7 +1,7 @@
 import angular from 'angular';
 
 class AdminSettingController {
-  /*@ngInject*/
+  /* @ngInject */
   constructor($state) {
     this.$state = $state;
     const tabs = [

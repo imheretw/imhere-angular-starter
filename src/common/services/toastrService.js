@@ -3,7 +3,7 @@ import toastr from 'toastr';
 
 class ToastrService {
 
-  /*@ngInject*/
+  /* @ngInject */
   constructor($http, $cookieStore) {
     this.$http = $http;
     this.$cookieStore = $cookieStore;

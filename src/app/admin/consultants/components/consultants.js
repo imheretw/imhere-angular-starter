@@ -2,7 +2,7 @@ import angular from 'angular';
 import _ from 'lodash';
 
 class ConsultantsController {
-  /*@ngInject*/
+  /* @ngInject */
   constructor($state) {
     this.$state = $state;
     const tabs = [

@@ -1,5 +1,5 @@
 export default class Mock {
-  /*@ngInject*/
+  /* @ngInject */
   constructor($httpBackend) {
     this.$httpBackend = $httpBackend;
     this.urlMapping = [];

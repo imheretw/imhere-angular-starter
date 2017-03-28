@@ -2,7 +2,7 @@ import angular from 'angular';
 import 'common/core';
 
 class AddConsultant {
-  /*@ngInject*/
+  /* @ngInject */
   constructor() {
     this.showResponse = false;
     this.showResponseProgress = false;
@@ -16,8 +16,8 @@ class AddConsultant {
 
   callAddConsultantService(user) {
     this.showResponseProgress = false;
-    this.afterAddConsultant({ user: user });
-    this.resposeData = 'Success Add Consultant : ' + user.name;
+    this.afterAddConsultant({ user });
+    this.resposeData = `Success Add Consultant : ${user.name}`;
   }
 
   addNew(user) {

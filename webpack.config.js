@@ -1,27 +1,25 @@
-'use strict';
-
 // Modules
-var webpack = require('webpack');
-// var autoprefixer = require('autoprefixer');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var path = require('path');
+const webpack = require('webpack');
+// const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
 /**
  * Env
  * Get npm lifecycle event to identify the environment
  */
-var ENV = process.env.npm_lifecycle_event;
-var isTest = ENV === 'test' || ENV === 'test-watch';
-var isProd = ENV === 'build';
+const ENV = process.env.npm_lifecycle_event;
+const isTest = ENV === 'test' || ENV === 'test-watch';
+const isProd = ENV === 'build';
 
-module.exports = function makeWebpackConfig() {
+module.exports = (function makeWebpackConfig() {
   /**
    * Config
    * Reference: http://webpack.github.io/docs/configuration.html
    * This is the object where all configuration gets set
    */
-  var config = {};
+  const config = {};
 
   /**
    * Entry
@@ -29,10 +27,13 @@ module.exports = function makeWebpackConfig() {
    * Should be an empty object if it's generating a test build
    * Karma will set this when it's a test build
    */
-  config.entry = isTest ? void 0 : {
-    app: './src/app/app.js',
-    vendor: './src/vendor.js',
-  };
+
+  if (!isTest) {
+    config.entry = {
+      app: './src/app/app.js',
+      vendor: './src/vendor.js',
+    };
+  }
 
   /**
    * Output
@@ -42,7 +43,7 @@ module.exports = function makeWebpackConfig() {
    */
   config.output = isTest ? {} : {
     // Absolute output directory
-    path: __dirname + '/dist',
+    path: path.join(__dirname, '/dist'),
 
     // Output path from the view of the page
     // Uses webpack-dev-server in development
@@ -71,11 +72,9 @@ module.exports = function makeWebpackConfig() {
    */
   if (isTest) {
     config.devtool = 'inline-source-map';
-  }
-  else if (isProd) {
+  } else if (isProd) {
     config.devtool = 'source-map';
-  }
-  else {
+  } else {
     config.devtool = 'eval-source-map';
   }
 
@@ -121,18 +120,18 @@ module.exports = function makeWebpackConfig() {
       loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({
         fallbackLoader: 'style-loader',
         loader: [
-          {loader: 'css-loader', query: {sourceMap: true}},
-          {loader: 'postcss-loader'},
+          { loader: 'css-loader', query: { sourceMap: true } },
+          { loader: 'postcss-loader' },
         ],
       }),
     }, {
       test: /\.scss$/,
       use: [{
-        loader: "style-loader",
+        loader: 'style-loader',
       }, {
-        loader: "css-loader",
+        loader: 'css-loader',
       }, {
-        loader: "sass-loader",
+        loader: 'sass-loader',
       }],
     }, {
       // ASSET LOADER
@@ -214,7 +213,7 @@ module.exports = function makeWebpackConfig() {
       // Reference: https://github.com/webpack/extract-text-webpack-plugin
       // Extract css files
       // Disabled when in test mode or not in build mode
-      new ExtractTextPlugin({filename: 'css/[name].css', disable: !isProd, allChunks: true})
+      new ExtractTextPlugin({ filename: 'css/[name].css', disable: !isProd, allChunks: true })
     );
   }
 
@@ -232,7 +231,7 @@ module.exports = function makeWebpackConfig() {
       // Copy assets from the public folder
       // Reference: https://github.com/kevlened/copy-webpack-plugin
       new CopyWebpackPlugin([{
-        from: __dirname + '/src/assets',
+        from: path.join(__dirname, '/src/assets'),
       }])
     );
   }
@@ -254,4 +253,4 @@ module.exports = function makeWebpackConfig() {
   };
 
   return config;
-}();
+}());

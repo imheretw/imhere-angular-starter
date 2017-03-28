@@ -2,19 +2,19 @@ import angular from 'angular';
 
 class Controller {
   $onInit() {
-    this.menuItems = this.items && this.items.map((item) => new NavMenuItem(item));
+    this.menuItems = this.items && this.items.map(item => new NavMenuItem(item));
   }
 }
 
 export class NavMenuItem {
-  constructor(item) {
-    this.name = item.name;
-    this.state = item.state;
-    this.icon = item.icon;
-    this.dropdown = item.dropdown;
+  constructor(rawItem) {
+    this.name = rawItem.name;
+    this.state = rawItem.state;
+    this.icon = rawItem.icon;
+    this.dropdown = rawItem.dropdown;
 
     if (this.hasDropdown()) {
-      this.dropdownItems = this.dropdown.map((item) => new NavMenuDropdownItem(item));
+      this.dropdownItems = this.dropdown.map(item => new NavMenuDropdownItem(item));
     }
   }
 
@@ -32,8 +32,8 @@ export class NavMenuDropdownItem {
 
 const component = {
   bindings: {
-    'fullMode': '<',
-    'items': '<',
+    fullMode: '<',
+    items: '<',
   },
   transclude: true,
   controller: Controller,

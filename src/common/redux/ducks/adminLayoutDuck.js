@@ -1,11 +1,7 @@
-///////////////////////////
-// ACTION TYPES //////////
-/////////////////////////
+/* ACTION TYPES */
 export const TOGGLE_SIDE_BAR = 'TOGGLE_SIDE_BAR';
 
-///////////////////////////
-// REDUCER ///////////////
-/////////////////////////
+/* REDUCER */
 
 export default function reducer(state = { sideBarOpened: true }, action) {
   switch (action.type) {
@@ -18,9 +14,7 @@ export default function reducer(state = { sideBarOpened: true }, action) {
   }
 }
 
-///////////////////////////
-// ACTION CREATORS ///////
-/////////////////////////
+/* ACTION CREATORS */
 
 export function toggleSideBar() {
   return {

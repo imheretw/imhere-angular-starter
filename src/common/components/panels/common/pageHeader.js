@@ -2,7 +2,7 @@ import angular from 'angular';
 import 'common/core';
 
 class PageHeader {
-  /*@ngInject*/
+  /* @ngInject */
   constructor() {
     this.selectOthers = false;
   }

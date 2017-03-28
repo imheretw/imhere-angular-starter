@@ -9,7 +9,7 @@ function config($stateProvider) {
     .state('admin.setting', {
       url: '/setting',
       views: {
-        'content': {
+        content: {
           component: 'setting',
         },
       },
@@ -19,8 +19,8 @@ function config($stateProvider) {
 
 export default angular
   .module('admin.setting', [
-      settingComponent.name,
-      commonPanels.name,
-      dropdownPanel.name,
+    settingComponent.name,
+    commonPanels.name,
+    dropdownPanel.name,
   ])
   .config(config);

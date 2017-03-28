@@ -1,10 +1,10 @@
 import angular from 'angular';
 import BaseModel from './BaseModel';
 
-/*@ngInject*/
+/* @ngInject */
 function Model(Restangular) {
-  var User = Restangular.service('users');
-  Restangular.extendModel('users', function(model) {
+  const User = Restangular.service('users');
+  Restangular.extendModel('users', (model) => {
     // you can add instance methods here
 
     // to extend BaseModel
@@ -15,14 +15,14 @@ function Model(Restangular) {
     return model;
   });
 
-  User.register = (data) => User.post(data);
+  User.register = data => User.post(data);
 
   return User;
 }
 
-/*@ngInject*/
+/* @ngInject */
 function config(RestangularProvider) {
-  RestangularProvider.addElementTransformer('users', true, function(user) {
+  RestangularProvider.addElementTransformer('users', true, (user) => {
     // custom static login method
     // POST /users/login
     // User.login(data);
@@ -35,24 +35,22 @@ function config(RestangularProvider) {
     return user;
   });
 
-  RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
-      var extractedData;
-      if (operation === 'getList') {
-        if (data.users) {
-          extractedData = data.users;
-          extractedData.pagination = data.pagination;
-        }
-      } else {
-        if (data.user) {
-          extractedData = data.user;
-          extractedData.token = data.token;
-        } else {
-          extractedData = data;
-        }
+  RestangularProvider.addResponseInterceptor((data, operation, what, url, response, deferred) => {
+    let extractedData;
+    if (operation === 'getList') {
+      if (data.users) {
+        extractedData = data.users;
+        extractedData.pagination = data.pagination;
       }
+    } else if (data.user) {
+      extractedData = data.user;
+      extractedData.token = data.token;
+    } else {
+      extractedData = data;
+    }
 
-      return extractedData;
-    });
+    return extractedData;
+  });
 }
 
 export default angular

@@ -1,8 +1,10 @@
+/* eslint-disable no-multi-spaces */
+
 import angular from 'angular';
 
 class ListenerService {
 
-  /*@ngInject*/
+  /* @ngInject */
   constructor($rootScope) {
     this.$rootScope = $rootScope;
 

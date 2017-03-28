@@ -1,9 +1,7 @@
-'use strict';
-
 export default class ErrorController {
-  /*@ngInject*/
+  /* @ngInject */
   constructor($scope, $log, $stateParams) {
-    let errCtrl = this;
+    const errCtrl = this;
     this.$scope = $scope;
     this.$log = $log;
     this.title = '';

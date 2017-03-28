@@ -3,15 +3,15 @@ exports.config = {
   seleniumAddress: 'http://localhost:4444/wd/hub',
 
   capabilities: {
-    'browserName': 'chrome',
-    'chromeOptions': {
-      'args': ['no-sandbox'] // workaround: https://code.google.com/p/chromedriver/issues/detail?id=539
-    }
+    browserName: 'chrome',
+    chromeOptions: {
+      args: ['no-sandbox'], // workaround: https://code.google.com/p/chromedriver/issues/detail?id=539
+    },
   },
 
   // Options to be passed to Jasmine-node.
   jasmineNodeOpts: {
     showColors: true,
-    defaultTimeoutInterval: 30000
-  }
+    defaultTimeoutInterval: 30000,
+  },
 };

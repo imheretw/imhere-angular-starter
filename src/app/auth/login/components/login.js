@@ -2,7 +2,7 @@ import angular from 'angular';
 
 class LoginController {
 
-  /*@ngInject*/
+  /* @ngInject */
   constructor($state, $log, $cookieStore, authService, ToastrService, moment) {
     this.authService = authService;
     this.toastrService = ToastrService;
@@ -16,7 +16,7 @@ class LoginController {
     if (this.validatation(this.email, this.password)) {
       try {
         await this.authService.login(this.email, this.password);
-        this.toastrService.success(`Login success, will redirect you to dashboard page.`);
+        this.toastrService.success('Login success, will redirect you to dashboard page.');
         this.$state.go('admin');
       } catch (error) {
         this.toastrService.error(`Unable to login, err msg: ${error}`);
@@ -29,7 +29,7 @@ class LoginController {
       return true;
     }
 
-    this.toastrService.error(`Please fill out the form`);
+    this.toastrService.error('Please fill out the form');
     return false;
   }
 }

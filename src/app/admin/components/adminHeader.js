@@ -4,7 +4,7 @@ import ReduxController from 'common/controllers/ReduxController';
 import * as layoutActions from 'common/redux/ducks/adminLayoutDuck';
 
 class AdminHeader extends ReduxController {
-  /*@ngInject*/
+  /* @ngInject */
   constructor($scope, $state, $ngRedux, authService) {
     super($ngRedux);
 

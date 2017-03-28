@@ -1,7 +1,7 @@
 import angular from 'angular';
 
 class WidgetController {
-  /*@ngInject*/
+  /* @ngInject */
   constructor($state) {
     this.$state = $state;
 

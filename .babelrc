@@ -8,6 +8,7 @@
       },
     ],
     "transform-object-rest-spread",
-    "syntax-decorators"
+    "syntax-decorators",
+    "dynamic-import-webpack"
   ]
 }

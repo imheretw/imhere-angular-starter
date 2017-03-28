@@ -10,13 +10,13 @@ import authModule from './auth/auth';
 // import 'ng-dialog/css/ngDialog-theme-plain.css';
 import '../assets/app.scss';
 
-let app = angular.module('app', [
+const app = angular.module('app', [
   coreModule.name,
   adminModule.name,
   authModule.name,
 ]);
 
-angular.element(document).ready(function () {
+angular.element(document).ready(() => {
   angular.bootstrap(document.body, [app.name], {
     strictDi: true,
   });

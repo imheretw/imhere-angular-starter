@@ -1,21 +1,21 @@
-'use strict';
 import angular from 'angular';
 
 /**
  * Authentication with token and email for every server request. (Sets HTTP headers)
  *
  * This interceptor shows the error from the server (i18n key).
- * Also sets global error variable if the request fails and redirects the user to '/' when he is not authorized.
+ * Also sets global error variable if the request fails and redirects the
+ * user to '/' when he is not authorized.
  * @see http://engineering.talis.com/articles/client-side-error-logging/
  */
 
 export default angular.module('AuthInterceptor', [])
 .factory('authInterceptor', authInterceptor);
 
-/*@ngInject*/
+/* @ngInject */
 function authInterceptor($q, $cookieStore, $injector) {
   return {
-    request: function (config) {
+    request: (config) => {
       config.headers = config.headers || {};
       if ($cookieStore.get('auth_token')) {
         config.headers.Authorization = $cookieStore.get('auth_token');

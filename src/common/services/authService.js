@@ -3,14 +3,14 @@ import UserModule from '../models/User';
 
 class AuthService {
 
-  /*@ngInject*/
+  /* @ngInject */
   constructor($cookieStore, User) {
     this.$cookieStore = $cookieStore;
     this.User = User;
   }
 
   login(email, password) {
-    let data = { email, password };
+    const data = { email, password };
 
     return this.User.login(data)
       .then(

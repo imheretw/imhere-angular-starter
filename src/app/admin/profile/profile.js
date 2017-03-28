@@ -9,7 +9,7 @@ function config($stateProvider) {
     .state('admin.profile', {
       url: '/profile',
       views: {
-        'content': {
+        content: {
           component: 'profile',
         },
       },
@@ -19,8 +19,8 @@ function config($stateProvider) {
 
 export default angular
   .module('admin.profile', [
-      profileComponent.name,
-      commonPanels.name,
-      dropdownPanel.name,
+    profileComponent.name,
+    commonPanels.name,
+    dropdownPanel.name,
   ])
   .config(config);

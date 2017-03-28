@@ -1,6 +1,8 @@
+/* eslint-disable global-require */
+
 // Karma configuration
 
-module.exports = function(config) {
+module.exports = (config) => {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -41,7 +43,6 @@ module.exports = function(config) {
     ],
 
     // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
 
     // preprocess matching files before serving them to the browser
@@ -55,8 +56,8 @@ module.exports = function(config) {
     coverageReporter: {
       dir: 'coverage/',
       reporters: [
-        {type: 'text-summary'},
-        {type: 'html'},
+        { type: 'text-summary' },
+        { type: 'html' },
       ],
     },
 

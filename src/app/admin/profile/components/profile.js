@@ -3,7 +3,7 @@ import angular from 'angular';
 import ReduxController from 'common/controllers/ReduxController';
 
 class ProfileController extends ReduxController {
-  /*@ngInject*/
+  /* @ngInject */
   constructor($scope, $state, $ngRedux) {
     super($ngRedux);
 

@@ -1,11 +1,7 @@
-///////////////////////////
-// ACTION TYPES //////////
-/////////////////////////
+/* ACTION TYPES */
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 
-///////////////////////////
-// REDUCER ///////////////
-/////////////////////////
+/* REDUCER */
 
 export default function reducer(state = {}, action) {
   switch (action.type) {
@@ -16,9 +12,7 @@ export default function reducer(state = {}, action) {
   }
 }
 
-///////////////////////////
-// ACTION CREATORS ///////
-/////////////////////////
+/* ACTION CREATORS */
 
 export function setCurrentUser(currentUser) {
   return {

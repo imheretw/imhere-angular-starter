@@ -1,5 +1,5 @@
 export default function initialize(module) {
-  module.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
+  module.config(['$ocLazyLoadProvider', ($ocLazyLoadProvider) => {
     $ocLazyLoadProvider.config({
       debug: true,
     });

@@ -1,5 +1,5 @@
 export default function initialize(module) {
-  module.config(function ($httpProvider) {
+  module.config(($httpProvider) => {
     $httpProvider.interceptors.push(
       'authInterceptor',
       'errorInterceptor',

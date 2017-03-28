@@ -3,6 +3,6 @@ import register from './register/register';
 
 export default angular
   .module('app.auth', [
-      login.name,
-      register.name,
+    login.name,
+    register.name,
   ]);

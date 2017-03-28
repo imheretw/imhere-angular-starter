@@ -1,5 +1,5 @@
 export default class ReduxController {
-  /*@ngInject*/
+  /* @ngInject */
   constructor($ngRedux) {
     this.$ngRedux = $ngRedux;
     this.unsubscribe = this.$ngRedux.connect(this.mapStateToThis, this.mapDispatchToThis())(this);

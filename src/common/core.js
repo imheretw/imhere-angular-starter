@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+
 import initialize from './initialize/initialize';
 
 const core = angular

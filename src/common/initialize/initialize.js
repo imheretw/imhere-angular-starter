@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+
 function initialize(module) {
   [
     require('./restangularInitializer').default,
@@ -8,7 +10,7 @@ function initialize(module) {
     require('./logInitializer').default,
     require('./ocLazyLoadInitializer').default,
   ]
-  .forEach((initialize) => initialize(module))
+  .forEach(exec => exec(module));
 }
 
 export default initialize;

@@ -1,9 +1,9 @@
-describe('app', function() {
-  it('passes a test', function() {
+describe('app', () => {
+  it('passes a test', () => {
     expect(true).to.be.ok;
   });
 
-  it('fails a test', function() {
+  it('fails a test', () => {
     expect(true).to.be.ok;
   });
 });

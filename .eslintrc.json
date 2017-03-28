@@ -17,10 +17,13 @@
   },
   "rules": {
     "arrow-body-style": [2, "as-needed"],
+    "class-methods-use-this": "off",
     "eqeqeq": 2,
     "no-console": 1,
+    "no-param-reassign": "off",
     "no-undef-init": 2,
     "no-undefined": 2,
+    "no-unused-expressions": 0,
     "no-unused-vars": [2, {
       "vars": "all",
       "args": "none"
@@ -28,7 +31,11 @@
     "no-use-before-define": "off",
     "no-useless-constructor": 2,
     "semi": [2, "always"],
-    "comma-dangle": ["error", "always-multiline"]
+    "comma-dangle": ["error", "always-multiline"],
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": "off",
+    "chai-friendly/no-unused-expressions": 2
   },
   "globals": {
     "assert": false,
@@ -38,5 +45,5 @@
     "Promise": false,
     "ES6Promise": false
   },
-  "plugins": ["chai-expect", "mocha", "angular"]
+  "plugins": ["chai-expect", "chai-friendly", "mocha", "angular"]
 }

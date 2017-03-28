@@ -1,6 +1,6 @@
 export default class DialogController {
 
-  /*@ngInject*/
+  /* @ngInject */
   constructor($scope, $log, ChildService, ListenerService, ToastrService) {
     this.childService = ChildService;
     this.ListenerService = ListenerService;
@@ -23,15 +23,16 @@ export default class DialogController {
 
   editChildConfirm() {
     if (this.$scope.childName) {
-      this.childService.updateChild(this.dialogData.childId, this.$scope.childName).then((value) => {
-        if (!value.error) {
-          this.$scope.closeThisDialog();
-          this.ListenerService.updateMenu();
-          this.ListenerService.updateChild();
-        }
-      }, (error) => {
-        this.toastrService.error(`Edit child error, err msg: ${error.error}`);
-      });
+      this.childService.updateChild(this.dialogData.childId, this.$scope.childName)
+        .then((value) => {
+          if (!value.error) {
+            this.$scope.closeThisDialog();
+            this.ListenerService.updateMenu();
+            this.ListenerService.updateChild();
+          }
+        }, (error) => {
+          this.toastrService.error(`Edit child error, err msg: ${error.error}`);
+        });
     } else {
       this.toastrService.warning('Please enter child name :)');
     }

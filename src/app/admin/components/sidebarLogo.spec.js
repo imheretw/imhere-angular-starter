@@ -2,18 +2,18 @@ import angular from 'angular';
 import 'angular-mocks';
 import sidebarLogoModule from './sidebarLogo';
 
-describe('Component: sidebarLogo', function() {
+describe('Component: sidebarLogo', () => {
   beforeEach(() => {
     angular.mock.module(sidebarLogoModule.name);
   });
 
-  describe('UI', function() {
+  describe('UI', () => {
     let element;
     let scope;
-    let logo = 'logo';
+    const LOGO = 'logo';
 
     function render(logo, fullMode) {
-      inject(function($rootScope, $compile) {
+      inject(($rootScope, $compile) => {
         scope = $rootScope.$new();
         element = angular.element(`
           <sidebar-logo logo="logo" full-mode="fullMode"></sidebar-logo>
@@ -26,15 +26,15 @@ describe('Component: sidebarLogo', function() {
     }
 
     it('should render logo', () => {
-      render(logo, true);
-      let h1 = element.find('h1');
+      render(LOGO, true);
+      const h1 = element.find('h1');
 
-      expect(h1.text().trim()).to.eq(logo);
+      expect(h1.text().trim()).to.eq(LOGO);
     });
 
     it('should not render logo', () => {
-      render(logo, false);
-      let h1 = element.find('h1');
+      render(LOGO, false);
+      const h1 = element.find('h1');
 
       expect(h1.text()).to.eq.undefined;
     });

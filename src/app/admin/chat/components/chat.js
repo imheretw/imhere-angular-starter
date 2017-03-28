@@ -1,7 +1,7 @@
 import angular from 'angular';
 
 class ChatController {
-  /*@ngInject*/
+  /* @ngInject */
   constructor($state) {
     this.$state = $state;
     const unassigned = [
@@ -62,8 +62,8 @@ class ChatController {
       },
     ];
     this.consultantsList = {
-      unassigned: unassigned,
-      consultants: consultants,
+      unassigned,
+      consultants,
     };
   }
 

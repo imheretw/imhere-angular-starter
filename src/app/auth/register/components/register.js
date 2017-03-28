@@ -3,7 +3,7 @@ import 'common/core';
 
 class RegisterController {
 
-  /*@ngInject*/
+  /* @ngInject */
   constructor($state, $cookieStore, authService, ToastrService) {
     this.form = {};
     this.$state = $state;
@@ -33,7 +33,7 @@ class RegisterController {
       return true;
     }
 
-    this.toastrService.error(`Please fill out the form`);
+    this.toastrService.error('Please fill out the form');
     return false;
   }
 }

@@ -19,8 +19,8 @@ function config($stateProvider) {
 
 export default angular
   .module('admin.setting.widget', [
-      widgetComponent.name,
-      commonPanels.name,
-      dropdownPanel.name,
+    widgetComponent.name,
+    commonPanels.name,
+    dropdownPanel.name,
   ])
   .config(config);

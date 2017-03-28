@@ -1,7 +1,7 @@
 import angular from 'angular';
 import commonPanels from 'common/components/panels/common/common';
-import consultantsComponent from './components/consultants';
 import dropdownPanel from 'common/directives/dropdownPanel';
+import consultantsComponent from './components/consultants';
 /* @ngInject */
 function config($stateProvider) {
   $stateProvider
@@ -18,8 +18,8 @@ function config($stateProvider) {
 
 export default angular
   .module('admin.setting.consultants', [
-      consultantsComponent.name,
-      commonPanels.name,
-      dropdownPanel.name,
+    consultantsComponent.name,
+    commonPanels.name,
+    dropdownPanel.name,
   ])
   .config(config);

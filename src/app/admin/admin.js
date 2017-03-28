@@ -3,6 +3,9 @@ import angular from 'angular';
 // layout
 import adminLayoutModule from 'common/layouts/admin/adminLayout';
 
+// redux actions
+import * as usersActions from 'common/redux/ducks/currentUserDuck';
+
 // components
 import headerComponentModule from './components/adminHeader';
 import sidebarComponentModule from './components/adminSidebar';
@@ -13,9 +16,6 @@ import settingModule from './setting/setting';
 import widgetsModule from './widget/widget';
 import profileModule from './profile/profile';
 import chatModule from './chat/chat';
-
-// redux actions
-import * as usersActions from 'common/redux/ducks/currentUserDuck';
 
 /* @ngInject */
 function ConfigureModule($stateProvider) {
@@ -35,7 +35,7 @@ function ConfigureModule($stateProvider) {
       },
       reloadOnSearch: false,
       resolve: {
-        /*@ngInject*/
+        /* @ngInject */
         auth: ($ngRedux, authService) => authService.getCurrentUser()
           .then((user) => {
             // save currentUser to store
@@ -47,13 +47,13 @@ function ConfigureModule($stateProvider) {
 
 export default angular
   .module('app.admin', [
-      adminLayoutModule.name,
-      headerComponentModule.name,
-      sidebarComponentModule.name,
-      consultantsModule.name,
-      widgetsModule.name,
-      profileModule.name,
-      chatModule.name,
-      settingModule.name,
+    adminLayoutModule.name,
+    headerComponentModule.name,
+    sidebarComponentModule.name,
+    consultantsModule.name,
+    widgetsModule.name,
+    profileModule.name,
+    chatModule.name,
+    settingModule.name,
   ])
   .config(ConfigureModule);
