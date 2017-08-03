@@ -1,6 +1,7 @@
 import angular from 'angular';
-import 'angular-mocks';
 import sidebarAvatarModule from './sidebarAvatar';
+
+global.setUpTests();
 
 describe('Component: sidebarAvatar', () => {
   beforeEach(() => {
@@ -45,8 +46,8 @@ describe('Component: sidebarAvatar', () => {
       const div = element.find(DIV_SELECTOR);
       const a = element.find(H5_SELECTOR);
 
-      expect(div).to.eq.undefined;
-      expect(a).to.eq.undefined;
+      expect(div.length).to.eq(0);
+      expect(a.length).to.eq(0);
     });
   });
 });

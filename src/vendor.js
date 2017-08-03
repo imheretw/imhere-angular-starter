@@ -1,12 +1,12 @@
+import 'jquery';
 import 'angular';
 import 'angular-ui-router';
 import 'angular-breadcrumb';
 import 'angular-cookies';
 import 'angular-messages';
 import 'angular-moment';
-import 'angular-sanitize';
 import 'angular-mocks';
-import 'jquery';
+import 'angular-sanitize';
 import 'ng-dialog';
 import 'moment';
 import 'oclazyload';

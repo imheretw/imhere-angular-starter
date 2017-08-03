@@ -19,7 +19,7 @@ export class NavMenuItem {
   }
 
   hasDropdown() {
-    return this.dropdown && this.dropdown.length;
+    return !!(this.dropdown && this.dropdown.length);
   }
 }
 

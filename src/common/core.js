@@ -11,7 +11,6 @@ const core = angular
     require('./services/toastrService').default.name,
     require('./services/authService').default.name,
     require('./services/listenerService').default.name,
-    require('./services/dialogService').default.name,
 
     require('./utils/auth-interceptors').default.name,
     require('./utils/error-interceptors').default.name,

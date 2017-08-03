@@ -1,6 +1,7 @@
 import angular from 'angular';
-import 'angular-mocks';
 import sidebarNavMenuModule, { NavMenuItem, NavMenuDropdownItem } from './sidebarNavMenu';
+
+global.setUpTests();
 
 describe('Component: sidebarNavMenu', () => {
   let scope;
@@ -80,7 +81,7 @@ describe('Component: sidebarNavMenu', () => {
         render(ITEMS, true);
         preloadVariables(0);
 
-        expect(menuItemIconElm.attr('src')).to.eq(ITEMS[0].icon);
+        expect(menuItemIconElm.attr('src')).to.includes(ITEMS[0].icon);
         expect(menuItemIconElm.hasClass('sm')).be.true;
         expect(menuItemName).to.eq(ITEMS[0].name);
       });
@@ -100,9 +101,9 @@ describe('Component: sidebarNavMenu', () => {
         preloadVariables(1);
         const dropdownIconElm = menuItemElm.find('.fa');
 
-        expect(menuItemIconElm.attr('src')).to.eq(item.icon);
+        expect(menuItemIconElm.attr('src')).to.includes(item.icon);
         expect(menuItemName).to.eq(item.name);
-        expect(dropdownIconElm).to.be.defined;
+        expect(dropdownIconElm).to.exist;
       });
 
       it('should render dropdown items in full mode', () => {
@@ -162,13 +163,13 @@ describe('Component: sidebarNavMenu', () => {
       it('should return false', () => {
         const navMenuItem = new NavMenuItem(ITEMS[0]);
 
-        expect(navMenuItem.hasDropdown()).to.eq.false;
+        expect(navMenuItem.hasDropdown()).to.be.false;
       });
 
       it('should return true', () => {
         const navMenuItem = new NavMenuItem(ITEMS[1]);
 
-        expect(navMenuItem.hasDropdown()).to.eq.true;
+        expect(navMenuItem.hasDropdown()).to.be.true;
       });
     });
   });

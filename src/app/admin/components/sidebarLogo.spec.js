@@ -1,6 +1,7 @@
 import angular from 'angular';
-import 'angular-mocks';
 import sidebarLogoModule from './sidebarLogo';
+
+global.setUpTests();
 
 describe('Component: sidebarLogo', () => {
   beforeEach(() => {
@@ -36,7 +37,7 @@ describe('Component: sidebarLogo', () => {
       render(LOGO, false);
       const h1 = element.find('h1');
 
-      expect(h1.text()).to.eq.undefined;
+      expect(h1.text().trim()).to.be.empty;
     });
   });
 });

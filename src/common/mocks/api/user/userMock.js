@@ -1,9 +1,9 @@
 import angular from 'angular';
-import Mock from '../../Mock';
 import appConfig from 'common/config/appConfig.json';
 import currentUser from './data/current.json';
 import login from './data/login.json';
 import register from './data/register.json';
+import Mock from '../../Mock';
 
 class UserMock extends Mock {
 
