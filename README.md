@@ -8,7 +8,7 @@ This project does:
 - ES6 Syntax via Babel with source maps
 - ES6 Modules via Webpack
 - Single source of truth for state with ngRedux
-- Karma / Mocha / Chai unit tests with coverage report
+- Mocha / Chai unit tests with coverage report
 - Lazy-loading modules via routes with AngularJS
 - Easy watch/browser-sync/lint/test/build setup via Webpack
 - SASS CSS Support with source maps and minification
@@ -26,7 +26,7 @@ This project does:
 
 #### Install tools
 ```shell
-$ npm install -g yarn webpack gulp
+$ npm install -g yarn webpack
 $ gem install bundler # for capistrano to deploy
 ```
 
@@ -58,4 +58,3 @@ Browse to `http://localhost:3000`
 - `yarn test` to run karma tests
 - `yarn test:watch` to watch and run karma tests
 - `yarn build` to bundle, cache busting, and minify
-- `gulp webdriver-standalone` and `gulp sauce-test` to run e2e test

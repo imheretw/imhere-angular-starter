@@ -1,0 +1,4 @@
+--compilers js:babel-register
+--require jsdom-global/register
+--require test/setup.js
+src/**/*.spec.js
