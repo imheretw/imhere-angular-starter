@@ -5,6 +5,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
+
+// dotenv-webpack is for client code to get .env file
+const Dotenv = require('dotenv-webpack');
+
+// dotenv is to get env in webpack config file
+require('dotenv').config();
+
 /**
  * Env
  * Get npm lifecycle event to identify the environment
@@ -187,14 +194,10 @@ module.exports = (function makeWebpackConfig() {
     new webpack.ProvidePlugin({
       'window.jQuery': 'jquery',
     }),
-    // new webpack.LoaderOptionsPlugin({
-    //   test: /\.scss$/i,
-    //   options: {
-    //     postcss: {
-    //       plugins: [autoprefixer],
-    //     },
-    //   },
-    // }),
+    new Dotenv({
+      path: './.env', // Path to .env file (this is the default)
+      safe: true, // load .env.example (defaults to "false" which does not use dotenv-safe)
+    }),
     new webpack.optimize.CommonsChunkPlugin({
       name: ['vendor'],
     }),

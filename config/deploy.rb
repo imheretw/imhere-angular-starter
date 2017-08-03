@@ -14,7 +14,7 @@ set :log_level, :debug
 set :pty, true
 set :keep_releases, 5
 set :linked_dirs, %w{node_modules}
-set :linked_files, %w(src/common/config/appConfig.json)
+set :linked_files, %w(.env)
 
 # nvm settings
 set :nvm_type, :user # or :system, depends on your nvm setup

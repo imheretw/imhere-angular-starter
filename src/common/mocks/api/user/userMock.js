@@ -1,5 +1,5 @@
 import angular from 'angular';
-import appConfig from 'common/config/appConfig.json';
+import appConfig from 'common/config/appConfig';
 import currentUser from './data/current.json';
 import login from './data/login.json';
 import register from './data/register.json';

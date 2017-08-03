@@ -1,25 +1,76 @@
-machine:
-  timezone:
-    America/Los_Angeles # Set the timezone
-  pre:
-    - mkdir ~/.yarn-cache
-  node:
-    version: 6.2.2
-  ruby:
-    version: 2.2.4
+# https://discuss.circleci.com/t/build-on-tag/9864/42
+# NOTE: a workaround that make circle-ci 2.0 support $CIRCLE_TAG environment variable
+deployment:
+  fake_deploy_for_production:
+    tag: /.*/
+    commands:
+      - echo "make tags run in 2.0"
 
-dependencies:
-  pre:
-  cache_directories:
-    - ~/.yarn-cache
-  override:
-    - bundle
-    - gem install compass
-    - yarn install
-    - npm rebuild
-    - cp src/common/config/appConfig.json.sample src/common/config/appConfig.json
-test:
-  override:
-    - bash -c "scripts/eslint-pr.sh"
-    - bash -c "scripts/jscs-pr.sh"
-    - yarn test
+version: 2
+jobs:
+  build:
+    working_directory: ~/app
+    docker:
+      - image: node:6.2.2
+        cmd: ["/bin/bash"]
+
+    steps:
+      - run:
+          name: Install System Libs
+          command: |
+            apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
+            echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+            apt -qq update
+            apt install -y -qq git yarn bcrypt ruby-full
+
+
+      - checkout
+
+      - restore_cache:
+          key: dependency-cache-yarn-{{ checksum "yarn.lock" }}
+
+      - restore_cache:
+          key: dependency-cache-npm-{{ checksum "yarn.lock" }}
+
+      - restore_cache:
+          key: dependency-cache-rubygem-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: Install Dependencies
+          command: |
+            node --version
+            yarn install
+            cp .env.example .env
+
+      - save_cache:
+          key: dependency-cache-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.yarn-cache
+
+      - save_cache:
+          key: dependency-cache-npm-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/app/node_modules
+
+      - run:
+          name: Run Tests
+          command: |
+            bash -c "scripts/eslint-pr.sh"
+            yarn test
+
+      - deploy:
+          command: |
+            /usr/bin/gem install bundler
+            bundle install
+
+            echo "current branch is ${CIRCLE_BRANCH}"
+            echo "current tag is ${CIRCLE_TAG}"
+
+            if [[ -n "${CIRCLE_TAG}" ]]; then
+              CI_BRANCH="${CIRCLE_TAG}" cap production deploy
+            fi
+
+      - save_cache:
+          key: dependency-cache-rubygem-{{ checksum "Gemfile.lock" }}
+          paths:
+            - /var/lib/gems

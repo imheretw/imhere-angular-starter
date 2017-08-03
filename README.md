@@ -17,6 +17,7 @@ This project does:
 - Bundle builds via Webpack
 - Demonstrates on-demand theme loading
 - Component-based design
+- Configuration management by .env
 
 ### Install & Run
 
@@ -40,7 +41,7 @@ $ gem install compass
 #### Config
 
 ```shell
-$ cp src/common/config/appConfig.json.sample src/common/config/appConfig.json
+$ cp .env.example .env
 ```
 
 and change the setting.
