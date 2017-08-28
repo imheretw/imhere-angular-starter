@@ -1,22 +1,16 @@
+/* eslint-disable global-require */
+
 import angular from 'angular';
 
 // layout
-import adminLayoutModule from 'common/layouts/admin/adminLayout';
+import layout from 'common/layouts/index';
 
 // redux actions
 import * as usersActions from 'common/redux/ducks/currentUserDuck';
 import reducers from './common/redux/reducers';
 
 // components
-import headerComponentModule from './components/adminHeader';
-import sidebarComponentModule from './components/adminSidebar';
-
-// routes
-import consultantsModule from './consultants/consultants';
-import settingModule from './setting/setting';
-import widgetsModule from './widget/widget';
-import profileModule from './profile/profile';
-import chatModule from './chat/chat';
+import components from './common/components/index';
 
 /* @ngInject */
 function ConfigureModule($stateProvider) {
@@ -53,14 +47,14 @@ function run(reduxService) {
 
 export default angular
   .module('app.admin', [
-    adminLayoutModule.name,
-    headerComponentModule.name,
-    sidebarComponentModule.name,
-    consultantsModule.name,
-    widgetsModule.name,
-    profileModule.name,
-    chatModule.name,
-    settingModule.name,
+    layout.name,
+    components.name,
+
+    require('./consultants/consultants').default.name,
+    require('./setting/setting').default.name,
+    require('./widget/widget').default.name,
+    require('./profile/profile').default.name,
+    require('./chat/chat').default.name,
   ])
   .config(ConfigureModule)
   .run(run);

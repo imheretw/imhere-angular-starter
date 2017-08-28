@@ -27,5 +27,5 @@ const component = {
 };
 
 export default angular
-  .module('app.admin.components.sidebarAvatar', [])
+  .module('admin.common.components.sidebarAvatar', [])
   .component('sidebarAvatar', component);

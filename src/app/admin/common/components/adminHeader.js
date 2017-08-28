@@ -1,7 +1,7 @@
 import angular from 'angular';
 
 import ReduxController from 'common/controllers/ReduxController';
-import * as layoutActions from '../common/redux/adminLayoutDuck';
+import * as layoutActions from '../redux/adminLayoutDuck';
 
 class AdminHeader extends ReduxController {
   /* @ngInject */
@@ -26,6 +26,19 @@ class AdminHeader extends ReduxController {
     }];
   }
 
+  mapStateToThis(state) {
+    const { currentUser, adminLayout } = state;
+
+    return {
+      currentUser,
+      adminLayout,
+    };
+  }
+
+  mapDispatchToThis() {
+    return layoutActions;
+  }
+
   onUserLinkClick() {
     this.selectedUser = !this.selectedUser;
   }
@@ -38,19 +51,6 @@ class AdminHeader extends ReduxController {
 
   toggleSidebar() {
     this.toggleSideBar();
-  }
-
-  mapStateToThis(state) {
-    const { currentUser, adminLayout } = state;
-
-    return {
-      currentUser,
-      adminLayout,
-    };
-  }
-
-  mapDispatchToThis() {
-    return layoutActions;
   }
 }
 
@@ -85,5 +85,5 @@ const adminHeader = {
 };
 
 export default angular
-  .module('common.components.panels.adminHeader', [])
+  .module('admin.common.components.adminHeader', [])
   .component('adminHeader', adminHeader);

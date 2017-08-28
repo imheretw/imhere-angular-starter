@@ -22,5 +22,5 @@ const component = {
 };
 
 export default angular
-  .module('app.admin.components.sidebarLogo', [])
+  .module('admin.common.components.sidebarLogo', [])
   .component('sidebarLogo', component);

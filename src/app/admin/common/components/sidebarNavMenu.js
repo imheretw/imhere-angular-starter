@@ -59,5 +59,5 @@ const component = {
 };
 
 export default angular
-  .module('app.admin.components.sidebarNavMenu', [])
+  .module('admin.common.components.sidebarNavMenu', [])
   .component('sidebarNavMenu', component);

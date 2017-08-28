@@ -2,10 +2,6 @@ import angular from 'angular';
 
 import ReduxController from 'common/controllers/ReduxController';
 import isActiveItem from 'common/directives/isActiveItem';
-import sidebarLogoModule from './sidebarLogo';
-import sidebarAvatarModule from './sidebarAvatar';
-import sidebarNavMenuModule from './sidebarNavMenu';
-import sidebarLogoutModule from './sidebarLogout';
 
 class Controller extends ReduxController {
   /* @ngInject */
@@ -81,11 +77,7 @@ const component = {
 };
 
 export default angular
-  .module('common.components.panels.admin.sidebar', [
-    sidebarLogoModule.name,
-    sidebarAvatarModule.name,
-    sidebarNavMenuModule.name,
-    sidebarLogoutModule.name,
+  .module('admin.common.components.admin.sidebar', [
     isActiveItem.name,
   ])
   .component('adminSidebar', component);

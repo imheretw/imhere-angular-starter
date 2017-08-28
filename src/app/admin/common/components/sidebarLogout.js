@@ -20,5 +20,5 @@ const component = {
 };
 
 export default angular
-  .module('app.admin.components.sidebarLogout', [])
+  .module('admin.common.components.sidebarLogout', [])
   .component('sidebarLogout', component);
