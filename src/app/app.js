@@ -1,19 +1,13 @@
+/* eslint-disable global-require */
+
 import angular from 'angular';
 
-import coreModule from 'common/core';
-import adminModule from './admin/admin';
-import authModule from './auth/auth';
-
-// import 'toastr/build/toastr.min.css';
-// import 'ng-dialog/css/ngDialog.css';
-// import 'ng-dialog/css/ngDialog-theme-default.css';
-// import 'ng-dialog/css/ngDialog-theme-plain.css';
-import '../assets/app.scss';
+import './styles';
 
 const app = angular.module('app', [
-  coreModule.name,
-  adminModule.name,
-  authModule.name,
+  require('common/core').default.name,
+  require('./admin/admin').default.name,
+  require('./auth/auth').default.name,
 ]);
 
 angular.element(document).ready(() => {
