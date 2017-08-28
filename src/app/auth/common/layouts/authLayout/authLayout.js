@@ -1,6 +1,8 @@
 import angular from 'angular';
 import 'common/core';
 
+import './authLayout.scss';
+
 class AuthLayout {
 }
 
@@ -24,5 +26,5 @@ const component = {
 };
 
 export default angular
-  .module('common.layout.authLayout', [])
+  .module('auth.common.layouts.authLayout', [])
   .component('authLayout', component);

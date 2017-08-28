@@ -1,8 +1,8 @@
-import login from './login/login';
-import register from './register/register';
+/* eslint-disable global-require */
 
 export default angular
   .module('app.auth', [
-    login.name,
-    register.name,
+    require('./login/login').default.name,
+    require('./register/register').default.name,
+    require('./common/layouts/index').default.name,
   ]);

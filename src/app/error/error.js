@@ -1,7 +1,5 @@
 import angular from 'angular';
 
-import layout from 'common/layouts/index';
-
 import ErrorController from './ErrorController';
 import errorTemplate from './error.tpl.html';
 
@@ -13,7 +11,7 @@ function ConfigureModule($stateProvider) {
     url: '/error/:errCode',
     views: {
       '': {
-        component: 'adminLayout',
+        template: '<div ui-view="content"></div>',
       },
       'content@error': {
         controller: ErrorController,
@@ -26,6 +24,5 @@ function ConfigureModule($stateProvider) {
 
 export default angular
   .module('error', [
-    layout.name,
   ])
   .config(ConfigureModule);
