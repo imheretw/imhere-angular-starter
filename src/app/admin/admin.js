@@ -5,6 +5,7 @@ import adminLayoutModule from 'common/layouts/admin/adminLayout';
 
 // redux actions
 import * as usersActions from 'common/redux/ducks/currentUserDuck';
+import reducers from './common/redux/reducers';
 
 // components
 import headerComponentModule from './components/adminHeader';
@@ -45,6 +46,11 @@ function ConfigureModule($stateProvider) {
     });
 }
 
+/* @ngInject */
+function run(reduxService) {
+  reduxService.injectAsyncReducers(reducers);
+}
+
 export default angular
   .module('app.admin', [
     adminLayoutModule.name,
@@ -56,4 +62,5 @@ export default angular
     chatModule.name,
     settingModule.name,
   ])
-  .config(ConfigureModule);
+  .config(ConfigureModule)
+  .run(run);

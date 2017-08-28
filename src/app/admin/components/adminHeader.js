@@ -1,7 +1,7 @@
 import angular from 'angular';
 
 import ReduxController from 'common/controllers/ReduxController';
-import * as layoutActions from 'common/redux/ducks/adminLayoutDuck';
+import * as layoutActions from '../common/redux/adminLayoutDuck';
 
 class AdminHeader extends ReduxController {
   /* @ngInject */
