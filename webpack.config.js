@@ -1,13 +1,14 @@
+/* eslint-disable global-require */
+
 // Modules
 const webpack = require('webpack');
-// const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 // dotenv-webpack is for client code to get .env file
-const Dotenv = require('dotenv-webpack');
+const DotenvPlugin = require('webpack-dotenv-plugin');
 
 // dotenv is to get env in webpack config file
 require('dotenv').config();
@@ -70,6 +71,7 @@ module.exports = (function makeWebpackConfig() {
       app: path.resolve(__dirname, 'src/app/'),
       common: path.resolve(__dirname, 'src/common/'),
     },
+    symlinks: false,
   };
 
   /**
@@ -127,19 +129,56 @@ module.exports = (function makeWebpackConfig() {
       loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({
         fallbackLoader: 'style-loader',
         loader: [
-          { loader: 'css-loader', query: { sourceMap: true } },
+          { loader: 'css-loader', query: { sourceMap: true, importLoaders: 1 } },
           { loader: 'postcss-loader' },
         ],
       }),
     }, {
-      test: /\.scss$/,
-      use: [{
-        loader: 'style-loader',
-      }, {
-        loader: 'css-loader',
-      }, {
-        loader: 'sass-loader',
-      }],
+      test: /\.module.scss$/,
+      loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          {
+            loader: 'css-loader',
+            query: {
+              modules: true,
+              sourceMap: true,
+              importLoaders: 2,
+              localIdentName: '[name]__[local]___[hash:base64:5]',
+            },
+          },
+          'resolve-url-loader',
+          {
+            loader: 'sass-loader',
+            query: {
+              sourceMap: true,
+            },
+          },
+        ],
+      }),
+    }, {
+      test: /^((?!\.module).)*scss$/,
+      loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          {
+            loader: 'css-loader',
+            query: {
+              modules: false,
+              sourceMap: true,
+              importLoaders: 2,
+              localIdentName: '[name]__[local]___[hash:base64:5]',
+            },
+          },
+          'resolve-url-loader',
+          {
+            loader: 'sass-loader',
+            query: {
+              sourceMap: false,
+            },
+          },
+        ],
+      }),
     }, {
       // ASSET LOADER
       // Reference: https://github.com/webpack/file-loader
@@ -192,11 +231,14 @@ module.exports = (function makeWebpackConfig() {
    */
   config.plugins = [
     new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
       'window.jQuery': 'jquery',
     }),
-    new Dotenv({
-      path: './.env', // Path to .env file (this is the default)
-      safe: true, // load .env.example (defaults to "false" which does not use dotenv-safe)
+    new DotenvPlugin({
+      sample: './.env.example',
+      path: './.env',
+      allowEmptyValues: true,
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: ['vendor'],
@@ -209,14 +251,18 @@ module.exports = (function makeWebpackConfig() {
     // Render index.html
     config.plugins.push(
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        filename: 'index.html',
+        template: './src/index.ejs',
         inject: 'body',
+        appConfig: {
+          googleApiKey: process.env.GOOGLE_API_KEY,
+        },
       }),
 
       // Reference: https://github.com/webpack/extract-text-webpack-plugin
       // Extract css files
       // Disabled when in test mode or not in build mode
-      new ExtractTextPlugin({ filename: 'css/[name].css', disable: !isProd, allChunks: true })
+      new ExtractTextPlugin({ filename: 'css/[name]-[contenthash].css', disable: !isProd, allChunks: true })
     );
   }
 
@@ -250,7 +296,11 @@ module.exports = (function makeWebpackConfig() {
     port: 3000,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: process.env.STAGING_API ? 'http://staging.kidguard.com' : 'http://localhost:5000',
+        changeOrigin: true,
+      },
+      '/proxy': {
+        target: process.env.PROXY_URL,
       },
     },
   };
