@@ -7,13 +7,8 @@ const core = angular
     'ui.router', 'oc.lazyLoad', 'ngCookies', 'ngDialog', 'ncy-angular-breadcrumb', 'ngMessages', 'ngMockE2E',
     'ngSanitize', 'angularMoment', 'satellizer', 'restangular', 'ngRedux',
 
-    require('./services/mocksService').default.name,
-    require('./services/toastrService').default.name,
-    require('./services/authService').default.name,
-    require('./services/listenerService').default.name,
-
-    require('./utils/auth-interceptors').default.name,
-    require('./utils/error-interceptors').default.name,
+    require('./services/index').default.name,
+    require('./utils/index').default.name,
   ]);
 
 initialize(core);
