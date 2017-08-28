@@ -7,6 +7,7 @@ const core = angular
     'ui.router', 'oc.lazyLoad', 'ngCookies', 'ngDialog', 'ncy-angular-breadcrumb', 'ngMessages', 'ngMockE2E',
     'ngSanitize', 'angularMoment', 'satellizer', 'restangular', 'ngRedux',
 
+    require('./directives/index').default.name,
     require('./services/index').default.name,
     require('./utils/index').default.name,
   ]);

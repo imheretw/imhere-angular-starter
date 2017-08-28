@@ -1,6 +1,8 @@
 import angular from 'angular';
 import 'common/core';
-import dropdownPanelTemplate from 'common/directives/template/dropdownPanel.tpl.html';
+import dropdownPanelTemplate from './dropdownPanel.tpl.html';
+
+import './dropdownPanel.scss';
 
 /* @ngInject */
 function directive($state) {
@@ -8,7 +10,7 @@ function directive($state) {
     replace: true,
     retrict: 'AE',
     transclude: true,
-    templateUrl: dropdownPanelTemplate.name,
+    template: dropdownPanelTemplate,
     scope: {
       panelTitle: '=',
     },
