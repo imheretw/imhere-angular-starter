@@ -2,6 +2,7 @@ import angular from 'angular';
 
 import 'common/core';
 import ReduxController from 'common/controllers/ReduxController';
+import './adminLayout.scss';
 
 class AdminLayoutController extends ReduxController {
   mapStateToThis(state) {
@@ -37,5 +38,5 @@ const component = {
 };
 
 export default angular
-  .module('common.layout.adminLayout', [])
+  .module('admin.common.layouts.adminLayout', [])
   .component('adminLayout', component);

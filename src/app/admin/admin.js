@@ -2,9 +2,6 @@
 
 import angular from 'angular';
 
-// layout
-import layout from 'common/layouts/index';
-
 // redux actions
 import * as usersActions from 'common/redux/ducks/currentUserDuck';
 import reducers from './common/redux/reducers';
@@ -47,9 +44,9 @@ function run(reduxService) {
 
 export default angular
   .module('app.admin', [
-    layout.name,
     components.name,
 
+    require('./common/layouts/index').default.name,
     require('./consultants/consultants').default.name,
     require('./setting/setting').default.name,
     require('./widget/widget').default.name,
