@@ -1,6 +1,7 @@
+/* eslint-disable global-require */
+
 import angular from 'angular';
-import commonPanels from 'common/components/panels/common/common';
-import consultantsComponent from './components/consultants';
+
 /* @ngInject */
 function config($stateProvider) {
   $stateProvider
@@ -17,7 +18,6 @@ function config($stateProvider) {
 
 export default angular
   .module('admin.setting.consultants', [
-    consultantsComponent.name,
-    commonPanels.name,
+    require('./components/index').default.name,
   ])
   .config(config);

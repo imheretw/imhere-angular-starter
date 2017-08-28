@@ -2,6 +2,7 @@
 
 export default angular
   .module('admin.common.components', [
+    require('./addConsultant/addConsultant').default.name,
     require('./adminHeader').default.name,
     require('./adminSidebar').default.name,
     require('./sidebarAvatar').default.name,

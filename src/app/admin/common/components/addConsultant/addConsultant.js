@@ -1,11 +1,13 @@
 import angular from 'angular';
-import 'common/core';
+
+import styles from './addConsultant.module.scss';
 
 class AddConsultant {
   /* @ngInject */
   constructor() {
     this.showResponse = false;
     this.showResponseProgress = false;
+    this.styles = styles;
   }
 
   addConsultant(user) {
@@ -27,38 +29,37 @@ class AddConsultant {
   }
 }
 
-const addConsultant = {
+const component = {
   bindings: {
     afterAddConsultant: '&',
   },
-  transclude: true,
   controller: AddConsultant,
   controllerAs: 'vm',
   template: `
-  <div class="row add-consultant">
+  <div class="row" ng-class="vm.styles['add-consultant']">
     <div class="col-lg-5" ng-hide="vm.showResponse">
       <div class="input-group">
-        <span class="input-group-addon add-consultan__icon">
+        <span class="input-group-addon">
           <i class="fa fa-user" aria-hidden="true"></i>
         </span>
-        <input type="text" class="form-control add-consultan__input" ng-model="user.name" aria-label="..." placeholder="Name">
+        <input type="text" class="form-control" ng-model="user.name" aria-label="..." placeholder="Name">
       </div>
     </div>
     <div class="col-lg-5" ng-hide="vm.showResponse">
       <div class="input-group">
-        <span class="input-group-addon add-consultant__icon">
+        <span class="input-group-addon">
           <i class="fa fa-envelope-o" aria-hidden="true"></i>
         </span>
-        <input type="text" class="form-control add-consultant__input" ng-model="user.email" aria-label="..." placeholder="E-mail">
+        <input type="text" class="form-control" ng-model="user.email" aria-label="..." placeholder="E-mail">
       </div>
     </div>
     <div class="col-lg-2 text-right" ng-hide="vm.showResponse">
-      <a class="add-consultant__btn" ng-click="vm.addConsultant(user)"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+      <a ng-class="vm.styles.btn" ng-click="vm.addConsultant(user)"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
     </div>
     <div class="col-lg-12 text-center" ng-show="vm.showResponse">
       <i class="fa fa-cog fa-spin fa-3x fa-fw" ng-show="vm.showResponseProgress"></i>
       <h3>{{vm.resposeData}}
-        <a class="add-consultant__btn -right" ng-click="vm.addNew(user)"><small>Add New Consultant</small><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+        <a ng-class="vm.styles.btn + ' ' + vm.styles.right" ng-click="vm.addNew(user)"><small>Add New Consultant</small><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
       </h3>
     </div>
   </div>
@@ -66,5 +67,5 @@ const addConsultant = {
 };
 
 export default angular
-  .module('common.components.panels.common.addConsultant', [])
-  .component('addConsultant', addConsultant);
+  .module('admin.consultants.components.addConsultant', [])
+  .component('addConsultant', component);

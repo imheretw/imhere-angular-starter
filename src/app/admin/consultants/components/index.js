@@ -3,6 +3,6 @@
 import angular from 'angular';
 
 export default angular
-  .module('common.components.panels.common', [
-    require('./pageHeader').default.name,
+  .module('admin.consultants.components', [
+    require('./consultants').default.name,
   ]);

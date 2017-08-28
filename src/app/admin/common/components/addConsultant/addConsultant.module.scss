@@ -1,0 +1,26 @@
+.add-consultant {
+  $green: rgb(0, 157, 147);
+
+  a {
+    color: $green;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .btn {
+    font-size: 30px;
+  }
+
+  .right {
+    float: right;
+    font-size: 20px;
+
+    small {
+      margin-right: 10px;
+      font-size: 15px;
+    }
+  }
+}

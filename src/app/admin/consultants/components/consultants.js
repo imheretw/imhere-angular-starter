@@ -51,7 +51,6 @@ class ConsultantsController {
 const consultants = {
   bindings: {
   },
-  transclude: true,
   controller: ConsultantsController,
   controllerAs: 'vm',
   template: `
