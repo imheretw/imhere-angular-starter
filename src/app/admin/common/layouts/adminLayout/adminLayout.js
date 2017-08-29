@@ -22,7 +22,7 @@ const component = {
   controllerAs: 'vm',
   template: `
   <div id="admin-container">
-    <div class="layout-content container-fluid">
+    <div class="container-fluid">
       <div calss="admim-layout">
         <div class="admin-layout__sidbar" ng-class="{false:'sm'}[vm.adminLayout.sideBarOpened]">
             <div ui-view="sidebar"></div>

@@ -16,7 +16,7 @@ const component = {
   <div id="auth-container">
     <div id="auth-row">
       <div id="auth-cell">
-        <div class="layout-content container-fluid">
+        <div class="container-fluid">
           <div ui-view=""></div>
         </div>
       </div>
