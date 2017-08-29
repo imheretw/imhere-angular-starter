@@ -3,6 +3,8 @@ import angular from 'angular';
 import ReduxController from 'common/controllers/ReduxController';
 import isActiveItem from 'common/directives/isActiveItem';
 
+import './adminSidebar.scss';
+
 class Controller extends ReduxController {
   /* @ngInject */
   constructor($scope, $state, $ngRedux, authService) {

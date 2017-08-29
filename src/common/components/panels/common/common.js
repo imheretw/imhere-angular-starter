@@ -4,5 +4,5 @@ import angular from 'angular';
 
 export default angular
   .module('common.components.panels.common', [
-    require('./pageHeader').default.name,
+    require('./pageHeader/pageHeader').default.name,
   ]);

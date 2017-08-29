@@ -1,6 +1,8 @@
 import angular from 'angular';
 import 'common/core';
 
+import './pageHeader.scss';
+
 class PageHeader {
   /* @ngInject */
   constructor() {
