@@ -1,15 +1,16 @@
 import angular from 'angular';
 
+import styles from './login.module.scss';
+
 class LoginController {
 
   /* @ngInject */
-  constructor($state, $log, $cookieStore, authService, ToastrService, moment) {
+  constructor($state, $log, authService, toastrService) {
     this.authService = authService;
-    this.toastrService = ToastrService;
-    this.$cookieStore = $cookieStore;
+    this.toastrService = toastrService;
     this.$state = $state;
     this.$log = $log;
-    this.moment = moment;
+    this.styles = styles;
   }
 
   async login() {
@@ -78,7 +79,7 @@ const component = {
               <div class="form-group">
                 <div class="container-fluid">
                   <div class="row">
-                    <div class="col-xs-collapse-right col-xs-collapse-left col-xs-6 login-form-signup">
+                    <div class="col-xs-collapse-right col-xs-collapse-left col-xs-6" ng-class="vm.styles.register">
                       <a ui-sref="register">Create a Imhere account</a>
                     </div>
                     <div class="col-xs-collapse-right  col-xs-collapse-left  text-right col-xs-6">

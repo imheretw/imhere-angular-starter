@@ -1,5 +1,7 @@
 /* eslint-disable global-require */
 
+import './common/sass/auth.scss';
+
 export default angular
   .module('app.auth', [
     require('./login/login').default.name,

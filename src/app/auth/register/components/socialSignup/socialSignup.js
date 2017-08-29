@@ -1,9 +1,19 @@
 import angular from 'angular';
 
+import styles from './socialSignup.module.scss';
+
+class SocialSignupController {
+  constructor() {
+    this.styles = styles;
+  }
+}
+
 const component = {
   bindings: {
   },
   transclude: true,
+  controller: SocialSignupController,
+  controllerAs: 'vm',
   template: `
   <div class="socal-container bg-hoverblue fg-black50 text-center">
     <div class="facebook-btn-container">
@@ -12,7 +22,7 @@ const component = {
         <span>Sign up with Facebook</span>
       </button>
     </div>
-    <div class="signup-form-login">
+    <div ng-class="vm.styles.login">
       Already have an account?
       <a ui-sref="login">Login</a>
     </div>

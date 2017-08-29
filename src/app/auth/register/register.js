@@ -2,7 +2,7 @@ import angular from 'angular';
 
 import authServiceModule from 'common/services/authService';
 import registerComponent from './components/register';
-import socialSignupComponent from './components/socialSignup';
+import socialSignupComponent from './components/socialSignup/socialSignup';
 
 /* @ngInject */
 function config($stateProvider) {

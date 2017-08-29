@@ -1,7 +1,7 @@
 import angular from 'angular';
 
 import authServiceModule from 'common/services/authService';
-import loginComponent from './components/login';
+import loginComponent from './components/login/login';
 import socialSigninComponent from './components/socialSignin';
 
 /* @ngInject */

@@ -32,4 +32,4 @@ class ToastrService {
 
 export default angular
   .module('common.services.toastrService', [])
-  .service('ToastrService', ToastrService);
+  .service('toastrService', ToastrService);
