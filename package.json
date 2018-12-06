@@ -19,7 +19,7 @@
     "angular-mocks": "^1.7.5",
     "angular-moment": "^1.0.0",
     "angular-sanitize": "^1.7.5",
-    "angular-ui-router": "1.0.0-rc.1",
+    "angular-ui-router": "~1.0.20",
     "bootstrap": "^3.3.7",
     "clean-css": "3.4.12",
     "dotenv": "^4.0.0",

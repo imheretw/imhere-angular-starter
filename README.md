@@ -4,7 +4,7 @@ Seed project for ES6 modules via Webpack2 with ES6 syntax using Babel that lazy-
 
 This project does:
 
-- AngularJS 1.7.x + ui-router 1.0.0 +
+- AngularJS 1.7.x + ui-router 1.0.0
 - ES6 Syntax via Babel with source maps
 - ES6 Modules via Webpack
 - Single source of truth for state with ngRedux
