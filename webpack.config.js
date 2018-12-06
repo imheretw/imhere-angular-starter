@@ -36,6 +36,18 @@ module.exports = (function makeWebpackConfig() {
    * Karma will set this when it's a test build
    */
 
+  config.optimization = {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'all',
+          priority: 1,
+        },
+      },
+    },
+  };
+
   if (!isTest) {
     config.entry = {
       app: './src/app/app.js',
@@ -99,18 +111,15 @@ module.exports = (function makeWebpackConfig() {
     rules: [{
       test: /\.js$/,
       exclude: /(node_modules|bower_components)/,
-      loaders: ['ng-annotate-loader', 'babel-loader?presets[]=es2015'],
+      use: ['ng-annotate-loader', 'babel-loader?presets[]=es2015'],
       enforce: 'post',
-    }, {
-      test: /\.json$/,
-      use: 'json-loader',
     }, {
       // JS LOADER
       // Reference: https://github.com/babel/babel-loader
       // Transpile .js files using babel-loader
       // Compiles ES6 and ES7 into ES5 code
       test: /\.js$/,
-      loader: 'babel-loader',
+      use: 'babel-loader',
       exclude: /node_modules/,
     }, {
       // CSS LOADER
@@ -126,16 +135,16 @@ module.exports = (function makeWebpackConfig() {
       // Reference: https://github.com/webpack/style-loader
       // Use style-loader in development.
 
-      loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({
-        fallbackLoader: 'style-loader',
-        loader: [
+      use: isTest ? 'null-loader' : ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
           { loader: 'css-loader', query: { sourceMap: true, importLoaders: 1 } },
           { loader: 'postcss-loader' },
         ],
       }),
     }, {
       test: /\.module.scss$/,
-      loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({
+      use: isTest ? 'null-loader' : ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: [
           {
@@ -158,7 +167,7 @@ module.exports = (function makeWebpackConfig() {
       }),
     }, {
       test: /^((?!\.module).)*scss$/,
-      loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({
+      use: isTest ? 'null-loader' : ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: [
           {
@@ -187,13 +196,13 @@ module.exports = (function makeWebpackConfig() {
       // Pass along the updated reference to your code
       // You can add here any file extension you want to get copied to your output
       test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-      loader: 'file-loader',
+      use: 'file-loader',
     }, {
       // HTML LOADER
       // Reference: https://github.com/webpack/raw-loader
       // Allow loading html through js
       test: /\.html$/,
-      loader: 'raw-loader',
+      use: 'raw-loader',
     }],
   };
 
@@ -209,7 +218,7 @@ module.exports = (function makeWebpackConfig() {
         /node_modules/,
         /\.spec\.js$/,
       ],
-      loader: 'istanbul-instrumenter-loader',
+      use: 'istanbul-instrumenter-loader',
       query: {
         esModules: true,
       },
@@ -240,9 +249,6 @@ module.exports = (function makeWebpackConfig() {
       path: './.env',
       allowEmptyValues: true,
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['vendor'],
-    }),
   ];
 
   // Skip rendering index.html in test mode
@@ -250,6 +256,7 @@ module.exports = (function makeWebpackConfig() {
     // Reference: https://github.com/ampedandwired/html-webpack-plugin
     // Render index.html
     config.plugins.push(
+      new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
       new HtmlWebpackPlugin({
         filename: 'index.html',
         template: './src/index.ejs',
@@ -272,10 +279,6 @@ module.exports = (function makeWebpackConfig() {
       // Reference: http://webpack.github.io/docs/list-of-plugins.html#noerrorsplugin
       // Only emit files when there are no errors
       new webpack.NoEmitOnErrorsPlugin(),
-
-      // Reference: http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
-      // Minify all javascript, switch loaders to minimizing mode
-      new webpack.optimize.UglifyJsPlugin(),
 
       // Copy assets from the public folder
       // Reference: https://github.com/kevlened/copy-webpack-plugin
