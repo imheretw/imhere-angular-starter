@@ -1,11 +1,11 @@
 # imhere-angular-starter ![CircleCI Build Status](https://circleci.com/gh/imheretw/imhere-angular-starter.svg?style=shield&circle-token=86e04f476d21b9b2164053879588dc4e676fc520)
 
-Seed project for ES6 modules via Webpack2 with ES6 syntax using Babel that lazy-load and bundle build with AngularJS.
+Seed project for ES6 modules via Webpack4 with ES6 syntax using Babel7 that lazy-load and bundle build with AngularJS.
 
 This project does:
 
 - AngularJS 1.7.x + ui-router 1.0.0
-- ES6 Syntax via Babel with source maps
+- ES6 Syntax via Babel7 with source maps
 - ES6 Modules via Webpack
 - Single source of truth for state with ngRedux
 - Mocha / Chai unit tests with coverage report
@@ -22,7 +22,7 @@ This project does:
 ### Install & Run
 
 #### Prerequisite
-  - Node 6.2.2+
+  - Node 10+
   - Ruby 2.0+
 
 #### Install tools

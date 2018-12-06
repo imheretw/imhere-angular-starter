@@ -4,6 +4,6 @@
 import 'angular';
 import 'angular-mocks/angular-mocks';
 
-const context = require.context('./src/app', true, /\.js$/);
+const rootContext = require.rootContext('./src/app', true, /\.js$/);
 
-context.keys().forEach(context);
+rootContext.keys().forEach(rootContext);

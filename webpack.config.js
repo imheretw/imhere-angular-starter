@@ -91,10 +91,12 @@ module.exports = (function makeWebpackConfig() {
    * Reference: http://webpack.github.io/docs/configuration.html#devtool
    * Type of sourcemap to use per build type
    */
+  config.mode = 'development';
   if (isTest) {
     config.devtool = 'inline-source-map';
   } else if (isProd) {
     config.devtool = 'source-map';
+    config.mode = 'production';
   } else {
     config.devtool = 'eval-source-map';
   }
@@ -111,8 +113,7 @@ module.exports = (function makeWebpackConfig() {
     rules: [{
       test: /\.js$/,
       exclude: /(node_modules|bower_components)/,
-      use: ['ng-annotate-loader', 'babel-loader?presets[]=es2015'],
-      enforce: 'post',
+      use: ['ng-annotate-loader', 'babel-loader'],
     }, {
       // JS LOADER
       // Reference: https://github.com/babel/babel-loader
