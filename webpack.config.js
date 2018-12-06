@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 
 // dotenv-webpack is for client code to get .env file
@@ -271,6 +272,14 @@ module.exports = (function makeWebpackConfig() {
       // Extract css files
       // Disabled when in test mode or not in build mode
       new ExtractTextPlugin({ filename: 'css/[name]-[contenthash].css', disable: !isProd, allChunks: true })
+    );
+  }
+
+  if (!isProd && !isTest) {
+    config.plugins.push(
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+      })
     );
   }
 

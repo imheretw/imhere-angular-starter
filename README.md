@@ -15,6 +15,7 @@ This project does:
 - AngularJS Template Compilation
 - AngularJS Annotatation
 - Bundle builds via Webpack
+- Use `Webpack Bundle Analyzer` to analyze bundle treemap
 - Demonstrates on-demand theme loading
 - Component-based design
 - Configuration management by .env
