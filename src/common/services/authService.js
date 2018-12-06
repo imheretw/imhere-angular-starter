@@ -4,8 +4,8 @@ import UserModule from '../models/User';
 class AuthService {
 
   /* @ngInject */
-  constructor($cookieStore, User) {
-    this.$cookieStore = $cookieStore;
+  constructor($cookies, User) {
+    this.$cookies = $cookies;
     this.User = User;
   }
 
@@ -15,8 +15,8 @@ class AuthService {
     return this.User.login(data)
       .then(
         (user) => {
-          this.$cookieStore.put('current_user', user);
-          this.$cookieStore.put('auth_token', user.token);
+          this.$cookies.putObject('current_user', user);
+          this.$cookies.putObject('auth_token', user.token);
 
           return user;
         }
@@ -28,8 +28,8 @@ class AuthService {
   }
 
   logout() {
-    this.$cookieStore.put('current_user', '');
-    this.$cookieStore.put('auth_token', '');
+    this.$cookies.putObject('current_user', '');
+    this.$cookies.putObject('auth_token', '');
     return true;
   }
 

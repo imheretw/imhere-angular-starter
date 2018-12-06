@@ -13,12 +13,12 @@ export default angular.module('AuthInterceptor', [])
 .factory('authInterceptor', authInterceptor);
 
 /* @ngInject */
-function authInterceptor($q, $cookieStore, $injector) {
+function authInterceptor($q, $cookies, $injector) {
   return {
     request: (config) => {
       config.headers = config.headers || {};
-      if ($cookieStore.get('auth_token')) {
-        config.headers.Authorization = $cookieStore.get('auth_token');
+      if ($cookies.getObject('auth_token')) {
+        config.headers.Authorization = $cookies.getObject('auth_token');
       }
 
       return config;
@@ -26,7 +26,7 @@ function authInterceptor($q, $cookieStore, $injector) {
 
     responseError: (rejection) => {
       if (rejection.status === 401) {
-        $cookieStore.put('auth_token', '');
+        $cookies.putObject('auth_token', '');
         $injector.get('ngDialog').closeAll();
         $injector.get('$state').go('login');
 

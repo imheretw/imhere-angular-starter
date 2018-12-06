@@ -3,9 +3,8 @@ import mocksModule from '../mocks/mocks';
 
 class MocksService {
   /* @ngInject */
-  constructor($http, $cookieStore, apiDao) {
+  constructor($http, apiDao) {
     this.$http = $http;
-    this.$cookieStore = $cookieStore;
   }
 }
 

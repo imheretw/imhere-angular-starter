@@ -4,9 +4,8 @@ import toastr from 'toastr';
 class ToastrService {
 
   /* @ngInject */
-  constructor($http, $cookieStore) {
+  constructor($http) {
     this.$http = $http;
-    this.$cookieStore = $cookieStore;
   }
 
   success(msg) {

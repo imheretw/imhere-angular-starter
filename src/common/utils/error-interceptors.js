@@ -13,7 +13,7 @@ export default angular.module('ErrorInterceptor', [])
 .factory('errorInterceptor', errorInterceptor);
 
 /* @ngInject */
-function errorInterceptor($q, $cookieStore, $log, $injector) {
+function errorInterceptor($q, $log, $injector) {
   return {
     responseError: (rejection) => {
       switch (rejection.status) {

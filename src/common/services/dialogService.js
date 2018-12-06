@@ -6,9 +6,8 @@ import DialogController from 'common/dialog/dialogController';
 class DialogService {
 
   /* @ngInject */
-  constructor($log, $cookieStore, $location, ngDialog) {
+  constructor($log, $location, ngDialog) {
     this.$log = $log;
-    this.$cookieStore = $cookieStore;
     this.ngDialog = ngDialog;
     this.$location = $location;
     this.openDialogMap = {

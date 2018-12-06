@@ -12,13 +12,13 @@
     "build": "rimraf dist && webpack --bail --progress --profile"
   },
   "dependencies": {
-    "angular": "^1.6.3",
+    "angular": "^1.7.5",
     "angular-breadcrumb": "^0.4.1",
-    "angular-cookies": "^1.6.3",
-    "angular-messages": "^1.6.3",
-    "angular-mocks": "^1.6.3",
+    "angular-cookies": "^1.7.5",
+    "angular-messages": "^1.7.5",
+    "angular-mocks": "^1.7.5",
     "angular-moment": "^1.0.0",
-    "angular-sanitize": "^1.6.1",
+    "angular-sanitize": "^1.7.5",
     "angular-ui-router": "1.0.0-rc.1",
     "bootstrap": "^3.3.7",
     "clean-css": "3.4.12",

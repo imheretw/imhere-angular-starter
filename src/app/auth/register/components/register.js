@@ -4,14 +4,14 @@ import angular from 'angular';
 class RegisterController {
 
   /* @ngInject */
-  constructor($state, $cookieStore, authService, toastrService) {
+  constructor($state, $cookies, authService, toastrService) {
     this.form = {};
     this.$state = $state;
-    this.$cookieStore = $cookieStore;
+    this.$cookies = $cookies;
     this.authService = authService;
     this.toastrService = toastrService;
 
-    if (this.$cookieStore.get('auth_token')) {
+    if (this.$cookies.getObject('auth_token')) {
       $state.go('dashboards');
     }
   }

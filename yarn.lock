@@ -135,17 +135,17 @@ angular-breadcrumb@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/angular-breadcrumb/-/angular-breadcrumb-0.4.1.tgz#5bff5780c799ccc6088258a84256d347fe9691a5"
 
-angular-cookies@^1.6.3:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/angular-cookies/-/angular-cookies-1.6.3.tgz#1336af49684348538c329ac07b99e961db99858f"
+angular-cookies@^1.7.5:
+  version "1.7.5"
+  resolved "https://registry.yarnpkg.com/angular-cookies/-/angular-cookies-1.7.5.tgz#1c5ab3c05cdc43f1777be9506e64587cb3543634"
 
-angular-messages@^1.6.3:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/angular-messages/-/angular-messages-1.6.3.tgz#7cbdeee209d5e2d19dcc96ab73ac46a168a11db1"
+angular-messages@^1.7.5:
+  version "1.7.5"
+  resolved "https://registry.yarnpkg.com/angular-messages/-/angular-messages-1.7.5.tgz#7c2fd781315a43a19838b117da0142a988454e14"
 
-angular-mocks@^1.6.3:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/angular-mocks/-/angular-mocks-1.6.3.tgz#12fafc0f1e0903f16864004ba375bf3fb9101ef1"
+angular-mocks@^1.7.5:
+  version "1.7.5"
+  resolved "https://registry.yarnpkg.com/angular-mocks/-/angular-mocks-1.7.5.tgz#c8baba5a06ed60b934697026b492169626af384b"
 
 angular-moment@^1.0.0:
   version "1.0.1"
@@ -153,9 +153,9 @@ angular-moment@^1.0.0:
   dependencies:
     moment ">=2.8.0 <3.0.0"
 
-angular-sanitize@^1.6.1:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/angular-sanitize/-/angular-sanitize-1.6.3.tgz#f8d93cc7e7a983ad19cc96a84a88e1d65a89873b"
+angular-sanitize@^1.7.5:
+  version "1.7.5"
+  resolved "https://registry.yarnpkg.com/angular-sanitize/-/angular-sanitize-1.7.5.tgz#75d49e15071ca9c70581e76d20940f26372e24d2"
 
 angular-ui-router@1.0.0-rc.1:
   version "1.0.0-rc.1"
@@ -163,9 +163,9 @@ angular-ui-router@1.0.0-rc.1:
   dependencies:
     ui-router-core "3.1.0"
 
-angular@^1.6.3:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/angular/-/angular-1.6.3.tgz#5d34b799234e8fa17c6a3a14e0258733935f43e7"
+angular@^1.7.5:
+  version "1.7.5"
+  resolved "https://registry.yarnpkg.com/angular/-/angular-1.7.5.tgz#d1c1c01c6f5dc835638f3f9aa51012857bdac49e"
 
 ansi-escapes@^1.1.0:
   version "1.4.0"
